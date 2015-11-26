@@ -63,6 +63,9 @@ namespace The_Road_To_100
         private int set_9;
         private int set_max;
         private int rest;
+
+        //workout
+        private bool moved = false;
         #endregion
 
         #region main Manu
@@ -216,7 +219,7 @@ namespace The_Road_To_100
                     pr5.BackColor = Color.AliceBlue;
                     pr6.BackColor = Color.AliceBlue;
                     break;
-                
+
             }
             sr.Close();
         }
@@ -380,7 +383,7 @@ namespace The_Road_To_100
             StreamReader readWeek = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Week.txt");
             StreamReader readDay = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Day.txt");
 
-            Cweek.Text = readWeek.ReadToEnd();               
+            Cweek.Text = readWeek.ReadToEnd();
             Cday.Text = readDay.ReadToEnd();
 
             readWeek.Close();
@@ -1307,10 +1310,6 @@ namespace The_Road_To_100
             readTest.Close();
         }
 
-        #endregion
-
-        #region Workout
-
         private void BstartTraining(object sender, EventArgs e)
         {
             setPworkout();
@@ -1319,13 +1318,41 @@ namespace The_Road_To_100
 
         }
 
+
+        #endregion
+
+        #region Workout
+
+        private void BstartWorkout_Click(object sender, EventArgs e)
+        {
+            if (moved == false)
+            {
+                Pginfo.Top = Pworkout.Top + 570;
+                Pginfo.Left = Pworkout.Left + 1095;
+
+                BstartWorkout.Width = 71;
+                BstartWorkout.Height = 67;
+                BstartWorkout.Text = "Quit";
+                BstartWorkout.Top = Pworkout.Top + 645;
+                BstartWorkout.Left = Pworkout.Left + 1000;
+
+                Cdoset.Text = set_1.ToString();
+                Tstatment.Visible = true;
+
+                moved = true;
+            }
+            
+        }
+
         private void setPworkout()
         {
             //set total push ups of the day
             int totalPushUpsToday = set_1 + set_2 + set_3 + set_4 + set_5 + set_6 + set_7 + set_8 + set_max;
             Ctodayspushups.Text = totalPushUpsToday.ToString();
+
+            //set rest time
             CrestTime.Text = String.Format("{0} seconds", rest).ToString();
-            
+
             //set week
             StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt");
             C_week.Text = readWeek.ReadToEnd();
@@ -1378,7 +1405,7 @@ namespace The_Road_To_100
             Ppersonal_Screen.Dock = DockStyle.Fill;
         }
 
-        #endregion
 
+        #endregion
     }
 }

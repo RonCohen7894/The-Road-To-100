@@ -89,6 +89,7 @@
             this.Name = "knowledge_center";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "knowledge_center";
+            this.MouseHover += new System.EventHandler(this.knowledge_center_MouseHover);
             this.POPUPmainmanue.ResumeLayout(false);
             this.POPUPmainmanue.PerformLayout();
             this.ResumeLayout(false);

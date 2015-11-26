@@ -37,5 +37,8 @@ namespace The_Road_To_100
         }
         #endregion
 
+        private void knowledge_center_MouseHover(object sender, EventArgs e)
+        {
+        }
     }
 }
