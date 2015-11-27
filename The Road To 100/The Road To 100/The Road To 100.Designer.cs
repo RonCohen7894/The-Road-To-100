@@ -94,10 +94,6 @@
             this.CHname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Pworkout = new System.Windows.Forms.Panel();
-            this.Tstatment = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.Cdoset = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.Pginfo = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -128,6 +124,16 @@
             this.Lset_2 = new System.Windows.Forms.Label();
             this.Lset_1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.Tstatment = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.Cdoset = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Timer = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.PmainManu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).BeginInit();
             this.Pnew_user.SuspendLayout();
@@ -141,8 +147,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pr6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).BeginInit();
             this.Pworkout.SuspendLayout();
-            this.Tstatment.SuspendLayout();
             this.Pginfo.SuspendLayout();
+            this.Tstatment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Timer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // PmainManu
@@ -983,6 +995,10 @@
             // Pworkout
             // 
             this.Pworkout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pworkout.Controls.Add(this.Timer);
+            this.Pworkout.Controls.Add(this.pictureBox1);
+            this.Pworkout.Controls.Add(this.pictureBox2);
+            this.Pworkout.Controls.Add(this.Lset_1);
             this.Pworkout.Controls.Add(this.Pginfo);
             this.Pworkout.Controls.Add(this.button4);
             this.Pworkout.Controls.Add(this.BstartWorkout);
@@ -1003,7 +1019,6 @@
             this.Pworkout.Controls.Add(this.Lset_4);
             this.Pworkout.Controls.Add(this.Lset_3);
             this.Pworkout.Controls.Add(this.Lset_2);
-            this.Pworkout.Controls.Add(this.Lset_1);
             this.Pworkout.Controls.Add(this.label6);
             this.Pworkout.Controls.Add(this.Tstatment);
             this.Pworkout.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1013,51 +1028,6 @@
             this.Pworkout.Size = new System.Drawing.Size(1320, 720);
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
-            // 
-            // Tstatment
-            // 
-            this.Tstatment.Controls.Add(this.label23);
-            this.Tstatment.Controls.Add(this.Cdoset);
-            this.Tstatment.Controls.Add(this.label22);
-            this.Tstatment.Location = new System.Drawing.Point(435, 79);
-            this.Tstatment.Name = "Tstatment";
-            this.Tstatment.Size = new System.Drawing.Size(415, 79);
-            this.Tstatment.TabIndex = 18;
-            this.Tstatment.Visible = false;
-            // 
-            // label23
-            // 
-            this.label23.AutoEllipsis = true;
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(166, 11);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(233, 55);
-            this.label23.TabIndex = 17;
-            this.label23.Text = "Push Ups";
-            // 
-            // Cdoset
-            // 
-            this.Cdoset.AutoEllipsis = true;
-            this.Cdoset.AutoSize = true;
-            this.Cdoset.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cdoset.ForeColor = System.Drawing.Color.Gold;
-            this.Cdoset.Location = new System.Drawing.Point(94, 11);
-            this.Cdoset.Name = "Cdoset";
-            this.Cdoset.Size = new System.Drawing.Size(182, 55);
-            this.Cdoset.TabIndex = 17;
-            this.Cdoset.Text = "content";
-            // 
-            // label22
-            // 
-            this.label22.AutoEllipsis = true;
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(13, 11);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(96, 55);
-            this.label22.TabIndex = 17;
-            this.label22.Text = "DO";
             // 
             // Pginfo
             // 
@@ -1417,6 +1387,114 @@
             this.label6.Text = "Let\'s Start Trainnig!";
             this.label6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
+            // Tstatment
+            // 
+            this.Tstatment.Controls.Add(this.label23);
+            this.Tstatment.Controls.Add(this.Cdoset);
+            this.Tstatment.Controls.Add(this.label22);
+            this.Tstatment.Location = new System.Drawing.Point(435, 79);
+            this.Tstatment.Name = "Tstatment";
+            this.Tstatment.Size = new System.Drawing.Size(415, 79);
+            this.Tstatment.TabIndex = 18;
+            this.Tstatment.Visible = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoEllipsis = true;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(166, 11);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(233, 55);
+            this.label23.TabIndex = 17;
+            this.label23.Text = "Push Ups";
+            // 
+            // Cdoset
+            // 
+            this.Cdoset.AutoEllipsis = true;
+            this.Cdoset.AutoSize = true;
+            this.Cdoset.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cdoset.ForeColor = System.Drawing.Color.Gold;
+            this.Cdoset.Location = new System.Drawing.Point(94, 11);
+            this.Cdoset.Name = "Cdoset";
+            this.Cdoset.Size = new System.Drawing.Size(182, 55);
+            this.Cdoset.TabIndex = 17;
+            this.Cdoset.Text = "content";
+            // 
+            // label22
+            // 
+            this.label22.AutoEllipsis = true;
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(13, 11);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(96, 55);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "DO";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(157, 76);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(75, 30);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1042, 76);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(75, 30);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
+            // Timer
+            // 
+            this.Timer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Timer.Controls.Add(this.pictureBox5);
+            this.Timer.Controls.Add(this.pictureBox4);
+            this.Timer.Controls.Add(this.pictureBox3);
+            this.Timer.Location = new System.Drawing.Point(435, 353);
+            this.Timer.Name = "Timer";
+            this.Timer.Size = new System.Drawing.Size(341, 334);
+            this.Timer.TabIndex = 21;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(22, 252);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(75, 66);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(123, 252);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(75, 66);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(221, 252);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(75, 66);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
+            // 
             // The_Road_To_100
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1429,7 +1507,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "The_Road_To_100";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "The Road To 100";
             this.PmainManu.ResumeLayout(false);
             this.PmainManu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).EndInit();
@@ -1447,10 +1524,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).EndInit();
             this.Pworkout.ResumeLayout(false);
             this.Pworkout.PerformLayout();
-            this.Tstatment.ResumeLayout(false);
-            this.Tstatment.PerformLayout();
             this.Pginfo.ResumeLayout(false);
             this.Pginfo.PerformLayout();
+            this.Tstatment.ResumeLayout(false);
+            this.Tstatment.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Timer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1556,6 +1639,12 @@
         private System.Windows.Forms.Label Cdoset;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel Tstatment;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel Timer;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

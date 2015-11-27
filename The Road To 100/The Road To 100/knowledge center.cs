@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace The_Road_To_100
@@ -39,6 +32,7 @@ namespace The_Road_To_100
 
         private void knowledge_center_MouseHover(object sender, EventArgs e)
         {
+            textBox1.Focus();
         }
     }
 }
