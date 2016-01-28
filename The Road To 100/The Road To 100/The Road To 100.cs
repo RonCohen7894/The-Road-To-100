@@ -66,6 +66,7 @@ namespace The_Road_To_100
 
         //workout
         private bool moved = false;
+        private bool workout_done = false;
         #endregion
 
         #region main Manu
@@ -178,46 +179,34 @@ namespace The_Road_To_100
 
         private void setPR()
         {
+            PictureBox[] pb = { pr1, pr2, pr3, pr4, pr5, pr6 };
+
             StreamReader sr = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Week.txt");
+
             switch (sr.ReadToEnd())
             {
                 case "1":
-                    pr1.BackColor = Color.AliceBlue;
+                    pb[0].BackColor = Color.AliceBlue;
                     break;
-
                 case "2":
-                    pr1.BackColor = Color.AliceBlue;
-                    pr2.BackColor = Color.AliceBlue;
+                    pb[0].BackColor = Color.AliceBlue;
+                    pb[1].BackColor = Color.AliceBlue;
                     break;
-
                 case "3":
-                    pr1.BackColor = Color.AliceBlue;
-                    pr2.BackColor = Color.AliceBlue;
-                    pr3.BackColor = Color.AliceBlue;
+                    for (int i = 0; i <= 2; i++)
+                        pb[i].BackColor = Color.AliceBlue;
                     break;
-
                 case "4":
-                    pr1.BackColor = Color.AliceBlue;
-                    pr2.BackColor = Color.AliceBlue;
-                    pr3.BackColor = Color.AliceBlue;
-                    pr4.BackColor = Color.AliceBlue;
+                    for (int i = 0; i <= 3; i++)
+                        pb[i].BackColor = Color.AliceBlue;
                     break;
-
                 case "5":
-                    pr1.BackColor = Color.AliceBlue;
-                    pr2.BackColor = Color.AliceBlue;
-                    pr3.BackColor = Color.AliceBlue;
-                    pr4.BackColor = Color.AliceBlue;
-                    pr5.BackColor = Color.AliceBlue;
+                    for (int i = 0; i <= 4; i++)
+                        pb[i].BackColor = Color.AliceBlue;
                     break;
-
                 case "6":
-                    pr1.BackColor = Color.AliceBlue;
-                    pr2.BackColor = Color.AliceBlue;
-                    pr3.BackColor = Color.AliceBlue;
-                    pr4.BackColor = Color.AliceBlue;
-                    pr5.BackColor = Color.AliceBlue;
-                    pr6.BackColor = Color.AliceBlue;
+                    foreach (PictureBox PB in pb)
+                        PB.BackColor = Color.AliceBlue;
                     break;
 
             }
@@ -322,7 +311,13 @@ namespace The_Road_To_100
             #region try_catch
             try
             {
-                New_age = Int32.Parse(TBage.Text);
+
+                New_age = int.Parse(TBage.Text);
+                if (New_age <= 0)
+                {
+                    SnewAge.Visible = true;
+                    SnewAge.Text = "You must your real age";
+                }
 
             }
             catch (Exception e)
@@ -333,7 +328,7 @@ namespace The_Road_To_100
 
             try
             {
-                intailTest_results = Int32.Parse(TBintailtest_results.Text);
+                intailTest_results = int.Parse(TBintailtest_results.Text);
 
             }
             catch (Exception e)
@@ -1339,9 +1334,38 @@ namespace The_Road_To_100
                 Cdoset.Text = set_1.ToString();
                 Tstatment.Visible = true;
 
+                button4.Visible = false;
+                button4.Enabled = false;
+
                 moved = true;
             }
-            
+            else if (moved == true)
+            {
+                if (moved == false && workout_done == false || MessageBox.Show("You have not completed today's workout, Are you sure you want to quit?",
+                    "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                {
+                    Ppersonal_Screen.BringToFront();
+                    Ppersonal_Screen.Dock = DockStyle.Fill;
+
+                    Pginfo.Top = Pworkout.Top + 160;
+                    Pginfo.Left = (Pworkout.Width / 2) - (Pginfo.Width / 2) - 40;
+
+                    BstartWorkout.Width = 279;
+                    BstartWorkout.Height = 103;
+                    BstartWorkout.Text = "Start Workout";
+                    BstartWorkout.Top = Pworkout.Top + 55;
+                    BstartWorkout.Left = (Pworkout.Width / 2) - (BstartWorkout.Width / 2) - 26;
+
+                    Tstatment.Visible = false;
+
+                    button4.Visible = true;
+                    button4.Enabled = true;
+
+                    moved = false;
+                    workout_done = true;
+
+                }
+            }
         }
 
         private void setPworkout()
@@ -1404,7 +1428,6 @@ namespace The_Road_To_100
             Ppersonal_Screen.BringToFront();
             Ppersonal_Screen.Dock = DockStyle.Fill;
         }
-
 
         #endregion
     }
