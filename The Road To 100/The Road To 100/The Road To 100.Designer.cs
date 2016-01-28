@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(The_Road_To_100));
             this.PmainManu = new System.Windows.Forms.Panel();
             this.Pintro = new System.Windows.Forms.PictureBox();
@@ -94,6 +95,12 @@
             this.CHname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Pworkout = new System.Windows.Forms.Panel();
+            this.Seconds = new System.Windows.Forms.Label();
+            this.Minutes = new System.Windows.Forms.Label();
+            this.Hours = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.Finish = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Arrow1 = new System.Windows.Forms.PictureBox();
             this.Lset_1 = new System.Windows.Forms.Label();
@@ -130,6 +137,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.Cdoset = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.Workout_Timer = new System.Windows.Forms.Timer(this.components);
             this.PmainManu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).BeginInit();
             this.Pnew_user.SuspendLayout();
@@ -987,6 +995,12 @@
             // Pworkout
             // 
             this.Pworkout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pworkout.Controls.Add(this.Seconds);
+            this.Pworkout.Controls.Add(this.Minutes);
+            this.Pworkout.Controls.Add(this.Hours);
+            this.Pworkout.Controls.Add(this.label29);
+            this.Pworkout.Controls.Add(this.label28);
+            this.Pworkout.Controls.Add(this.Finish);
             this.Pworkout.Controls.Add(this.pictureBox1);
             this.Pworkout.Controls.Add(this.Arrow1);
             this.Pworkout.Controls.Add(this.Lset_1);
@@ -1020,6 +1034,73 @@
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
+            // Seconds
+            // 
+            this.Seconds.AutoSize = true;
+            this.Seconds.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Seconds.Location = new System.Drawing.Point(734, 658);
+            this.Seconds.Name = "Seconds";
+            this.Seconds.Size = new System.Drawing.Size(42, 46);
+            this.Seconds.TabIndex = 22;
+            this.Seconds.Text = "0";
+            this.Seconds.Visible = false;
+            // 
+            // Minutes
+            // 
+            this.Minutes.AutoSize = true;
+            this.Minutes.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Minutes.Location = new System.Drawing.Point(648, 659);
+            this.Minutes.Name = "Minutes";
+            this.Minutes.Size = new System.Drawing.Size(42, 46);
+            this.Minutes.TabIndex = 22;
+            this.Minutes.Text = "0";
+            this.Minutes.Visible = false;
+            // 
+            // Hours
+            // 
+            this.Hours.AutoSize = true;
+            this.Hours.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Hours.Location = new System.Drawing.Point(560, 658);
+            this.Hours.Name = "Hours";
+            this.Hours.Size = new System.Drawing.Size(42, 46);
+            this.Hours.TabIndex = 22;
+            this.Hours.Text = "0";
+            this.Hours.Visible = false;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(706, 658);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(31, 46);
+            this.label29.TabIndex = 22;
+            this.label29.Text = ":";
+            this.label29.Visible = false;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(611, 658);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(31, 46);
+            this.label28.TabIndex = 22;
+            this.label28.Text = ":";
+            this.label28.Visible = false;
+            // 
+            // Finish
+            // 
+            this.Finish.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.Finish.Location = new System.Drawing.Point(532, 314);
+            this.Finish.Name = "Finish";
+            this.Finish.Size = new System.Drawing.Size(171, 56);
+            this.Finish.TabIndex = 21;
+            this.Finish.Text = "Finish   !!";
+            this.Finish.UseVisualStyleBackColor = false;
+            this.Finish.Visible = false;
+            this.Finish.Click += new System.EventHandler(this.Finish_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -1034,13 +1115,12 @@
             // Arrow1
             // 
             this.Arrow1.Image = ((System.Drawing.Image)(resources.GetObject("Arrow1.Image")));
-            this.Arrow1.Location = new System.Drawing.Point(157, 76);
+            this.Arrow1.Location = new System.Drawing.Point(157, 70);
             this.Arrow1.Name = "Arrow1";
             this.Arrow1.Size = new System.Drawing.Size(75, 30);
             this.Arrow1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Arrow1.TabIndex = 19;
             this.Arrow1.TabStop = false;
-            this.Arrow1.Visible = false;
             // 
             // Lset_1
             // 
@@ -1445,6 +1525,11 @@
             this.label22.TabIndex = 17;
             this.label22.Text = "DO";
             // 
+            // Workout_Timer
+            // 
+            this.Workout_Timer.Interval = 1000;
+            this.Workout_Timer.Tick += new System.EventHandler(this.Workout_Timer_Tick);
+            // 
             // The_Road_To_100
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1587,6 +1672,13 @@
         private System.Windows.Forms.Panel Tstatment;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox Arrow1;
+        private System.Windows.Forms.Button Finish;
+        private System.Windows.Forms.Label Hours;
+        private System.Windows.Forms.Timer Workout_Timer;
+        private System.Windows.Forms.Label Minutes;
+        private System.Windows.Forms.Label Seconds;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
     }
 }
 

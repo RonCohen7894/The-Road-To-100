@@ -67,6 +67,12 @@ namespace The_Road_To_100
         //workout
         private bool moved = false;
         private bool workout_done = false;
+        private bool Timer_start = false;
+        private int set_ToDo = 1;
+
+        int sec = 0;
+        int min = 0;
+        int houres = 0;
         #endregion
 
         #region main Manu
@@ -1322,6 +1328,7 @@ namespace The_Road_To_100
         {
             if (moved == false)
             {
+                #region set control
                 Pginfo.Top = Pworkout.Top + 570;
                 Pginfo.Left = Pworkout.Left + 1095;
 
@@ -1336,11 +1343,27 @@ namespace The_Road_To_100
 
                 button4.Visible = false;
                 button4.Enabled = false;
-
+                #endregion
                 moved = true;
+
+                #region timer
+                Label[] lb = { Hours, label28 ,Minutes, label29 ,Seconds };
+                foreach (Label LB in lb)
+                    LB.Visible = true;
+
+                Workout_Timer.Enabled = true;
+                Timer_start = true;
+                #endregion
+
+                Finish.Top -= 150;
+                Finish.Visible = true;
+
+                Arrow1.Visible = true;
+
             }
             else if (moved == true)
             {
+                #region set control
                 if (moved == false && workout_done == false || MessageBox.Show("You have not completed today's workout, Are you sure you want to quit?",
                     "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
@@ -1363,8 +1386,8 @@ namespace The_Road_To_100
 
                     moved = false;
                     workout_done = true;
-
                 }
+                #endregion
             }
         }
 
@@ -1423,10 +1446,63 @@ namespace The_Road_To_100
             readDay.Close();
         }
 
+        private void Finish_Click(object sender, EventArgs e)
+        {
+            set_ToDo += 1;
+            if (set_ToDo < 5)
+                Arrow1.Top += 39;
+
+            else if (set_ToDo == 5)
+            {
+                Arrow1.Top += 38;
+                Arrow1.Left += 85;
+            }
+            else
+                Arrow1.Visible = false;
+        }
+
         private void Bback(object sender, EventArgs e)
         {
             Ppersonal_Screen.BringToFront();
             Ppersonal_Screen.Dock = DockStyle.Fill;
+        }
+
+        private void Workout_Timer_Tick(object sender, EventArgs e)
+        {
+            if (Timer_start == true)
+            {
+                if (sec < 59)
+                {
+                    sec += 1;
+                    Seconds.Text = sec.ToString();
+                }
+                else
+                {
+                    sec = 0;
+                    Seconds.Text = sec.ToString();
+                    min += 1;
+
+                    if (min < 59)
+                    {
+                        Minutes.Text = min.ToString();
+                    }
+                    else
+                    {
+                        min = 0;
+                        Minutes.Text = min.ToString();
+                        houres += 1;
+
+                        if (houres > 24)
+                        {
+                            sec = 0;
+                            min = 0;
+                            houres = 0;
+                        }
+                        else
+                            Timer_start = false;
+                    }
+                }      
+            }
         }
 
         #endregion
