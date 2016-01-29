@@ -63,12 +63,14 @@ namespace The_Road_To_100
         private int set_9;
         private int set_max;
         private int rest;
+        private int num_sets;
 
         //workout
         private bool moved = false;
         private bool workout_done = false;
-        private bool Timer_start = false;
+        private bool Workout_Timer_start = false;
         private int set_ToDo = 1;
+        private bool rest_done = false;
 
         int sec = 0;
         int min = 0;
@@ -502,6 +504,7 @@ namespace The_Road_To_100
             this.Close();
         }
 
+        // Also change the sets here
         private void Bplan_Click(object sender, EventArgs e)
         {
             WorkoutPlan popup = new WorkoutPlan();
@@ -598,6 +601,7 @@ namespace The_Road_To_100
                 if (day == "1")
                 {
                     rest = 60;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 2;
@@ -631,6 +635,7 @@ namespace The_Road_To_100
                 else if (day == "2")
                 {
                     rest = 90;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 3;
@@ -664,6 +669,7 @@ namespace The_Road_To_100
                 else if (day == "3")
                 {
                     rest = 120;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 4;
@@ -702,6 +708,7 @@ namespace The_Road_To_100
                 if (day == "1")
                 {
                     rest = 60;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 4;
@@ -735,6 +742,7 @@ namespace The_Road_To_100
                 else if (day == "2")
                 {
                     rest = 90;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 5;
@@ -768,6 +776,7 @@ namespace The_Road_To_100
                 else if (day == "3")
                 {
                     rest = 120;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 5;
@@ -806,6 +815,7 @@ namespace The_Road_To_100
                 if (day == "1")
                 {
                     rest = 60;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 10;
@@ -839,6 +849,7 @@ namespace The_Road_To_100
                 else if (day == "2")
                 {
                     rest = 90;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 10;
@@ -872,6 +883,7 @@ namespace The_Road_To_100
                 else if (day == "3")
                 {
                     rest = 120;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 11;
@@ -910,6 +922,7 @@ namespace The_Road_To_100
                 if (day == "1")
                 {
                     rest = 60;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 12;
@@ -943,6 +956,7 @@ namespace The_Road_To_100
                 else if (day == "2")
                 {
                     rest = 90;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 14;
@@ -976,6 +990,7 @@ namespace The_Road_To_100
                 else if (day == "3")
                 {
                     rest = 120;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 16;
@@ -1014,6 +1029,7 @@ namespace The_Road_To_100
                 if (day == "1")
                 {
                     rest = 60;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 17;
@@ -1047,6 +1063,7 @@ namespace The_Road_To_100
                 else if (day == "2")
                 {
                     rest = 45;
+                    num_sets = 8;
                     if (level == 1)
                     {
                         set_1 = 10;
@@ -1089,6 +1106,7 @@ namespace The_Road_To_100
                 else if (day == "3")
                 {
                     rest = 45;
+                    num_sets = 8;
                     if (level == 1)
                     {
                         set_1 = 13;
@@ -1136,6 +1154,7 @@ namespace The_Road_To_100
                 if (day == "1")
                 {
                     rest = 60;
+                    num_sets = 5;
                     if (level == 1)
                     {
                         set_1 = 25;
@@ -1150,7 +1169,7 @@ namespace The_Road_To_100
                         set_1 = 40;
                         set_2 = 50;
                         set_3 = 25;
-                        set_5 = 25;
+                        set_4 = 25;
                         set_max = 50;
                     }
 
@@ -1169,6 +1188,7 @@ namespace The_Road_To_100
                 else if (day == "2")
                 {
                     rest = 45;
+                    num_sets = 9;
                     if (level == 1)
                     {
                         set_1 = 14;
@@ -1214,6 +1234,7 @@ namespace The_Road_To_100
                 else if (day == "3")
                 {
                     rest = 45;
+                    num_sets = 9;
                     if (level == 1)
                     {
                         set_1 = 13;
@@ -1352,7 +1373,7 @@ namespace The_Road_To_100
                     LB.Visible = true;
 
                 Workout_Timer.Enabled = true;
-                Timer_start = true;
+                Workout_Timer_start = true;
                 #endregion
 
                 Finish.Top -= 150;
@@ -1410,34 +1431,34 @@ namespace The_Road_To_100
 
             #region set Sets
 
-            if (set_8 == 0)
+            if (num_sets == 5)
             {
-                Cset1.Text = set_1.ToString();
-                Cset2.Text = set_2.ToString();
-                Cset3.Text = set_3.ToString();
-                Cset4.Text = set_4.ToString();
+                Label[] lb2 = { Cset1, Cset2, Cset3, Cset4 };
+                int[] lb3 = { set_1, set_2, set_3, set_4 };
+                for (int i = 0; i <= 3; i++)
+                    lb2[i].Text = lb3[i].ToString();
                 Cset5.Text = String.Format("max (at least  {0})", set_max.ToString());
             }
-
-            else
+            else if(num_sets == 8)
             {
-                Cset6.Visible = true;
-                Cset7.Visible = true;
-                Cset8.Visible = true;
-                Cset9.Visible = true;
-                Lset_6.Visible = true;
-                Lset_7.Visible = true;
-                Lset_8.Visible = true;
-                Lset_9.Visible = true;
-
-                Cset1.Text = set_1.ToString();
-                Cset2.Text = set_2.ToString();
-                Cset3.Text = set_3.ToString();
-                Cset4.Text = set_4.ToString();
-                Cset5.Text = set_5.ToString();
-                Cset6.Text = set_6.ToString();
-                Cset7.Text = set_7.ToString();
-                Cset8.Text = set_8.ToString();
+                Label[] lb1 = { Cset6, Cset7, Cset8, Lset_6, Lset_7, Lset_8 };
+                foreach (Label LB in lb1)
+                    LB.Visible = true;
+                Label[] lb2 = { Cset1, Cset2, Cset3, Cset4, Cset5, Cset6, Cset7 };
+                int[] lb3 = { set_1, set_2, set_3, set_4, set_5, set_6, set_7 };
+                for (int i = 0; i <= 6; i++)
+                    lb2[i].Text = lb3[i].ToString();
+                Cset8.Text = String.Format("max (at least  {0})", set_max.ToString());
+            }
+            else if (num_sets == 9)
+            {
+                Label[] lb = { Cset6, Cset7, Cset8, Cset9, Lset_6, Lset_7, Lset_8, Lset_9 };
+                foreach (Label LB in lb)
+                    LB.Visible = true;
+                Label[] lb2 = { Cset1, Cset2, Cset3, Cset4, Cset5, Cset6, Cset7, Cset8 };
+                int[] lb3 = { set_1, set_2, set_3, set_4, set_5, set_6, set_7, set_8};
+                for (int i = 0; i <= 7; i++)
+                    lb2[i].Text = lb3[i].ToString();
                 Cset9.Text = String.Format("max (at least  {0})", set_max.ToString());
             }
             #endregion
@@ -1448,17 +1469,100 @@ namespace The_Road_To_100
 
         private void Finish_Click(object sender, EventArgs e)
         {
-            set_ToDo += 1;
-            if (set_ToDo < 5)
-                Arrow1.Top += 39;
-
-            else if (set_ToDo == 5)
+            
+            rest_done = false;
+            if (workout_done == true)
             {
-                Arrow1.Top += 38;
-                Arrow1.Left += 85;
-            }
-            else
                 Arrow1.Visible = false;
+                Arrow2.Visible = false;
+            }
+
+            #region rest
+            if (workout_done == false)
+            {
+                if (rest_done == false)
+                {
+                    Finish.Enabled = false;
+                    Lrest.Visible = true;
+                    Crest.Visible = true;
+                }
+
+                Crest.Text = (rest - 44).ToString();
+                Rest_Timer.Start();
+            }
+            
+            #endregion
+
+            #region Arrows
+            set_ToDo += 1;
+            if (num_sets == 5)
+            {
+                Arrow1.Top += 39;
+                if (set_ToDo == 5)
+                {
+                    Arrow1.Left += 85;
+                    workout_done = true;
+                }
+            }
+            
+            else if (num_sets == 8)
+            {
+                if (set_ToDo <= 5)
+                    Arrow1.Top += 39;
+
+                else if (set_ToDo > 5)
+                {
+                    if (set_ToDo == 6)
+                    {
+                        Arrow1.Visible = false;
+                        Arrow2.Visible = true;
+                    }
+
+                    if (set_ToDo > 6)
+                    {
+                        if (set_ToDo == 8)
+                            workout_done = true;
+
+                        Arrow2.Top += 37;
+                    }
+                }
+            }
+            else if (num_sets == 9)
+            {
+                if (set_ToDo <= 5)
+                    Arrow1.Top += 39;
+
+                else if (set_ToDo > 5)
+                {
+                    if (set_ToDo == 6)
+                    {
+                        Arrow1.Visible = false;
+                        Arrow2.Visible = true;
+                    }
+
+                    if (set_ToDo > 6)
+                    {
+                        if (set_ToDo == 9)
+                            workout_done = true;
+
+                        Arrow2.Top += 37;
+                    }
+                }
+            }
+            #endregion 
+
+            set_9 = set_max;
+            int[] sets = { set_1, set_2, set_3, set_4, set_5, set_6, set_7, set_8 , set_9 };      
+            for (int i = 0; i <= 8; i++)
+            {
+                if (set_ToDo > 9)
+                {
+                    
+                    break;
+                }
+                else
+                    Cdoset.Text = sets[set_ToDo - 1].ToString();
+            }
         }
 
         private void Bback(object sender, EventArgs e)
@@ -1469,7 +1573,7 @@ namespace The_Road_To_100
 
         private void Workout_Timer_Tick(object sender, EventArgs e)
         {
-            if (Timer_start == true)
+            if (Workout_Timer_start == true)
             {
                 if (sec < 59)
                 {
@@ -1499,9 +1603,29 @@ namespace The_Road_To_100
                             houres = 0;
                         }
                         else
-                            Timer_start = false;
+                            Workout_Timer_start = false;
                     }
                 }      
+            }
+        }
+
+        private void Rest_Timer_Tick(object sender, EventArgs e)
+        {    
+            while (int.Parse(Crest.Text) > 0)
+            {
+                int time_Left = int.Parse(Crest.Text);
+                time_Left--;
+                Crest.Text = time_Left.ToString();
+                if (Crest.Text == "0")
+                    rest_done = true;
+                break;
+            }
+
+            if (rest_done == true)
+            {
+                Finish.Enabled = true;
+                Lrest.Visible = false;
+                Crest.Visible = false;
             }
         }
 

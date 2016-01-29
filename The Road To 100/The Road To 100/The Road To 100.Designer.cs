@@ -95,13 +95,15 @@
             this.CHname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Pworkout = new System.Windows.Forms.Panel();
+            this.Crest = new System.Windows.Forms.Label();
+            this.Lrest = new System.Windows.Forms.Label();
             this.Seconds = new System.Windows.Forms.Label();
             this.Minutes = new System.Windows.Forms.Label();
             this.Hours = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.Finish = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Arrow2 = new System.Windows.Forms.PictureBox();
             this.Arrow1 = new System.Windows.Forms.PictureBox();
             this.Lset_1 = new System.Windows.Forms.Label();
             this.Pginfo = new System.Windows.Forms.Panel();
@@ -138,6 +140,7 @@
             this.Cdoset = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.Workout_Timer = new System.Windows.Forms.Timer(this.components);
+            this.Rest_Timer = new System.Windows.Forms.Timer(this.components);
             this.PmainManu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).BeginInit();
             this.Pnew_user.SuspendLayout();
@@ -151,7 +154,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pr6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).BeginInit();
             this.Pworkout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Arrow2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).BeginInit();
             this.Pginfo.SuspendLayout();
             this.Tstatment.SuspendLayout();
@@ -995,18 +998,21 @@
             // Pworkout
             // 
             this.Pworkout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pworkout.Controls.Add(this.BstartWorkout);
+            this.Pworkout.Controls.Add(this.Tstatment);
+            this.Pworkout.Controls.Add(this.Crest);
+            this.Pworkout.Controls.Add(this.Lrest);
             this.Pworkout.Controls.Add(this.Seconds);
             this.Pworkout.Controls.Add(this.Minutes);
             this.Pworkout.Controls.Add(this.Hours);
             this.Pworkout.Controls.Add(this.label29);
             this.Pworkout.Controls.Add(this.label28);
             this.Pworkout.Controls.Add(this.Finish);
-            this.Pworkout.Controls.Add(this.pictureBox1);
+            this.Pworkout.Controls.Add(this.Arrow2);
             this.Pworkout.Controls.Add(this.Arrow1);
             this.Pworkout.Controls.Add(this.Lset_1);
             this.Pworkout.Controls.Add(this.Pginfo);
             this.Pworkout.Controls.Add(this.button4);
-            this.Pworkout.Controls.Add(this.BstartWorkout);
             this.Pworkout.Controls.Add(this.Cset5);
             this.Pworkout.Controls.Add(this.Cset9);
             this.Pworkout.Controls.Add(this.Cset4);
@@ -1025,7 +1031,6 @@
             this.Pworkout.Controls.Add(this.Lset_3);
             this.Pworkout.Controls.Add(this.Lset_2);
             this.Pworkout.Controls.Add(this.label6);
-            this.Pworkout.Controls.Add(this.Tstatment);
             this.Pworkout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Pworkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pworkout.Location = new System.Drawing.Point(0, 0);
@@ -1033,6 +1038,28 @@
             this.Pworkout.Size = new System.Drawing.Size(1320, 720);
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
+            // Crest
+            // 
+            this.Crest.AutoSize = true;
+            this.Crest.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Crest.Location = new System.Drawing.Point(685, 373);
+            this.Crest.Name = "Crest";
+            this.Crest.Size = new System.Drawing.Size(42, 46);
+            this.Crest.TabIndex = 22;
+            this.Crest.Text = "0";
+            this.Crest.Visible = false;
+            // 
+            // Lrest
+            // 
+            this.Lrest.AutoSize = true;
+            this.Lrest.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lrest.Location = new System.Drawing.Point(561, 373);
+            this.Lrest.Name = "Lrest";
+            this.Lrest.Size = new System.Drawing.Size(118, 42);
+            this.Lrest.TabIndex = 22;
+            this.Lrest.Text = "REST";
+            this.Lrest.Visible = false;
             // 
             // Seconds
             // 
@@ -1101,16 +1128,16 @@
             this.Finish.Visible = false;
             this.Finish.Click += new System.EventHandler(this.Finish_Click);
             // 
-            // pictureBox1
+            // Arrow2
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1042, 76);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
+            this.Arrow2.Image = ((System.Drawing.Image)(resources.GetObject("Arrow2.Image")));
+            this.Arrow2.Location = new System.Drawing.Point(1021, 70);
+            this.Arrow2.Name = "Arrow2";
+            this.Arrow2.Size = new System.Drawing.Size(75, 30);
+            this.Arrow2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Arrow2.TabIndex = 20;
+            this.Arrow2.TabStop = false;
+            this.Arrow2.Visible = false;
             // 
             // Arrow1
             // 
@@ -1281,7 +1308,7 @@
             this.Cset9.AutoSize = true;
             this.Cset9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cset9.ForeColor = System.Drawing.Color.Teal;
-            this.Cset9.Location = new System.Drawing.Point(1187, 186);
+            this.Cset9.Location = new System.Drawing.Point(1166, 185);
             this.Cset9.Name = "Cset9";
             this.Cset9.Size = new System.Drawing.Size(63, 20);
             this.Cset9.TabIndex = 5;
@@ -1306,7 +1333,7 @@
             this.Cset8.AutoSize = true;
             this.Cset8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cset8.ForeColor = System.Drawing.Color.Teal;
-            this.Cset8.Location = new System.Drawing.Point(1187, 150);
+            this.Cset8.Location = new System.Drawing.Point(1166, 149);
             this.Cset8.Name = "Cset8";
             this.Cset8.Size = new System.Drawing.Size(63, 20);
             this.Cset8.TabIndex = 7;
@@ -1319,7 +1346,7 @@
             this.Cset7.AutoSize = true;
             this.Cset7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cset7.ForeColor = System.Drawing.Color.Teal;
-            this.Cset7.Location = new System.Drawing.Point(1187, 112);
+            this.Cset7.Location = new System.Drawing.Point(1166, 111);
             this.Cset7.Name = "Cset7";
             this.Cset7.Size = new System.Drawing.Size(63, 20);
             this.Cset7.TabIndex = 8;
@@ -1344,7 +1371,7 @@
             this.Cset6.AutoSize = true;
             this.Cset6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cset6.ForeColor = System.Drawing.Color.Teal;
-            this.Cset6.Location = new System.Drawing.Point(1187, 76);
+            this.Cset6.Location = new System.Drawing.Point(1166, 75);
             this.Cset6.Name = "Cset6";
             this.Cset6.Size = new System.Drawing.Size(63, 20);
             this.Cset6.TabIndex = 10;
@@ -1381,7 +1408,7 @@
             // 
             this.Lset_8.AutoSize = true;
             this.Lset_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lset_8.Location = new System.Drawing.Point(1123, 150);
+            this.Lset_8.Location = new System.Drawing.Point(1102, 149);
             this.Lset_8.Name = "Lset_8";
             this.Lset_8.Size = new System.Drawing.Size(58, 24);
             this.Lset_8.TabIndex = 2;
@@ -1404,7 +1431,7 @@
             // 
             this.Lset_9.AutoSize = true;
             this.Lset_9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lset_9.Location = new System.Drawing.Point(1123, 186);
+            this.Lset_9.Location = new System.Drawing.Point(1102, 185);
             this.Lset_9.Name = "Lset_9";
             this.Lset_9.Size = new System.Drawing.Size(58, 24);
             this.Lset_9.TabIndex = 2;
@@ -1416,7 +1443,7 @@
             // 
             this.Lset_6.AutoSize = true;
             this.Lset_6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lset_6.Location = new System.Drawing.Point(1123, 76);
+            this.Lset_6.Location = new System.Drawing.Point(1102, 75);
             this.Lset_6.Name = "Lset_6";
             this.Lset_6.Size = new System.Drawing.Size(58, 24);
             this.Lset_6.TabIndex = 2;
@@ -1428,7 +1455,7 @@
             // 
             this.Lset_7.AutoSize = true;
             this.Lset_7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lset_7.Location = new System.Drawing.Point(1123, 112);
+            this.Lset_7.Location = new System.Drawing.Point(1102, 111);
             this.Lset_7.Name = "Lset_7";
             this.Lset_7.Size = new System.Drawing.Size(58, 24);
             this.Lset_7.TabIndex = 1;
@@ -1530,6 +1557,11 @@
             this.Workout_Timer.Interval = 1000;
             this.Workout_Timer.Tick += new System.EventHandler(this.Workout_Timer_Tick);
             // 
+            // Rest_Timer
+            // 
+            this.Rest_Timer.Interval = 1000;
+            this.Rest_Timer.Tick += new System.EventHandler(this.Rest_Timer_Tick);
+            // 
             // The_Road_To_100
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1559,7 +1591,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).EndInit();
             this.Pworkout.ResumeLayout(false);
             this.Pworkout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Arrow2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).EndInit();
             this.Pginfo.ResumeLayout(false);
             this.Pginfo.PerformLayout();
@@ -1670,7 +1702,7 @@
         private System.Windows.Forms.Label Cdoset;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel Tstatment;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Arrow2;
         private System.Windows.Forms.PictureBox Arrow1;
         private System.Windows.Forms.Button Finish;
         private System.Windows.Forms.Label Hours;
@@ -1679,6 +1711,9 @@
         private System.Windows.Forms.Label Seconds;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label Crest;
+        private System.Windows.Forms.Label Lrest;
+        private System.Windows.Forms.Timer Rest_Timer;
     }
 }
 
