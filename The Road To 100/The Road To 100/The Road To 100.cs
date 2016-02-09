@@ -1402,6 +1402,20 @@ namespace The_Road_To_100
 
                     Tstatment.Visible = false;
 
+                    Label[] lb = { Hours, label28, Minutes, label29, Seconds };
+                    foreach (Label LB in lb)
+                    {
+                        LB.Visible = false;
+                        LB.Text = "0";
+                    }
+                        
+                    Workout_Timer.Enabled = false;
+                    Workout_Timer_start = false;
+
+                    Finish.Top += 150;
+                    Finish.Visible = false;
+                    Finish.Enabled = true;
+
                     button4.Visible = true;
                     button4.Enabled = true;
 
@@ -1487,7 +1501,7 @@ namespace The_Road_To_100
                     Crest.Visible = true;
                 }
 
-                Crest.Text = (rest - 44).ToString();
+                Crest.Text = (1/*rest - 44*/).ToString();
                 Rest_Timer.Start();
             }
             
@@ -1555,13 +1569,22 @@ namespace The_Road_To_100
             int[] sets = { set_1, set_2, set_3, set_4, set_5, set_6, set_7, set_8 , set_9 };      
             for (int i = 0; i <= 8; i++)
             {
-                if (set_ToDo > 9)
+                if (set_ToDo == 8)
                 {
-                    
+                    Cdoset.Text = set_9.ToString();
                     break;
                 }
-                else
+                else if(!(set_ToDo >= 8))
                     Cdoset.Text = sets[set_ToDo - 1].ToString();
+                else
+                {
+                    //Change day
+                    //Change or keep the same week
+                    //Close from the workout screen
+                    //Reset the workout screen
+                    set_ToDo = 1;
+                    workout_done = true;
+                }
             }
         }
 
