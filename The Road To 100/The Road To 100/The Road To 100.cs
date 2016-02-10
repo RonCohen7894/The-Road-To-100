@@ -77,7 +77,7 @@ namespace The_Road_To_100
         int houres = 0;
         #endregion
 
-        #region main Manu
+        #region main Menu
 
         private void MainMenuButtonClick(object sender, EventArgs e)
         {
@@ -143,8 +143,11 @@ namespace The_Road_To_100
             Ppersonal_Screen.Dock = DockStyle.Fill;
             Ppersonal_Screen.BringToFront();
 
+            Exhaustion_test popup = new Exhaustion_test();
+            DialogResult dialogresult = popup.ShowDialog();
+
             getWorkoutOfTheDay();
-            setPR();
+            setPR();        
         }
 
         private void CloseButtoon(object sender, EventArgs e)
@@ -1368,7 +1371,7 @@ namespace The_Road_To_100
                 moved = true;
 
                 #region timer
-                Label[] lb = { Hours, label28 ,Minutes, label29 ,Seconds };
+                Label[] lb = { Hours, label28, Minutes, label29, Seconds };
                 foreach (Label LB in lb)
                     LB.Visible = true;
 
@@ -1408,7 +1411,7 @@ namespace The_Road_To_100
                         LB.Visible = false;
                         LB.Text = "0";
                     }
-                        
+
                     Workout_Timer.Enabled = false;
                     Workout_Timer_start = false;
 
@@ -1453,7 +1456,7 @@ namespace The_Road_To_100
                     lb2[i].Text = lb3[i].ToString();
                 Cset5.Text = String.Format("max (at least  {0})", set_max.ToString());
             }
-            else if(num_sets == 8)
+            else if (num_sets == 8)
             {
                 Label[] lb1 = { Cset6, Cset7, Cset8, Lset_6, Lset_7, Lset_8 };
                 foreach (Label LB in lb1)
@@ -1470,7 +1473,7 @@ namespace The_Road_To_100
                 foreach (Label LB in lb)
                     LB.Visible = true;
                 Label[] lb2 = { Cset1, Cset2, Cset3, Cset4, Cset5, Cset6, Cset7, Cset8 };
-                int[] lb3 = { set_1, set_2, set_3, set_4, set_5, set_6, set_7, set_8};
+                int[] lb3 = { set_1, set_2, set_3, set_4, set_5, set_6, set_7, set_8 };
                 for (int i = 0; i <= 7; i++)
                     lb2[i].Text = lb3[i].ToString();
                 Cset9.Text = String.Format("max (at least  {0})", set_max.ToString());
@@ -1483,12 +1486,19 @@ namespace The_Road_To_100
 
         private void Finish_Click(object sender, EventArgs e)
         {
-            
+
             rest_done = false;
             if (workout_done == true)
             {
                 Arrow1.Visible = false;
                 Arrow2.Visible = false;
+
+                //Change day
+                Change_Day();
+
+                //Change or keep the same week
+                //Close from the workout screen
+                //Reset the workout screen
             }
 
             #region rest
@@ -1504,7 +1514,7 @@ namespace The_Road_To_100
                 Crest.Text = (1/*rest - 44*/).ToString();
                 Rest_Timer.Start();
             }
-            
+
             #endregion
 
             #region Arrows
@@ -1517,8 +1527,9 @@ namespace The_Road_To_100
                     Arrow1.Left += 85;
                     workout_done = true;
                 }
+                SET_setToDo();
             }
-            
+
             else if (num_sets == 8)
             {
                 if (set_ToDo <= 5)
@@ -1540,7 +1551,9 @@ namespace The_Road_To_100
                         Arrow2.Top += 37;
                     }
                 }
+                SET_setToDo();
             }
+
             else if (num_sets == 9)
             {
                 if (set_ToDo <= 5)
@@ -1562,26 +1575,25 @@ namespace The_Road_To_100
                         Arrow2.Top += 37;
                     }
                 }
+                SET_setToDo();
             }
-            #endregion 
+            #endregion              
+        }
 
-            set_9 = set_max;
-            int[] sets = { set_1, set_2, set_3, set_4, set_5, set_6, set_7, set_8 , set_9 };      
-            for (int i = 0; i <= 8; i++)
+        private void SET_setToDo()
+        {
+            int[] sets = { set_1, set_2, set_3, set_4, set_5, set_6, set_7, set_8 };
+            for (int i = 0; i <= num_sets; i++)
             {
-                if (set_ToDo == 8)
+                if (set_ToDo == num_sets)
                 {
-                    Cdoset.Text = set_9.ToString();
+                    Cdoset.Text = set_max.ToString();
                     break;
                 }
-                else if(!(set_ToDo >= 8))
+                else if (!(set_ToDo >= num_sets))
                     Cdoset.Text = sets[set_ToDo - 1].ToString();
                 else
                 {
-                    //Change day
-                    //Change or keep the same week
-                    //Close from the workout screen
-                    //Reset the workout screen
                     set_ToDo = 1;
                     workout_done = true;
                 }
@@ -1628,12 +1640,12 @@ namespace The_Road_To_100
                         else
                             Workout_Timer_start = false;
                     }
-                }      
+                }
             }
         }
 
         private void Rest_Timer_Tick(object sender, EventArgs e)
-        {    
+        {
             while (int.Parse(Crest.Text) > 0)
             {
                 int time_Left = int.Parse(Crest.Text);
@@ -1652,6 +1664,53 @@ namespace The_Road_To_100
             }
         }
 
+        private void Change_Day()
+        {
+            StreamReader fr = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt");
+            char[] readDay = fr.ReadToEnd().ToCharArray();
+            string day;
+            day = readDay[0].ToString();
+
+            if (day == "1")
+            {
+                fr.Close();
+                StreamWriter fw = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt");
+
+                fw.Write("2");
+                fw.Close();
+            }
+            else if (day == "2")
+            {
+                fr.Close();
+                StreamWriter fw = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt");
+
+                fw.Write("3");
+                fw.Close();
+            }
+            else
+            {
+                fr.Close();
+
+                StreamReader Week_R = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt");
+                string content = Week_R.ReadToEnd();
+                Week_R.Close();
+
+                if (int.Parse(content) < 7)
+                {
+                    StreamWriter fw_W = new StreamWriter(@"C:\The Road To 100\user.ID 1\Week.txt");
+                    fw_W.Write(int.Parse(content) + 1);
+                    fw_W.Close();
+
+                    StreamWriter fw_D = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt");
+                    fw_D.Write("1");
+                    fw_D.Close();
+                }
+                
+            }
+        }
+
         #endregion
     }
 }
+//fix the level problem : make anther exhaustion test and implement it to the code.
+//            getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);

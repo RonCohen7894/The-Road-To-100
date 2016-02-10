@@ -95,6 +95,11 @@
             this.CHname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Pworkout = new System.Windows.Forms.Panel();
+            this.BstartWorkout = new System.Windows.Forms.Button();
+            this.Tstatment = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.Cdoset = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.Crest = new System.Windows.Forms.Label();
             this.Lrest = new System.Windows.Forms.Label();
             this.Seconds = new System.Windows.Forms.Label();
@@ -116,7 +121,6 @@
             this.CrestTime = new System.Windows.Forms.Label();
             this.C_Day = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.BstartWorkout = new System.Windows.Forms.Button();
             this.Cset5 = new System.Windows.Forms.Label();
             this.Cset9 = new System.Windows.Forms.Label();
             this.Cset4 = new System.Windows.Forms.Label();
@@ -135,10 +139,6 @@
             this.Lset_3 = new System.Windows.Forms.Label();
             this.Lset_2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.Tstatment = new System.Windows.Forms.Panel();
-            this.label23 = new System.Windows.Forms.Label();
-            this.Cdoset = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.Workout_Timer = new System.Windows.Forms.Timer(this.components);
             this.Rest_Timer = new System.Windows.Forms.Timer(this.components);
             this.PmainManu.SuspendLayout();
@@ -154,10 +154,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pr6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).BeginInit();
             this.Pworkout.SuspendLayout();
+            this.Tstatment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).BeginInit();
             this.Pginfo.SuspendLayout();
-            this.Tstatment.SuspendLayout();
             this.SuspendLayout();
             // 
             // PmainManu
@@ -1031,13 +1031,71 @@
             this.Pworkout.Controls.Add(this.Lset_3);
             this.Pworkout.Controls.Add(this.Lset_2);
             this.Pworkout.Controls.Add(this.label6);
-            this.Pworkout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Pworkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pworkout.Location = new System.Drawing.Point(0, 0);
+            this.Pworkout.Location = new System.Drawing.Point(982, 641);
             this.Pworkout.Name = "Pworkout";
-            this.Pworkout.Size = new System.Drawing.Size(1320, 720);
+            this.Pworkout.Size = new System.Drawing.Size(82, 67);
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
+            // BstartWorkout
+            // 
+            this.BstartWorkout.BackColor = System.Drawing.Color.Aquamarine;
+            this.BstartWorkout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BstartWorkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BstartWorkout.ForeColor = System.Drawing.Color.Transparent;
+            this.BstartWorkout.Location = new System.Drawing.Point(497, 54);
+            this.BstartWorkout.Name = "BstartWorkout";
+            this.BstartWorkout.Size = new System.Drawing.Size(279, 103);
+            this.BstartWorkout.TabIndex = 13;
+            this.BstartWorkout.Text = "Start Workout";
+            this.BstartWorkout.UseVisualStyleBackColor = false;
+            this.BstartWorkout.Click += new System.EventHandler(this.BstartWorkout_Click);
+            // 
+            // Tstatment
+            // 
+            this.Tstatment.Controls.Add(this.label23);
+            this.Tstatment.Controls.Add(this.Cdoset);
+            this.Tstatment.Controls.Add(this.label22);
+            this.Tstatment.Location = new System.Drawing.Point(435, 79);
+            this.Tstatment.Name = "Tstatment";
+            this.Tstatment.Size = new System.Drawing.Size(415, 79);
+            this.Tstatment.TabIndex = 18;
+            this.Tstatment.Visible = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoEllipsis = true;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(166, 11);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(233, 55);
+            this.label23.TabIndex = 17;
+            this.label23.Text = "Push Ups";
+            // 
+            // Cdoset
+            // 
+            this.Cdoset.AutoEllipsis = true;
+            this.Cdoset.AutoSize = true;
+            this.Cdoset.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cdoset.ForeColor = System.Drawing.Color.Gold;
+            this.Cdoset.Location = new System.Drawing.Point(94, 11);
+            this.Cdoset.Name = "Cdoset";
+            this.Cdoset.Size = new System.Drawing.Size(182, 55);
+            this.Cdoset.TabIndex = 17;
+            this.Cdoset.Text = "content";
+            // 
+            // label22
+            // 
+            this.label22.AutoEllipsis = true;
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(13, 11);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(96, 55);
+            this.label22.TabIndex = 17;
+            this.label22.Text = "DO";
             // 
             // Crest
             // 
@@ -1277,20 +1335,6 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.Bback);
             // 
-            // BstartWorkout
-            // 
-            this.BstartWorkout.BackColor = System.Drawing.Color.Aquamarine;
-            this.BstartWorkout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BstartWorkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BstartWorkout.ForeColor = System.Drawing.Color.Transparent;
-            this.BstartWorkout.Location = new System.Drawing.Point(497, 54);
-            this.BstartWorkout.Name = "BstartWorkout";
-            this.BstartWorkout.Size = new System.Drawing.Size(279, 103);
-            this.BstartWorkout.TabIndex = 13;
-            this.BstartWorkout.Text = "Start Workout";
-            this.BstartWorkout.UseVisualStyleBackColor = false;
-            this.BstartWorkout.Click += new System.EventHandler(this.BstartWorkout_Click);
-            // 
             // Cset5
             // 
             this.Cset5.AutoSize = true;
@@ -1507,51 +1551,6 @@
             this.label6.Text = "Let\'s Start Trainnig!";
             this.label6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
-            // Tstatment
-            // 
-            this.Tstatment.Controls.Add(this.label23);
-            this.Tstatment.Controls.Add(this.Cdoset);
-            this.Tstatment.Controls.Add(this.label22);
-            this.Tstatment.Location = new System.Drawing.Point(435, 79);
-            this.Tstatment.Name = "Tstatment";
-            this.Tstatment.Size = new System.Drawing.Size(415, 79);
-            this.Tstatment.TabIndex = 18;
-            this.Tstatment.Visible = false;
-            // 
-            // label23
-            // 
-            this.label23.AutoEllipsis = true;
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(166, 11);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(233, 55);
-            this.label23.TabIndex = 17;
-            this.label23.Text = "Push Ups";
-            // 
-            // Cdoset
-            // 
-            this.Cdoset.AutoEllipsis = true;
-            this.Cdoset.AutoSize = true;
-            this.Cdoset.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cdoset.ForeColor = System.Drawing.Color.Gold;
-            this.Cdoset.Location = new System.Drawing.Point(94, 11);
-            this.Cdoset.Name = "Cdoset";
-            this.Cdoset.Size = new System.Drawing.Size(182, 55);
-            this.Cdoset.TabIndex = 17;
-            this.Cdoset.Text = "content";
-            // 
-            // label22
-            // 
-            this.label22.AutoEllipsis = true;
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(13, 11);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(96, 55);
-            this.label22.TabIndex = 17;
-            this.label22.Text = "DO";
-            // 
             // Workout_Timer
             // 
             this.Workout_Timer.Interval = 1000;
@@ -1591,12 +1590,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).EndInit();
             this.Pworkout.ResumeLayout(false);
             this.Pworkout.PerformLayout();
+            this.Tstatment.ResumeLayout(false);
+            this.Tstatment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).EndInit();
             this.Pginfo.ResumeLayout(false);
             this.Pginfo.PerformLayout();
-            this.Tstatment.ResumeLayout(false);
-            this.Tstatment.PerformLayout();
             this.ResumeLayout(false);
 
         }
