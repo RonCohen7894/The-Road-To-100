@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -18,6 +19,33 @@ namespace The_Road_To_100
             InitializeComponent();
         }
 
-        
+        private void Submit_Click(object sender, EventArgs e)
+        {
+            
+            int content = int.Parse(TBtest.Text);
+            creatFiles("Exhaustion test", "", content);
+            Close();
+            
+        }
+
+        private void creatFiles(string fileName, string TXTCONTANT, int NUMCONTANT)
+        {
+            string TXTcontant = TXTCONTANT;
+            int Numcontant = NUMCONTANT;
+
+            StreamWriter fw = new StreamWriter(@"C:\The Road To 100\" + "user.ID 1" + @"\" + fileName + ".txt");
+
+            if (TXTcontant != "")
+            {
+                fw.Write(TXTcontant);
+                fw.Close();
+            }
+            else if (Numcontant != 0)
+            {
+                fw.Write(Numcontant);
+                fw.Close();
+            }
+
+        }
     }
 }

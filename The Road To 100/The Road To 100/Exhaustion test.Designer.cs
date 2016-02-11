@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Exhaustion_test));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Linfo_intailtest = new System.Windows.Forms.TextBox();
-            this.Sintailtest_results = new System.Windows.Forms.Label();
-            this.TBintailtest_results = new System.Windows.Forms.TextBox();
+            this.Submit = new System.Windows.Forms.Button();
+            this.Status = new System.Windows.Forms.Label();
+            this.TBtest = new System.Windows.Forms.TextBox();
             this.LINK_to_good_form = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.BbackToMainMenue = new System.Windows.Forms.Button();
+            this.Linfo_intailtest = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,9 +48,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Beige;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.BbackToMainMenue);
-            this.panel1.Controls.Add(this.Sintailtest_results);
-            this.panel1.Controls.Add(this.TBintailtest_results);
+            this.panel1.Controls.Add(this.Submit);
+            this.panel1.Controls.Add(this.Status);
+            this.panel1.Controls.Add(this.TBtest);
             this.panel1.Controls.Add(this.LINK_to_good_form);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label9);
@@ -65,69 +65,44 @@
             this.panel1.Size = new System.Drawing.Size(756, 382);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // Submit
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Teal;
-            this.label1.Location = new System.Drawing.Point(11, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(351, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Exhaustion Test Number :";
+            this.Submit.BackColor = System.Drawing.Color.LightCyan;
+            this.Submit.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.Submit.FlatAppearance.BorderSize = 0;
+            this.Submit.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Submit.ForeColor = System.Drawing.Color.MediumAquamarine;
+            this.Submit.Location = new System.Drawing.Point(618, 325);
+            this.Submit.Name = "Submit";
+            this.Submit.Size = new System.Drawing.Size(133, 52);
+            this.Submit.TabIndex = 14;
+            this.Submit.Text = "Submit";
+            this.Submit.UseVisualStyleBackColor = false;
+            this.Submit.Click += new System.EventHandler(this.Submit_Click);
             // 
-            // label2
+            // Status
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Teal;
-            this.label2.Location = new System.Drawing.Point(357, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 31);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "content";
+            this.Status.AutoSize = true;
+            this.Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Status.ForeColor = System.Drawing.Color.Red;
+            this.Status.Location = new System.Drawing.Point(7, 287);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(43, 16);
+            this.Status.TabIndex = 13;
+            this.Status.Text = "status";
+            this.Status.Visible = false;
             // 
-            // Linfo_intailtest
+            // TBtest
             // 
-            this.Linfo_intailtest.BackColor = System.Drawing.Color.Beige;
-            this.Linfo_intailtest.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Linfo_intailtest.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Linfo_intailtest.Enabled = false;
-            this.Linfo_intailtest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Linfo_intailtest.ForeColor = System.Drawing.Color.DimGray;
-            this.Linfo_intailtest.Location = new System.Drawing.Point(3, 70);
-            this.Linfo_intailtest.Multiline = true;
-            this.Linfo_intailtest.Name = "Linfo_intailtest";
-            this.Linfo_intailtest.ReadOnly = true;
-            this.Linfo_intailtest.Size = new System.Drawing.Size(748, 132);
-            this.Linfo_intailtest.TabIndex = 2;
-            this.Linfo_intailtest.Text = resources.GetString("Linfo_intailtest.Text");
-            // 
-            // Sintailtest_results
-            // 
-            this.Sintailtest_results.AutoSize = true;
-            this.Sintailtest_results.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sintailtest_results.ForeColor = System.Drawing.Color.Red;
-            this.Sintailtest_results.Location = new System.Drawing.Point(7, 287);
-            this.Sintailtest_results.Name = "Sintailtest_results";
-            this.Sintailtest_results.Size = new System.Drawing.Size(43, 16);
-            this.Sintailtest_results.TabIndex = 13;
-            this.Sintailtest_results.Text = "status";
-            this.Sintailtest_results.Visible = false;
-            // 
-            // TBintailtest_results
-            // 
-            this.TBintailtest_results.BackColor = System.Drawing.Color.Snow;
-            this.TBintailtest_results.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TBintailtest_results.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBintailtest_results.ForeColor = System.Drawing.Color.Tan;
-            this.TBintailtest_results.Location = new System.Drawing.Point(95, 258);
-            this.TBintailtest_results.MaxLength = 3;
-            this.TBintailtest_results.Name = "TBintailtest_results";
-            this.TBintailtest_results.Size = new System.Drawing.Size(59, 22);
-            this.TBintailtest_results.TabIndex = 1;
+            this.TBtest.BackColor = System.Drawing.Color.Snow;
+            this.TBtest.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TBtest.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TBtest.ForeColor = System.Drawing.Color.Tan;
+            this.TBtest.Location = new System.Drawing.Point(95, 258);
+            this.TBtest.MaxLength = 3;
+            this.TBtest.Name = "TBtest";
+            this.TBtest.Size = new System.Drawing.Size(59, 22);
+            this.TBtest.TabIndex = 1;
             // 
             // LINK_to_good_form
             // 
@@ -181,19 +156,45 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "How many";
             // 
-            // BbackToMainMenue
+            // Linfo_intailtest
             // 
-            this.BbackToMainMenue.BackColor = System.Drawing.Color.LightCyan;
-            this.BbackToMainMenue.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
-            this.BbackToMainMenue.FlatAppearance.BorderSize = 0;
-            this.BbackToMainMenue.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BbackToMainMenue.ForeColor = System.Drawing.Color.MediumAquamarine;
-            this.BbackToMainMenue.Location = new System.Drawing.Point(618, 325);
-            this.BbackToMainMenue.Name = "BbackToMainMenue";
-            this.BbackToMainMenue.Size = new System.Drawing.Size(133, 52);
-            this.BbackToMainMenue.TabIndex = 14;
-            this.BbackToMainMenue.Text = "Submit";
-            this.BbackToMainMenue.UseVisualStyleBackColor = false;
+            this.Linfo_intailtest.BackColor = System.Drawing.Color.Beige;
+            this.Linfo_intailtest.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Linfo_intailtest.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Linfo_intailtest.Enabled = false;
+            this.Linfo_intailtest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Linfo_intailtest.ForeColor = System.Drawing.Color.DimGray;
+            this.Linfo_intailtest.Location = new System.Drawing.Point(3, 70);
+            this.Linfo_intailtest.Multiline = true;
+            this.Linfo_intailtest.Name = "Linfo_intailtest";
+            this.Linfo_intailtest.ReadOnly = true;
+            this.Linfo_intailtest.Size = new System.Drawing.Size(748, 132);
+            this.Linfo_intailtest.TabIndex = 2;
+            this.Linfo_intailtest.Text = resources.GetString("Linfo_intailtest.Text");
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Teal;
+            this.label2.Location = new System.Drawing.Point(357, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 31);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "content";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Teal;
+            this.label1.Location = new System.Drawing.Point(11, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(351, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Exhaustion Test Number :";
             // 
             // Exhaustion_test
             // 
@@ -217,13 +218,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Linfo_intailtest;
-        private System.Windows.Forms.Label Sintailtest_results;
-        private System.Windows.Forms.TextBox TBintailtest_results;
+        private System.Windows.Forms.Label Status;
+        private System.Windows.Forms.TextBox TBtest;
         private System.Windows.Forms.Label LINK_to_good_form;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button BbackToMainMenue;
+        private System.Windows.Forms.Button Submit;
     }
 }

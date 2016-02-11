@@ -143,9 +143,17 @@ namespace The_Road_To_100
             Ppersonal_Screen.Dock = DockStyle.Fill;
             Ppersonal_Screen.BringToFront();
 
-            Exhaustion_test popup = new Exhaustion_test();
-            DialogResult dialogresult = popup.ShowDialog();
+            
+            StreamReader fr = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt");
+            if (fr.ReadToEnd() == "3")
+            {
+                Exhaustion_test popup = new Exhaustion_test();
+                DialogResult dialogresult = popup.ShowDialog();
 
+                getLevel(null, 20 , null, null);
+            }
+
+            
             getWorkoutOfTheDay();
             setPR();        
         }
@@ -244,6 +252,7 @@ namespace The_Road_To_100
         }
 
         #endregion
+        
 
         #endregion
 
