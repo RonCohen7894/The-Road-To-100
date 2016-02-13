@@ -21,10 +21,18 @@ namespace The_Road_To_100
 
         private void Submit_Click(object sender, EventArgs e)
         {
+            try
+            {
+                int content = int.Parse(TBtest.Text);
+                creatFiles("Exhaustion test", "", content);
+                Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             
-            int content = int.Parse(TBtest.Text);
-            creatFiles("Exhaustion test", "", content);
-            Close();
             
         }
 
@@ -33,19 +41,19 @@ namespace The_Road_To_100
             string TXTcontant = TXTCONTANT;
             int Numcontant = NUMCONTANT;
 
-            StreamWriter fw = new StreamWriter(@"C:\The Road To 100\" + "user.ID 1" + @"\" + fileName + ".txt");
-
-            if (TXTcontant != "")
+            using (StreamWriter fw = new StreamWriter(@"C:\The Road To 100\" + "user.ID 1" + @"\" + fileName + ".txt"))
             {
-                fw.Write(TXTcontant);
-                fw.Close();
+                if (TXTcontant != "")
+                {
+                    fw.Write(TXTcontant);
+                    fw.Close();
+                }
+                else if (Numcontant != 0)
+                {
+                    fw.Write(Numcontant);
+                    fw.Close();
+                }
             }
-            else if (Numcontant != 0)
-            {
-                fw.Write(Numcontant);
-                fw.Close();
-            }
-
         }
     }
 }

@@ -64,6 +64,8 @@ namespace The_Road_To_100
         private int set_max;
         private int rest;
         private int num_sets;
+        string week;
+        string day;
 
         //workout
         private bool moved = false;
@@ -71,6 +73,7 @@ namespace The_Road_To_100
         private bool Workout_Timer_start = false;
         private int set_ToDo = 1;
         private bool rest_done = false;
+        string content_W;
 
         int sec = 0;
         int min = 0;
@@ -143,17 +146,18 @@ namespace The_Road_To_100
             Ppersonal_Screen.Dock = DockStyle.Fill;
             Ppersonal_Screen.BringToFront();
 
-            
-            StreamReader fr = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt");
-            if (fr.ReadToEnd() == "3")
+
+            using (StreamReader fr = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
             {
-                Exhaustion_test popup = new Exhaustion_test();
-                DialogResult dialogresult = popup.ShowDialog();
+                if (fr.ReadToEnd() == "3")
+                {
+                    Exhaustion_test popup = new Exhaustion_test();
+                    DialogResult dialogresult = popup.ShowDialog();
 
-                getLevel(null, 20 , null, null);
+                    getLevel(null, 20, null, null);
+                }
             }
-
-            
+                
             getWorkoutOfTheDay();
             setPR();        
         }
@@ -200,36 +204,41 @@ namespace The_Road_To_100
         {
             PictureBox[] pb = { pr1, pr2, pr3, pr4, pr5, pr6 };
 
-            StreamReader sr = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Week.txt");
-
-            switch (sr.ReadToEnd())
+            using (StreamReader sr = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Week.txt"))
             {
-                case "1":
-                    pb[0].BackColor = Color.AliceBlue;
-                    break;
-                case "2":
-                    pb[0].BackColor = Color.AliceBlue;
-                    pb[1].BackColor = Color.AliceBlue;
-                    break;
-                case "3":
-                    for (int i = 0; i <= 2; i++)
-                        pb[i].BackColor = Color.AliceBlue;
-                    break;
-                case "4":
-                    for (int i = 0; i <= 3; i++)
-                        pb[i].BackColor = Color.AliceBlue;
-                    break;
-                case "5":
-                    for (int i = 0; i <= 4; i++)
-                        pb[i].BackColor = Color.AliceBlue;
-                    break;
-                case "6":
-                    foreach (PictureBox PB in pb)
-                        PB.BackColor = Color.AliceBlue;
-                    break;
+                switch (sr.ReadToEnd())
+                {
+                    case "1":
+                        pb[0].BackColor = Color.AliceBlue;
+                        break;
+                    case "2":
+                        pb[0].BackColor = Color.AliceBlue;
+                        pb[1].BackColor = Color.AliceBlue;
+                        break;
+                    case "3":
+                        for (int i = 0; i <= 2; i++)
+                            pb[i].BackColor = Color.AliceBlue;
+                        break;
+                    case "4":
+                        for (int i = 0; i <= 3; i++)
+                            pb[i].BackColor = Color.AliceBlue;
+                        break;
+                    case "5":
+                        for (int i = 0; i <= 4; i++)
+                            pb[i].BackColor = Color.AliceBlue;
+                        break;
+                    case "6":
+                        foreach (PictureBox PB in pb)
+                            PB.BackColor = Color.AliceBlue;
+                        break;
 
+                    sr.Close();
+                    sr.Dispose();
+
+                }
             }
-            sr.Close();
+                
+            
         }
 
         #region drag form
@@ -299,19 +308,21 @@ namespace The_Road_To_100
             string TXTcontant = TXTCONTANT;
             int Numcontant = NUMCONTANT;
 
-            StreamWriter fw = new StreamWriter(@"C:\The Road To 100\" + "user.ID 1" + @"\" + fileName + ".txt");
-
-            if (TXTcontant != "")
+            using (StreamWriter fw = new StreamWriter(@"C:\The Road To 100\" + "user.ID 1" + @"\" + fileName + ".txt"))
             {
-                fw.Write(TXTcontant);
-                fw.Close();
+                if (TXTcontant != "")
+                {
+                    fw.Write(TXTcontant);
+                    fw.Close();
+                    fw.Dispose();
+                }
+                else if (Numcontant != 0)
+                {
+                    fw.Write(Numcontant);
+                    fw.Close();
+                    fw.Dispose();
+                }
             }
-            else if (Numcontant != 0)
-            {
-                fw.Write(Numcontant);
-                fw.Close();
-            }
-
         }
 
         private void Checking_TB()
@@ -395,16 +406,18 @@ namespace The_Road_To_100
             getdata("Age");
             getdata("Total Push ups Done");
 
-            StreamReader readWeek = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Week.txt");
-            StreamReader readDay = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Day.txt");
-
-            Cweek.Text = readWeek.ReadToEnd();
-            Cday.Text = readDay.ReadToEnd();
-
-            readWeek.Close();
-            readDay.Close();
-
-
+            using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Week.txt"))
+            {
+                Cweek.Text = readWeek.ReadToEnd();
+                readWeek.Close();
+                readWeek.Dispose();
+            }
+            using (StreamReader readDay = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Day.txt"))
+            {
+                Cday.Text = readDay.ReadToEnd();
+                readDay.Close();
+                readDay.Dispose();
+            }
         }
 
         public void getdata(string filename)
@@ -520,9 +533,9 @@ namespace The_Road_To_100
         private void Bplan_Click(object sender, EventArgs e)
         {
             WorkoutPlan popup = new WorkoutPlan();
-            StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt");
+            using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))
+                getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
 
-            getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
             findeWorkoutParameters(Level);
 
             if (set_8 == 0)
@@ -561,50 +574,59 @@ namespace The_Road_To_100
 
         private void getLevel(int? test1, int? test2, int? test3, int? test4)
         {
-            StreamReader sr = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt");
-            char[] x = (sr.ReadToEnd()).ToCharArray();
-            string week = x[0].ToString();
-
-            if (test1 < 20 && week == "1" || week == "2")
+            using (StreamReader sr = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
             {
-                if (test1 <= 5) { Level = 1; }
-                else if (test1 >= 6 && test1 <= 10) { Level = 2; }
-                else if (test1 >= 11 && test1 <= 20) { Level = 3; }
-            }
+                char[] x = (sr.ReadToEnd()).ToCharArray();
+                string week = x[0].ToString();
 
-            else if (test1 > 20 || week == "3" || week == "4")
-            {
-                if (test2 >= 16 && test2 <= 20 || test1 >= 16 && test1 <= 20) { Level = 1; }
-                else if (test2 >= 21 && test2 <= 25 || test1 >= 21 && test1 <= 25) { Level = 2; }
-                else if (test2 > 25 || test1 > 25) { Level = 3; }
-            }
+                if (test1 < 20 && week == "1" || week == "2")
+                {
+                    if (test1 <= 5) { Level = 1; }
+                    else if (test1 >= 6 && test1 <= 10) { Level = 2; }
+                    else if (test1 >= 11 && test1 <= 20) { Level = 3; }
+                }
 
-            else if (week == "5")
-            {
-                if (test3 >= 31 && test3 <= 35) { Level = 1; }
-                else if (test3 >= 36 && test3 <= 40) { Level = 2; }
-                else if (test3 > 40) { Level = 3; }
-            }
+                else if (test1 > 20 || week == "3" || week == "4")
+                {
+                    if (test2 >= 16 && test2 <= 20 || test1 >= 16 && test1 <= 20) { Level = 1; }
+                    else if (test2 >= 21 && test2 <= 25 || test1 >= 21 && test1 <= 25) { Level = 2; }
+                    else if (test2 > 25 || test1 > 25) { Level = 3; }
+                }
 
-            else if (week == "6")
-            {
-                if (test4 >= 46 && test4 <= 50) { Level = 1; }
-                else if (test4 >= 51 && test4 <= 60) { Level = 2; }
-                else if (test4 > 60) { Level = 3; }
+                else if (week == "5")
+                {
+                    if (test3 >= 31 && test3 <= 35) { Level = 1; }
+                    else if (test3 >= 36 && test3 <= 40) { Level = 2; }
+                    else if (test3 > 40) { Level = 3; }
+                }
+
+                else if (week == "6")
+                {
+                    if (test4 >= 46 && test4 <= 50) { Level = 1; }
+                    else if (test4 >= 51 && test4 <= 60) { Level = 2; }
+                    else if (test4 > 60) { Level = 3; }
+                }
+                sr.Close();
+                sr.Dispose();
             }
-            sr.Close();
+                
         }
 
         private void findeWorkoutParameters(int level)
         {
-            StreamReader y = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt");
-            char[] readWeek = y.ReadToEnd().ToCharArray();
-            string week;
-            week = readWeek[0].ToString();
+            using (StreamReader y = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
+            {
+                char[] readWeek = y.ReadToEnd().ToCharArray();
+                week = readWeek[0].ToString();
+            }
 
-            StreamReader x = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt");
-            char[] readDay = x.ReadToEnd().ToCharArray();
-            string day = readDay[0].ToString();
+
+            using (StreamReader x = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt"))
+            {
+                char[] readDay = x.ReadToEnd().ToCharArray();
+                day = readDay[0].ToString();
+            }
+                
 
             #region week 1
             if (week == "1")
@@ -1290,30 +1312,31 @@ namespace The_Road_To_100
             }
             #endregion
 
-            y.Close();
-            x.Close();
+            
         }
 
         private void createWorkoutPlanFiles(string name)
         {
-            StreamWriter sw = new StreamWriter(@"C:\The Road To 100\user.ID 1\" + name + ".txt");
-
-            switch (name)
+            using (StreamWriter sw = new StreamWriter(@"C:\The Road To 100\user.ID 1\" + name + ".txt"))
             {
-                case "Week":
-                    if (int.Parse(TBintailtest_results.Text) > 20)
-                        sw.Write("3");
-                    else
+                switch (name)
+                {
+                    case "Week":
+                        if (int.Parse(TBintailtest_results.Text) > 20)
+                            sw.Write("3");
+                        else
+                            sw.Write("1");
+                        sw.Close();
+                        sw.Dispose();
+                        break;
+
+                    case "Day":
                         sw.Write("1");
-                    sw.Close();
-                    break;
-
-                case "Day":
-                    sw.Write("1");
-                    sw.Close();
-                    break;
+                        sw.Close();
+                        sw.Dispose();
+                        break;
+                }
             }
-
         }
 
         private void QustionMark_MouseEnter(object sender, EventArgs e)
@@ -1328,20 +1351,19 @@ namespace The_Road_To_100
 
         private void getWorkoutOfTheDay()
         {
-            StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt");
-            StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt");
+            using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))
+                getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
 
-
-            getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
-            findeWorkoutParameters(Level);
-            if (readWeek.ReadToEnd() == "3")
+            using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
             {
-                Cweek.Text = "3";
-                QustionMark.Visible = true;
-                setPR();
+                if (readWeek.ReadToEnd() == "3")
+                {
+                    Cweek.Text = "3";
+                    QustionMark.Visible = true;
+                    setPR();
+                }
             }
-            readWeek.Close();
-            readTest.Close();
+            findeWorkoutParameters(Level);      
         }
 
         private void BstartTraining(object sender, EventArgs e)
@@ -1448,12 +1470,12 @@ namespace The_Road_To_100
             CrestTime.Text = String.Format("{0} seconds", rest).ToString();
 
             //set week
-            StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt");
-            C_week.Text = readWeek.ReadToEnd();
+            using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
+                C_week.Text = readWeek.ReadToEnd();
 
             //set day
-            StreamReader readDay = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt");
-            C_Day.Text = readDay.ReadToEnd();
+            using (StreamReader readDay = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt"))
+                C_Day.Text = readDay.ReadToEnd();
 
             #region set Sets
 
@@ -1489,8 +1511,7 @@ namespace The_Road_To_100
             }
             #endregion
 
-            readWeek.Close();
-            readDay.Close();
+            
         }
 
         private void Finish_Click(object sender, EventArgs e)
@@ -1675,49 +1696,60 @@ namespace The_Road_To_100
 
         private void Change_Day()
         {
-            StreamReader fr = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt");
-            char[] readDay = fr.ReadToEnd().ToCharArray();
-            string day;
-            day = readDay[0].ToString();
-
-            if (day == "1")
+            using (StreamReader fr = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt"))
             {
-                fr.Close();
-                StreamWriter fw = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt");
+                char[] readDay = fr.ReadToEnd().ToCharArray();
+                string day;
+                day = readDay[0].ToString();
 
-                fw.Write("2");
-                fw.Close();
-            }
-            else if (day == "2")
-            {
-                fr.Close();
-                StreamWriter fw = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt");
-
-                fw.Write("3");
-                fw.Close();
-            }
-            else
-            {
-                fr.Close();
-
-                StreamReader Week_R = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt");
-                string content = Week_R.ReadToEnd();
-                Week_R.Close();
-
-                if (int.Parse(content) < 7)
+                if (day == "1")
                 {
-                    StreamWriter fw_W = new StreamWriter(@"C:\The Road To 100\user.ID 1\Week.txt");
-                    fw_W.Write(int.Parse(content) + 1);
-                    fw_W.Close();
+                    fr.Close();
+                    fr.Dispose();
+                    using (StreamWriter fw = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt"))
+                        fw.Write("2");
 
-                    StreamWriter fw_D = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt");
-                    fw_D.Write("1");
-                    fw_D.Close();
                 }
-                
+                else if (day == "2")
+                {
+                    fr.Close();
+                    fr.Dispose();
+                    using (StreamWriter fw = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt"))
+                        fw.Write("3");
+
+                }
+                else if (day == "3")
+                {
+                    fr.Close();
+                    fr.Dispose();
+
+                    using (StreamReader Week_R = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
+                    {
+                        content_W = Week_R.ReadToEnd();
+                        Week_R.Close();
+                        Week_R.Dispose();
+                    }
+
+                    if (int.Parse(content_W) < 7)
+                    {
+                        using (StreamWriter fw_W = new StreamWriter(@"C:\The Road To 100\user.ID 1\Week.txt"))
+                        {
+                            fw_W.Write(int.Parse(content_W) + 1);
+                            fw_W.Close();
+                            fw_W.Dispose();
+                        }
+
+                        using (StreamWriter fw_D = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt"))
+                        {
+                            fw_D.Write("1");
+                            fw_D.Close();
+                            fw_D.Dispose();
+                        }
+
+                    }
+                }
             }
         }
-
         #endregion
     }
 }
