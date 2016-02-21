@@ -661,9 +661,10 @@
             this.Ppersonal_Screen.Controls.Add(this.label11);
             this.Ppersonal_Screen.Controls.Add(this.CHname);
             this.Ppersonal_Screen.Controls.Add(this.label4);
-            this.Ppersonal_Screen.Location = new System.Drawing.Point(1070, 641);
+            this.Ppersonal_Screen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Ppersonal_Screen.Location = new System.Drawing.Point(0, 0);
             this.Ppersonal_Screen.Name = "Ppersonal_Screen";
-            this.Ppersonal_Screen.Size = new System.Drawing.Size(80, 66);
+            this.Ppersonal_Screen.Size = new System.Drawing.Size(1320, 720);
             this.Ppersonal_Screen.TabIndex = 2;
             this.Ppersonal_Screen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -888,6 +889,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.LightCyan;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Enabled = false;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.MediumTurquoise;
             this.button1.Location = new System.Drawing.Point(1138, 641);
@@ -1032,9 +1034,9 @@
             this.Pworkout.Controls.Add(this.Lset_2);
             this.Pworkout.Controls.Add(this.label6);
             this.Pworkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pworkout.Location = new System.Drawing.Point(982, 641);
+            this.Pworkout.Location = new System.Drawing.Point(984, 641);
             this.Pworkout.Name = "Pworkout";
-            this.Pworkout.Size = new System.Drawing.Size(82, 67);
+            this.Pworkout.Size = new System.Drawing.Size(86, 79);
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -1566,10 +1568,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
+            this.Controls.Add(this.Ppersonal_Screen);
             this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.Pnew_user);
             this.Controls.Add(this.PmainManu);
-            this.Controls.Add(this.Ppersonal_Screen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "The_Road_To_100";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -31,6 +31,8 @@ namespace The_Road_To_100
 
             else
                 System.IO.Directory.CreateDirectory(@"C:\The Road To 100");
+
+            
         }
 
         #region Variables
@@ -146,16 +148,47 @@ namespace The_Road_To_100
             Ppersonal_Screen.Dock = DockStyle.Fill;
             Ppersonal_Screen.BringToFront();
 
-
-            using (StreamReader fr = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
+            
+                
+            
+            using (StreamReader fr_week = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
             {
-                if (fr.ReadToEnd() == "3")
-                {
-                    Exhaustion_test popup = new Exhaustion_test();
-                    DialogResult dialogresult = popup.ShowDialog();
+                char[] readWeek = fr_week.ReadToEnd().ToCharArray();
+                string week_ex = readWeek[0].ToString();
 
-                    getLevel(null, 20, null, null);
+                using (StreamReader fr_Day = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt"))
+                {
+                    char[] readDay = fr_Day.ReadToEnd().ToCharArray();
+                    string Day = readDay[0].ToString();
+
+                    if (week_ex == "3" || week_ex == "4" || week_ex == "5" || week_ex == "6")
+                        if (Day == "1")
+                        {
+                            Exhaustion_test popup = new Exhaustion_test();
+                            DialogResult dialogresult = popup.ShowDialog();
+                        }
+
+                    using (StreamReader fr_exTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
+                        switch (week_ex)
+                        {
+                            case "3":
+                                getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
+                                break;
+
+                            case "4":
+                                getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
+                                break;
+
+                            case "5":
+                                getLevel(null, null, int.Parse(fr_exTest.ReadToEnd()), null);
+                                break;
+
+                            case "6":
+                                getLevel(null, null, null, int.Parse(fr_exTest.ReadToEnd()));
+                                break;
+                        }               
                 }
+                    
             }
                 
             getWorkoutOfTheDay();
@@ -286,8 +319,18 @@ namespace The_Road_To_100
                 createWorkoutPlanFiles("Week");
                 createWorkoutPlanFiles("Day");
 
-                getWorkoutOfTheDay();
+                DateTime thisDay = DateTime.Today;
+                creatFiles("Start_Day", "", thisDay.Day);
+                creatFiles("Start_Month", "", thisDay.Month);
 
+                using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
+                    if (readWeek.ReadToEnd() == "3")
+                    {
+                        Cweek.Text = "3";
+                        QustionMark.Visible = true;
+                    }
+
+                getWorkoutOfTheDay();
                 fileCreate = true;
                 getRank();
                 setPersonal_Screen();
@@ -1354,15 +1397,7 @@ namespace The_Road_To_100
             using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))
                 getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
 
-            using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
-            {
-                if (readWeek.ReadToEnd() == "3")
-                {
-                    Cweek.Text = "3";
-                    QustionMark.Visible = true;
-                    setPR();
-                }
-            }
+            setPR();
             findeWorkoutParameters(Level);      
         }
 
@@ -1381,6 +1416,10 @@ namespace The_Road_To_100
 
         private void BstartWorkout_Click(object sender, EventArgs e)
         {
+            
+           
+            workout_done = false;
+
             if (moved == false)
             {
                 #region set control
@@ -1413,49 +1452,16 @@ namespace The_Road_To_100
                 Finish.Top -= 150;
                 Finish.Visible = true;
 
-                Arrow1.Visible = true;
 
             }
             else if (moved == true)
             {
-                #region set control
-                if (moved == false && workout_done == false || MessageBox.Show("You have not completed today's workout, Are you sure you want to quit?",
-                    "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                {
-                    Ppersonal_Screen.BringToFront();
-                    Ppersonal_Screen.Dock = DockStyle.Fill;
+                #region set control                                    
 
-                    Pginfo.Top = Pworkout.Top + 160;
-                    Pginfo.Left = (Pworkout.Width / 2) - (Pginfo.Width / 2) - 40;
+                if (workout_done == false && MessageBox.Show("You have not completed today's workout, Are you sure you want to quit?",
+                "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                    Reset_Pworkout();
 
-                    BstartWorkout.Width = 279;
-                    BstartWorkout.Height = 103;
-                    BstartWorkout.Text = "Start Workout";
-                    BstartWorkout.Top = Pworkout.Top + 55;
-                    BstartWorkout.Left = (Pworkout.Width / 2) - (BstartWorkout.Width / 2) - 26;
-
-                    Tstatment.Visible = false;
-
-                    Label[] lb = { Hours, label28, Minutes, label29, Seconds };
-                    foreach (Label LB in lb)
-                    {
-                        LB.Visible = false;
-                        LB.Text = "0";
-                    }
-
-                    Workout_Timer.Enabled = false;
-                    Workout_Timer_start = false;
-
-                    Finish.Top += 150;
-                    Finish.Visible = false;
-                    Finish.Enabled = true;
-
-                    button4.Visible = true;
-                    button4.Enabled = true;
-
-                    moved = false;
-                    workout_done = true;
-                }
                 #endregion
             }
         }
@@ -1516,22 +1522,8 @@ namespace The_Road_To_100
 
         private void Finish_Click(object sender, EventArgs e)
         {
-
+          #region rest
             rest_done = false;
-            if (workout_done == true)
-            {
-                Arrow1.Visible = false;
-                Arrow2.Visible = false;
-
-                //Change day
-                Change_Day();
-
-                //Change or keep the same week
-                //Close from the workout screen
-                //Reset the workout screen
-            }
-
-            #region rest
             if (workout_done == false)
             {
                 if (rest_done == false)
@@ -1548,16 +1540,22 @@ namespace The_Road_To_100
             #endregion
 
             #region Arrows
-            set_ToDo += 1;
+            if (workout_done == false)
+                set_ToDo += 1;
+
             if (num_sets == 5)
             {
                 Arrow1.Top += 39;
                 if (set_ToDo == 5)
-                {
                     Arrow1.Left += 85;
-                    workout_done = true;
+                else if (set_ToDo > 5)
+                {
+                    Finished_workout();
+                    button1.Enabled = false;
                 }
-                SET_setToDo();
+                    
+                if(workout_done == false)
+                    SET_setToDo();
             }
 
             else if (num_sets == 8)
@@ -1575,13 +1573,17 @@ namespace The_Road_To_100
 
                     if (set_ToDo > 6)
                     {
-                        if (set_ToDo == 8)
-                            workout_done = true;
+                        if (set_ToDo > 8)
+                        {
+                            Finished_workout();
+                        }                  
+                            
 
                         Arrow2.Top += 37;
                     }
                 }
-                SET_setToDo();
+                if (workout_done == false)
+                    SET_setToDo();
             }
 
             else if (num_sets == 9)
@@ -1599,15 +1601,97 @@ namespace The_Road_To_100
 
                     if (set_ToDo > 6)
                     {
-                        if (set_ToDo == 9)
-                            workout_done = true;
+                        if (set_ToDo > 9)
+                        {
+                            Finished_workout();
+                        }
+                            
 
                         Arrow2.Top += 37;
                     }
                 }
-                SET_setToDo();
+                if (workout_done == false)
+                    SET_setToDo();
             }
             #endregion              
+        }
+
+        private void Finished_workout()
+        {
+            //Change day and (if needed) change week
+            Change_Day();
+
+            //show Finish workout's messege
+
+            //Reset the workout screen
+            Reset_Pworkout();
+        }
+
+        private void Reset_Pworkout()
+        {
+
+            Pginfo.Top = Pworkout.Top + 160;
+            Pginfo.Left = (Pworkout.Width / 2) - (Pginfo.Width / 2) - 40;
+
+            BstartWorkout.Width = 279;
+            BstartWorkout.Height = 103;
+            BstartWorkout.Text = "Start Workout";
+            BstartWorkout.Top = Pworkout.Top + 55;
+            BstartWorkout.Left = (Pworkout.Width / 2) - (BstartWorkout.Width / 2) - 26;
+
+            Tstatment.Visible = false;
+
+            Arrow1.Visible = true;
+            Arrow2.Visible = false;
+
+
+            if (num_sets == 5)
+            {
+                while (Arrow1.Top != 70)
+                    Arrow1.Top -= 39;
+                if (set_ToDo > 5)
+                    Arrow1.Left -= 85;
+            }      
+                                
+            else if (num_sets == 8 || set_ToDo == 9)
+            {
+                while (Arrow1.Top != 70)
+                    Arrow1.Top -= 39;
+                while (Arrow2.Top != 70)
+                    Arrow2.Top -= 37;
+            }
+            
+
+            Label[] lb = { Hours, label28, Minutes, label29, Seconds };
+            foreach (Label LB in lb)
+                LB.Visible = false;
+            lb[0].Text = "0";
+            lb[2].Text = "0";
+            lb[4].Text = "0";
+            lb[1].Text = ":";
+            lb[3].Text = ":";
+
+            sec = 0;
+            min = 0;
+            houres = 0;
+
+            set_ToDo = 1;
+
+            Workout_Timer.Enabled = false;
+            Workout_Timer_start = false;
+
+            Finish.Top += 150;
+            Finish.Visible = false;
+            Finish.Enabled = true;
+
+            button4.Visible = true;
+            button4.Enabled = true;
+
+            Ppersonal_Screen.BringToFront();
+            Ppersonal_Screen.Dock = DockStyle.Fill;
+
+            moved = false;
+            workout_done = true;
         }
 
         private void SET_setToDo()
@@ -1621,12 +1705,7 @@ namespace The_Road_To_100
                     break;
                 }
                 else if (!(set_ToDo >= num_sets))
-                    Cdoset.Text = sets[set_ToDo - 1].ToString();
-                else
-                {
-                    set_ToDo = 1;
-                    workout_done = true;
-                }
+                    Cdoset.Text = sets[set_ToDo - 1].ToString();              
             }
         }
 
@@ -1745,13 +1824,15 @@ namespace The_Road_To_100
                             fw_D.Close();
                             fw_D.Dispose();
                         }
-
                     }
                 }
             }
         }
+        
         #endregion
     }
 }
-//fix the level problem : make anther exhaustion test and implement it to the code.
-//            getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
+//Add the date mechanics that alow the end user to start his workout:
+//1)add an if statment that determents if that the first time the end user is working out in the Bstartworkout_Click function;
+//2)add a secound is statment in the initialaize function that detetments if a day has past sence the last time the end user worked out.
+//add an else statment in getLevel() in each if statment

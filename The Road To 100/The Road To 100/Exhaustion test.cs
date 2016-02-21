@@ -17,6 +17,22 @@ namespace The_Road_To_100
         public Exhaustion_test()
         {
             InitializeComponent();
+            using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
+                switch (readWeek.ReadToEnd())
+                {
+                    case "3":
+                        Cex_testNum.Text = "1";
+                        break;
+                    case "4":
+                        Cex_testNum.Text = "2";
+                        break;
+                    case "5":
+                        Cex_testNum.Text = "3";
+                        break;
+                    case "6":
+                        Cex_testNum.Text = "4";
+                        break;
+                }
         }
 
         private void Submit_Click(object sender, EventArgs e)
@@ -30,7 +46,8 @@ namespace The_Road_To_100
             catch (Exception)
             {
 
-                throw;
+                Status.Visible = true;
+                Status.Text = "You must write a number.";
             }
             
             

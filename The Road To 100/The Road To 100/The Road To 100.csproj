@@ -53,6 +53,12 @@
     <Compile Include="Exhaustion test.Designer.cs">
       <DependentUpon>Exhaustion test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sorry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sorry.Designer.cs">
+      <DependentUpon>Sorry.cs</DependentUpon>
+    </Compile>
     <Compile Include="The Road To 100.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <EmbeddedResource Include="Exhaustion test.resx">
       <DependentUpon>Exhaustion test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sorry.resx">
+      <DependentUpon>Sorry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="The Road To 100.resx">
       <DependentUpon>The Road To 100.cs</DependentUpon>

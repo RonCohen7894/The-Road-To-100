@@ -39,7 +39,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Linfo_intailtest = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Cex_testNum = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +57,7 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.Linfo_intailtest);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.Cex_testNum);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -172,17 +172,17 @@
             this.Linfo_intailtest.TabIndex = 2;
             this.Linfo_intailtest.Text = resources.GetString("Linfo_intailtest.Text");
             // 
-            // label2
+            // Cex_testNum
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Teal;
-            this.label2.Location = new System.Drawing.Point(357, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 31);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "content";
+            this.Cex_testNum.AutoSize = true;
+            this.Cex_testNum.BackColor = System.Drawing.Color.Transparent;
+            this.Cex_testNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cex_testNum.ForeColor = System.Drawing.Color.Teal;
+            this.Cex_testNum.Location = new System.Drawing.Point(357, 26);
+            this.Cex_testNum.Name = "Cex_testNum";
+            this.Cex_testNum.Size = new System.Drawing.Size(111, 31);
+            this.Cex_testNum.TabIndex = 0;
+            this.Cex_testNum.Text = "content";
             // 
             // label1
             // 
@@ -215,7 +215,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Cex_testNum;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox Linfo_intailtest;
         private System.Windows.Forms.Label Status;
