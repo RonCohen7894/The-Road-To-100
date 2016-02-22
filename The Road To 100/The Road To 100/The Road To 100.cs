@@ -147,9 +147,7 @@ namespace The_Road_To_100
             PmainManu.Dock = DockStyle.None;
             Ppersonal_Screen.Dock = DockStyle.Fill;
             Ppersonal_Screen.BringToFront();
-
-            
-                
+              
             
             using (StreamReader fr_week = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
             {
@@ -168,25 +166,38 @@ namespace The_Road_To_100
                             DialogResult dialogresult = popup.ShowDialog();
                         }
 
-                    using (StreamReader fr_exTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
-                        switch (week_ex)
-                        {
-                            case "3":
-                                getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
-                                break;
+                    if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))                   
+                        using (StreamReader fr_exTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
+                            switch (week_ex)
+                            {
+                                case "3":
+                                    getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
+                                    break;
 
-                            case "4":
-                                getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
-                                break;
+                                case "4":
+                                    getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
+                                    break;
 
-                            case "5":
-                                getLevel(null, null, int.Parse(fr_exTest.ReadToEnd()), null);
-                                break;
+                                case "5":
+                                    getLevel(null, null, int.Parse(fr_exTest.ReadToEnd()), null);
+                                    break;
 
-                            case "6":
-                                getLevel(null, null, null, int.Parse(fr_exTest.ReadToEnd()));
-                                break;
-                        }               
+                                case "6":
+                                    getLevel(null, null, null, int.Parse(fr_exTest.ReadToEnd()));
+                                    break;
+                            }
+
+                    if (File.Exists(@"C:\The Road To 100\user.ID 1\First_Day.txt"))
+                    {
+                        DateTime thisDate = DateTime.Today;
+                        using (StreamReader fr_FirstDay = new StreamReader(@"C:\The Road To 100\user.ID 1\First_Day.txt"))
+                            if (thisDate.Day.ToString() != fr_FirstDay.ReadToEnd())
+                            {
+                                using (StreamWriter fw_FirstDay = new StreamWriter(@"C:\The Road To 100\user.ID 1\First Day.txt"))
+                                    fw_FirstDay.Write(thisDate.Day);
+                                button1.Enabled = true;
+                            }
+                    }
                 }
                     
             }
@@ -319,9 +330,7 @@ namespace The_Road_To_100
                 createWorkoutPlanFiles("Week");
                 createWorkoutPlanFiles("Day");
 
-                DateTime thisDay = DateTime.Today;
-                creatFiles("Start_Day", "", thisDay.Day);
-                creatFiles("Start_Month", "", thisDay.Month);
+                
 
                 using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
                     if (readWeek.ReadToEnd() == "3")
@@ -330,6 +339,7 @@ namespace The_Road_To_100
                         QustionMark.Visible = true;
                     }
 
+                button1.Enabled = true;
                 getWorkoutOfTheDay();
                 fileCreate = true;
                 getRank();
@@ -1416,8 +1426,7 @@ namespace The_Road_To_100
 
         private void BstartWorkout_Click(object sender, EventArgs e)
         {
-            
-           
+                         
             workout_done = false;
 
             if (moved == false)
@@ -1625,6 +1634,13 @@ namespace The_Road_To_100
 
             //Reset the workout screen
             Reset_Pworkout();
+
+            //get the date
+            if (!File.Exists(@"C:\The Road To 100\user.ID 1\First_Day.txt"))
+            {
+                DateTime thisDate = DateTime.Today;
+                creatFiles("First_Day", "", thisDate.Day);
+            }
         }
 
         private void Reset_Pworkout()
@@ -1832,7 +1848,4 @@ namespace The_Road_To_100
         #endregion
     }
 }
-//Add the date mechanics that alow the end user to start his workout:
-//1)add an if statment that determents if that the first time the end user is working out in the Bstartworkout_Click function;
-//2)add a secound is statment in the initialaize function that detetments if a day has past sence the last time the end user worked out.
 //add an else statment in getLevel() in each if statment
