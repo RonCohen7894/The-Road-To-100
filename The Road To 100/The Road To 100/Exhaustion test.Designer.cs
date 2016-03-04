@@ -115,6 +115,7 @@
             this.LINK_to_good_form.Size = new System.Drawing.Size(181, 22);
             this.LINK_to_good_form.TabIndex = 7;
             this.LINK_to_good_form.Text = "good-form push ups";
+            this.LINK_to_good_form.Click += new System.EventHandler(this.LINK_to_good_form_Click);
             // 
             // label7
             // 

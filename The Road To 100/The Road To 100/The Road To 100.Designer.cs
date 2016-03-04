@@ -66,6 +66,7 @@
             this.Lsignup = new System.Windows.Forms.Label();
             this.Ppersonal_Screen = new System.Windows.Forms.Panel();
             this.label20 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pr1 = new System.Windows.Forms.PictureBox();
             this.pr2 = new System.Windows.Forms.PictureBox();
             this.pr3 = new System.Windows.Forms.PictureBox();
@@ -146,6 +147,7 @@
             this.Pnew_user.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PICsignup)).BeginInit();
             this.Ppersonal_Screen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr3)).BeginInit();
@@ -633,6 +635,7 @@
             this.Ppersonal_Screen.BackColor = System.Drawing.Color.FloralWhite;
             this.Ppersonal_Screen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Ppersonal_Screen.Controls.Add(this.label20);
+            this.Ppersonal_Screen.Controls.Add(this.pictureBox1);
             this.Ppersonal_Screen.Controls.Add(this.pr1);
             this.Ppersonal_Screen.Controls.Add(this.pr2);
             this.Ppersonal_Screen.Controls.Add(this.pr3);
@@ -672,11 +675,22 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(880, 139);
+            this.label20.Location = new System.Drawing.Point(876, 139);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(204, 108);
             this.label20.TabIndex = 10;
             this.label20.Text = "100";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::The_Road_To_100.Properties.Resources._100_fireworks1;
+            this.pictureBox1.Location = new System.Drawing.Point(872, 132);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(280, 130);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // pr1
             // 
@@ -725,6 +739,7 @@
             // 
             // pr6
             // 
+            this.pr6.BackColor = System.Drawing.Color.FloralWhite;
             this.pr6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pr6.Location = new System.Drawing.Point(725, 179);
             this.pr6.Name = "pr6";
@@ -1573,6 +1588,7 @@
             this.Controls.Add(this.Pnew_user);
             this.Controls.Add(this.PmainManu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "The_Road_To_100";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.PmainManu.ResumeLayout(false);
@@ -1583,6 +1599,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PICsignup)).EndInit();
             this.Ppersonal_Screen.ResumeLayout(false);
             this.Ppersonal_Screen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr3)).EndInit();
@@ -1715,6 +1732,7 @@
         private System.Windows.Forms.Label Crest;
         private System.Windows.Forms.Label Lrest;
         private System.Windows.Forms.Timer Rest_Timer;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

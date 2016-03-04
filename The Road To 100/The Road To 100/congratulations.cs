@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace The_Road_To_100
 {
-    public partial class Sorry : Form
+    public partial class congratulations : Form
     {
-        public Sorry()
+        public congratulations()
         {
             InitializeComponent();
-        }
-
-        private void Boktoclose_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }

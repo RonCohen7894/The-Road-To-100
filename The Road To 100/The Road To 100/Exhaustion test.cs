@@ -22,15 +22,12 @@ namespace The_Road_To_100
                 {
                     case "3":
                         Cex_testNum.Text = "1";
-                        break;
-                    case "4":
+                        break;     
+                    case "5":
                         Cex_testNum.Text = "2";
                         break;
-                    case "5":
-                        Cex_testNum.Text = "3";
-                        break;
                     case "6":
-                        Cex_testNum.Text = "4";
+                        Cex_testNum.Text = "3";
                         break;
                 }
         }
@@ -71,6 +68,12 @@ namespace The_Road_To_100
                     fw.Close();
                 }
             }
+        }
+
+        private void LINK_to_good_form_Click(object sender, EventArgs e)
+        {
+            Good_Form popup = new Good_Form();
+            DialogResult dialogresult = popup.ShowDialog();
         }
     }
 }

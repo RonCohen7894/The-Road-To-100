@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="congratulations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="congratulations.Designer.cs">
+      <DependentUpon>congratulations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Exhaustion test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     <Compile Include="WorkoutPlan.Designer.cs">
       <DependentUpon>WorkoutPlan.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="congratulations.resx">
+      <DependentUpon>congratulations.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Exhaustion test.resx">
       <DependentUpon>Exhaustion test.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +117,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="WorkoutPlan.resx">
       <DependentUpon>WorkoutPlan.cs</DependentUpon>
@@ -127,6 +137,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="IntorductionTXT.txt" />
+    <None Include="Resources\100-fireworks.png" />
+    <None Include="Resources\100-fireworks.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace The_Road_To_100
 {
@@ -21,24 +22,27 @@ namespace The_Road_To_100
             PmainManu.BringToFront();
             PmainManu.Dock = DockStyle.Fill;
             organizeMenu();
-
+            
             if (Directory.Exists(@"C:\The Road To 100\user.ID 1"))
             {
                 setPersonal_Screen();
                 getRank();
                 Bcontinue.Enabled = true;
             }
-
             else
-                System.IO.Directory.CreateDirectory(@"C:\The Road To 100");
-
-            
+            {
+                DirectoryInfo di = Directory.CreateDirectory(@"C:\The Road To 100");
+                di.Create();
+                di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
+                
+            }            
         }
 
         #region Variables
         //main menu
         public static string Buttonname;
         public static string content;
+        
 
         //new user
         string New_name;
@@ -68,6 +72,8 @@ namespace The_Road_To_100
         private int num_sets;
         string week;
         string day;
+        int Weekcontent;
+        bool repetWeek;
 
         //workout
         private bool moved = false;
@@ -90,16 +96,50 @@ namespace The_Road_To_100
             knowledge_center popup = new knowledge_center();
 
             if (button.Name == "Bintroduction")
-                Buttonname = "IntorductionTXT.txt";
+                popup.textBox1.Text = @"If you're serious about increasing your strength,
+follow this six week training program and you'll soon be on your way to completing 100 consecutive push ups!
+
+
+No doubt some of you can already do 50 consecutive push ups,
+but let's face it, you're in a big minority. 
+Most of you reading this won't even be able to manage 20 pushups. Actually, 
+I'm sure many of you can't even do 10.
+
+
+
+However, it really doesn't matter which group you fall into. 
+If you follow the progressive push ups training program, 
+I'm positive you'll soon be able to do 100 push ups!";
 
             else if (button.Name == "Bwhypushups")
-                Buttonname = "why_push_upsTXT.txt";
+                popup.textBox1.Text = @"Push ups are one of the basic and most common exercises for the human body.
+Push ups are not only great for your chest,
+but do a tremendous job of defining your abs, triceps, shoulders and torso.
+
+Push ups can be performed no matter where you are, and best of all, 
+they are completely free - no expensive equipment or annual gym fees required! 
+If you're looking to develop a great chest and shoulders, 
+you could do much worse than follow along with the hundred push ups plan. 
+Your core strength will also go through the roof too!
+
+To improve your strength, fitness and general health all you need to do is
+commit about 30 minutes of your time per week, and follow the push ups training program 
+as closely as you can. I promise you will feel much better about yourself and much more 
+confident after just a few short workouts.";
 
             else if (button.Name == "Bwhatisapushup")
-                Buttonname = "what_is_a_push-upTXT.txt";
+                popup.textBox1.Text = @"According to Wikipedia, a push-up (USA English), or a press-up (UK English), 
+is ""a common strength training exercise performed in a prone position:
 
-            ReadFileTXT();
-            popup.textBox1.Text = content;
+lying horizontal and face down, raising and lowering the body using the arms.""
+
+Push ups are a basic exercise used in civilian athletic training or physical education and,
+especially, in military physical training and will develop the pectoral muscles and triceps,
+with ancillary benefits to the deltoids, serratus anterior,
+coracobrachialis and the midsection as a whole.";
+
+
+
 
 
             DialogResult dialogresult = popup.ShowDialog();
@@ -109,22 +149,6 @@ namespace The_Road_To_100
         {
             Good_Form popup = new Good_Form();
             DialogResult dialogresult = popup.ShowDialog();
-        }
-
-        public static void ReadFileTXT()
-        {
-            try
-            {
-                using (StreamReader sr = new StreamReader(Buttonname))
-                {
-                    content = sr.ReadToEnd();
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("The file could not be read:");
-                MessageBox.Show(e.Message);
-            }
         }
 
         public void organizeMenu()
@@ -143,7 +167,7 @@ namespace The_Road_To_100
         }
 
         private void Bcontinue_Click(object sender, EventArgs e)
-        {
+        {           
             PmainManu.Dock = DockStyle.None;
             Ppersonal_Screen.Dock = DockStyle.Fill;
             Ppersonal_Screen.BringToFront();
@@ -159,15 +183,31 @@ namespace The_Road_To_100
                     char[] readDay = fr_Day.ReadToEnd().ToCharArray();
                     string Day = readDay[0].ToString();
 
-                    if (week_ex == "3" || week_ex == "4" || week_ex == "5" || week_ex == "6")
+                    if (week_ex == "3" || week_ex == "5" || week_ex == "6")
                         if (Day == "1")
                         {
                             Exhaustion_test popup = new Exhaustion_test();
                             DialogResult dialogresult = popup.ShowDialog();
                         }
 
-                    if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))                   
+                    using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))                    
+                        if (week_ex == "1" || week_ex == "2" && !File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
+                            getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
+
+
+
+
+                    if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
                         using (StreamReader fr_exTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
+                        {
+                            if (File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
+                            {
+                                getLevel(int.Parse(fr_exTest.ReadToEnd()), null, null, null);
+
+                                if (Day == "3")
+                                    File.Delete(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt");
+                            }
+                                
                             switch (week_ex)
                             {
                                 case "3":
@@ -186,6 +226,7 @@ namespace The_Road_To_100
                                     getLevel(null, null, null, int.Parse(fr_exTest.ReadToEnd()));
                                     break;
                             }
+                        }
 
                     if (File.Exists(@"C:\The Road To 100\user.ID 1\First_Day.txt"))
                     {
@@ -198,11 +239,23 @@ namespace The_Road_To_100
                                 button1.Enabled = true;
                             }
                     }
+                    using (StreamReader fr_week2 = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
+                        if(fr_week2.ReadToEnd() == "7")
+                        {
+                            button1.Enabled = false;
+                            pictureBox1.Visible = true;
+                            pictureBox1.BringToFront();
+
+                            
+                        }
                 }
                     
             }
-                
-            getWorkoutOfTheDay();
+
+            if (repetWeek == true)
+                Repet_oneWeek();
+
+            findeWorkoutParameters(Level);
             setPR();        
         }
 
@@ -248,6 +301,10 @@ namespace The_Road_To_100
         {
             PictureBox[] pb = { pr1, pr2, pr3, pr4, pr5, pr6 };
 
+            string colorcode = "#E3D93C";
+            int argb = Int32.Parse(colorcode.Replace("#", ""), NumberStyles.HexNumber);
+            Color clr = Color.FromArgb(argb);
+
             using (StreamReader sr = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Week.txt"))
             {
                 switch (sr.ReadToEnd())
@@ -275,10 +332,12 @@ namespace The_Road_To_100
                         foreach (PictureBox PB in pb)
                             PB.BackColor = Color.AliceBlue;
                         break;
+                    case "7":
+                        foreach (PictureBox PB in pb)
+                            PB.BackColor = Color.Gold;
+                        break;
 
-                    sr.Close();
-                    sr.Dispose();
-
+                    
                 }
             }
                 
@@ -340,7 +399,9 @@ namespace The_Road_To_100
                     }
 
                 button1.Enabled = true;
-                getWorkoutOfTheDay();
+                using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))                    
+                    getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
+                findeWorkoutParameters(Level);
                 fileCreate = true;
                 getRank();
                 setPersonal_Screen();
@@ -636,7 +697,7 @@ namespace The_Road_To_100
                 {
                     if (test1 <= 5) { Level = 1; }
                     else if (test1 >= 6 && test1 <= 10) { Level = 2; }
-                    else if (test1 >= 11 && test1 <= 20) { Level = 3; }
+                    else if (test1 >= 11 && test1 <= 20) { Level = 3; }                  
                 }
 
                 else if (test1 > 20 || week == "3" || week == "4")
@@ -644,6 +705,8 @@ namespace The_Road_To_100
                     if (test2 >= 16 && test2 <= 20 || test1 >= 16 && test1 <= 20) { Level = 1; }
                     else if (test2 >= 21 && test2 <= 25 || test1 >= 21 && test1 <= 25) { Level = 2; }
                     else if (test2 > 25 || test1 > 25) { Level = 3; }
+                    else
+                        repetWeek = true;
                 }
 
                 else if (week == "5")
@@ -651,6 +714,8 @@ namespace The_Road_To_100
                     if (test3 >= 31 && test3 <= 35) { Level = 1; }
                     else if (test3 >= 36 && test3 <= 40) { Level = 2; }
                     else if (test3 > 40) { Level = 3; }
+                    else
+                        repetWeek = true;
                 }
 
                 else if (week == "6")
@@ -658,10 +723,61 @@ namespace The_Road_To_100
                     if (test4 >= 46 && test4 <= 50) { Level = 1; }
                     else if (test4 >= 51 && test4 <= 60) { Level = 2; }
                     else if (test4 > 60) { Level = 3; }
+                    else
+                        repetWeek = true;
                 }
                 sr.Close();
                 sr.Dispose();
             }
+                
+        }
+
+        private void Repet_oneWeek()
+        {
+            Sorry popup = new Sorry();
+            DialogResult dialogresult = popup.ShowDialog();
+
+            string c = get_content(@"C:\The Road To 100\user.ID 1\Week.txt");
+            using (StreamWriter fw_week = new StreamWriter(@"C:\The Road To 100\user.ID 1\Week.txt"))           
+                fw_week.Write(int.Parse(c) - 1);
+            
+            using (StreamReader fr_week = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
+                if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
+                    using (StreamReader fr_exTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
+                        switch (fr_week.ReadToEnd())
+                        {
+                            case "2":
+                                getLevel(int.Parse(fr_exTest.ReadToEnd()), null, null, null);
+                                creatFiles("repetOneWeek", "true", 0);
+                                break;
+
+                            case "3":
+                                getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
+                                break;
+
+                            case "4":
+                                getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
+                                break;
+
+                            case "5":
+                                getLevel(null, null, int.Parse(fr_exTest.ReadToEnd()), null);
+                                break;
+
+                            case "6":
+                                getLevel(null, null, null, int.Parse(fr_exTest.ReadToEnd()));
+                                break;
+                            default:
+                                int o;
+                                break;                          
+                        }
+            using (StreamReader fr_week = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
+                Cweek.Text = fr_week.ReadToEnd();
+        }
+
+        private string get_content(string path)
+        {
+            using (StreamReader fr_Week = new StreamReader(path))
+                return fr_Week.ReadToEnd();
                 
         }
 
@@ -1402,15 +1518,6 @@ namespace The_Road_To_100
             textBox1.Visible = false;
         }
 
-        private void getWorkoutOfTheDay()
-        {
-            using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))
-                getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
-
-            setPR();
-            findeWorkoutParameters(Level);      
-        }
-
         private void BstartTraining(object sender, EventArgs e)
         {
             setPworkout();
@@ -1540,10 +1647,12 @@ namespace The_Road_To_100
                     Finish.Enabled = false;
                     Lrest.Visible = true;
                     Crest.Visible = true;
+
+                    Crest.Text = rest.ToString();
+                    Rest_Timer.Start();
                 }
 
-                Crest.Text = (1/*rest - 44*/).ToString();
-                Rest_Timer.Start();
+                
             }
 
             #endregion
@@ -1585,6 +1694,7 @@ namespace The_Road_To_100
                         if (set_ToDo > 8)
                         {
                             Finished_workout();
+                            button1.Enabled = false;
                         }                  
                             
 
@@ -1613,6 +1723,7 @@ namespace The_Road_To_100
                         if (set_ToDo > 9)
                         {
                             Finished_workout();
+                            button1.Enabled = false;
                         }
                             
 
@@ -1627,10 +1738,22 @@ namespace The_Road_To_100
 
         private void Finished_workout()
         {
+            //show Finish workout's messege
+            Ppersonal_Screen.BringToFront();
+            Ppersonal_Screen.Dock = DockStyle.Fill;
+
+            congratulations popup = new congratulations();
+            popup.Ltime.Text = string.Format("{0} Minuts and {1} Seconds", min, sec);
+            popup.Lpushups.Text = string.Format("{0} Push Ups", Ctodayspushups.Text);
+            DialogResult dr = popup.ShowDialog();
+
             //Change day and (if needed) change week
             Change_Day();
 
-            //show Finish workout's messege
+            using (StreamWriter fw_push = new StreamWriter(@"C:\The Road To 100\user.ID 1\Total Push ups Done.txt"))
+                fw_push.Write(int.Parse(Ctotal_push_done.Text) + int.Parse(Ctodayspushups.Text));
+            int c = int.Parse(Ctotal_push_done.Text);
+            Ctotal_push_done.Text = (c + int.Parse(Ctodayspushups.Text)).ToString();
 
             //Reset the workout screen
             Reset_Pworkout();
@@ -1696,6 +1819,13 @@ namespace The_Road_To_100
             Workout_Timer.Enabled = false;
             Workout_Timer_start = false;
 
+            Rest_Timer.Enabled = false;
+            rest_done = false;
+            Lrest.Visible = false;
+            Crest.Visible = false;
+            Crest.Text = "0";
+
+
             Finish.Top += 150;
             Finish.Visible = false;
             Finish.Enabled = true;
@@ -1703,8 +1833,7 @@ namespace The_Road_To_100
             button4.Visible = true;
             button4.Enabled = true;
 
-            Ppersonal_Screen.BringToFront();
-            Ppersonal_Screen.Dock = DockStyle.Fill;
+            
 
             moved = false;
             workout_done = true;
@@ -1848,4 +1977,3 @@ namespace The_Road_To_100
         #endregion
     }
 }
-//add an else statment in getLevel() in each if statment
