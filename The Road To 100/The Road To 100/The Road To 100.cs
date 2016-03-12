@@ -183,13 +183,18 @@ coracobrachialis and the midsection as a whole.";
                     char[] readDay = fr_Day.ReadToEnd().ToCharArray();
                     string Day = readDay[0].ToString();
 
-                    if (week_ex == "3" || week_ex == "5" || week_ex == "6")
-                        if (Day == "1")
-                        {
-                            Exhaustion_test popup = new Exhaustion_test();
-                            DialogResult dialogresult = popup.ShowDialog();
-                        }
-
+                    if (!File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
+                    {
+                        if (week_ex == "3" || week_ex == "5" || week_ex == "6")
+                            if (Day == "1")
+                            {
+                                Exhaustion_test popup = new Exhaustion_test();
+                                DialogResult dialogresult = popup.ShowDialog();
+                            }
+                    }
+                    else if(File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt") && Day != "1")
+                        File.Delete(@"C:\The Road To 100\user.ID 1\FirstTime.txt");   
+                            
                     using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))                    
                         if (week_ex == "1" || week_ex == "2" && !File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
                             getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
@@ -228,28 +233,30 @@ coracobrachialis and the midsection as a whole.";
                             }
                         }
 
-                    if (File.Exists(@"C:\The Road To 100\user.ID 1\First_Day.txt"))
-                    {
-                        DateTime thisDate = DateTime.Today;
-                        using (StreamReader fr_FirstDay = new StreamReader(@"C:\The Road To 100\user.ID 1\First_Day.txt"))
-                            if (thisDate.Day.ToString() != fr_FirstDay.ReadToEnd())
-                            {
-                                using (StreamWriter fw_FirstDay = new StreamWriter(@"C:\The Road To 100\user.ID 1\First Day.txt"))
-                                    fw_FirstDay.Write(thisDate.Day);
-                                button1.Enabled = true;
-                            }
+                   
+                    DateTime thisDate = DateTime.Today;
+                    if (File.Exists(@"C:\The Road To 100\user.ID 1\First_Day.txt") || File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
+                    {   
+                        try
+                        {
+                            using (StreamReader fr_FirstDay = new StreamReader(@"C:\The Road To 100\user.ID 1\First_Day.txt"))
+                                if (thisDate.Day.ToString() != fr_FirstDay.ReadToEnd())   
+                                    button1.Enabled = true;
+                        }
+                        catch (Exception)
+                        {
+                            button1.Enabled = true;
+                        }                        
                     }
+                    
                     using (StreamReader fr_week2 = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
                         if(fr_week2.ReadToEnd() == "7")
                         {
                             button1.Enabled = false;
                             pictureBox1.Visible = true;
                             pictureBox1.BringToFront();
-
-                            
                         }
                 }
-                    
             }
 
             if (repetWeek == true)
@@ -271,6 +278,9 @@ coracobrachialis and the midsection as a whole.";
                 if (MessageBox.Show("There is already a regitered user, \nDo you want to overwrite it?",
                     "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
+                    Directory.Delete(@"C:\The Road To 100\user.ID 1", true);
+                    Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1");
+
                     PmainManu.Dock = DockStyle.None;
                     PmainManu.SendToBack();
 
@@ -386,6 +396,8 @@ coracobrachialis and the midsection as a whole.";
                 creatFiles("Age", "", New_age);
                 creatFiles("Initial Test", "", intailTest_results);
                 creatFiles("Total Push ups Done", "", intailTest_results);
+                creatFiles("Exhaustion test", "", intailTest_results);
+                creatFiles("FirstTime", "True" ,0);
                 createWorkoutPlanFiles("Week");
                 createWorkoutPlanFiles("Day");
 
@@ -1648,7 +1660,7 @@ coracobrachialis and the midsection as a whole.";
                     Lrest.Visible = true;
                     Crest.Visible = true;
 
-                    Crest.Text = rest.ToString();
+                    Crest.Text = (1).ToString();
                     Rest_Timer.Start();
                 }
 
@@ -1759,11 +1771,9 @@ coracobrachialis and the midsection as a whole.";
             Reset_Pworkout();
 
             //get the date
-            if (!File.Exists(@"C:\The Road To 100\user.ID 1\First_Day.txt"))
-            {
-                DateTime thisDate = DateTime.Today;
-                creatFiles("First_Day", "", thisDate.Day);
-            }
+            DateTime thisDate = DateTime.Today;
+            File.Delete(@"C:\The Road To 100\user.ID 1\First_Day.txt");
+            creatFiles("First_Day", "", thisDate.Day);
         }
 
         private void Reset_Pworkout()
