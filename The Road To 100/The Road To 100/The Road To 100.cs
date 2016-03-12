@@ -1660,7 +1660,7 @@ coracobrachialis and the midsection as a whole.";
                     Lrest.Visible = true;
                     Crest.Visible = true;
 
-                    Crest.Text = (1).ToString();
+                    Crest.Text = (rest).ToString();
                     Rest_Timer.Start();
                 }
 
