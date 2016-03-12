@@ -666,6 +666,7 @@ coracobrachialis and the midsection as a whole.";
 
             if (set_8 == 0)
             {
+
                 popup.Cset1.Text = set_1.ToString();
                 popup.Cset2.Text = set_2.ToString();
                 popup.Cset3.Text = set_3.ToString();
@@ -1537,7 +1538,6 @@ coracobrachialis and the midsection as a whole.";
             Pworkout.BringToFront();
 
         }
-
 
         #endregion
 
