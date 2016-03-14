@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Media;
 
 namespace The_Road_To_100
 {
@@ -167,12 +168,11 @@ coracobrachialis and the midsection as a whole.";
         }
 
         private void Bcontinue_Click(object sender, EventArgs e)
-        {           
+        {
             PmainManu.Dock = DockStyle.None;
             Ppersonal_Screen.Dock = DockStyle.Fill;
             Ppersonal_Screen.BringToFront();
-              
-            
+
             using (StreamReader fr_week = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
             {
                 char[] readWeek = fr_week.ReadToEnd().ToCharArray();
@@ -198,8 +198,6 @@ coracobrachialis and the midsection as a whole.";
                     using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))                    
                         if (week_ex == "1" || week_ex == "2" && !File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
                             getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
-
-
 
 
                     if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
@@ -1662,9 +1660,7 @@ coracobrachialis and the midsection as a whole.";
 
                     Crest.Text = (rest).ToString();
                     Rest_Timer.Start();
-                }
-
-                
+                }                
             }
 
             #endregion
@@ -1916,7 +1912,11 @@ coracobrachialis and the midsection as a whole.";
                 time_Left--;
                 Crest.Text = time_Left.ToString();
                 if (Crest.Text == "0")
+                {
+                    SystemSounds.Hand.Play();
                     rest_done = true;
+                }
+                    
                 break;
             }
 
@@ -1926,6 +1926,7 @@ coracobrachialis and the midsection as a whole.";
                 Lrest.Visible = false;
                 Crest.Visible = false;
             }
+            
         }
 
         private void Change_Day()
@@ -1983,7 +1984,7 @@ coracobrachialis and the midsection as a whole.";
                 }
             }
         }
-        
+
         #endregion
     }
 }
