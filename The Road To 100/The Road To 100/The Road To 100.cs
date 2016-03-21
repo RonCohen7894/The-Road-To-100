@@ -23,7 +23,7 @@ namespace The_Road_To_100
             PmainManu.BringToFront();
             PmainManu.Dock = DockStyle.Fill;
             organizeMenu();
-            
+
             if (Directory.Exists(@"C:\The Road To 100\user.ID 1"))
             {
                 setPersonal_Screen();
@@ -35,15 +35,15 @@ namespace The_Road_To_100
                 DirectoryInfo di = Directory.CreateDirectory(@"C:\The Road To 100");
                 di.Create();
                 di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
-                
-            }            
+
+            }
         }
 
         #region Variables
         //main menu
         public static string Buttonname;
         public static string content;
-        
+
 
         //new user
         string New_name;
@@ -192,10 +192,10 @@ coracobrachialis and the midsection as a whole.";
                                 DialogResult dialogresult = popup.ShowDialog();
                             }
                     }
-                    else if(File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt") && Day != "1")
-                        File.Delete(@"C:\The Road To 100\user.ID 1\FirstTime.txt");   
-                            
-                    using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))                    
+                    else if (File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt") && Day != "1")
+                        File.Delete(@"C:\The Road To 100\user.ID 1\FirstTime.txt");
+
+                    using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))
                         if (week_ex == "1" || week_ex == "2" && !File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
                             getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
 
@@ -210,7 +210,7 @@ coracobrachialis and the midsection as a whole.";
                                 if (Day == "3")
                                     File.Delete(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt");
                             }
-                                
+
                             switch (week_ex)
                             {
                                 case "3":
@@ -231,24 +231,24 @@ coracobrachialis and the midsection as a whole.";
                             }
                         }
 
-                   
+
                     DateTime thisDate = DateTime.Today;
                     if (File.Exists(@"C:\The Road To 100\user.ID 1\First_Day.txt") || File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
-                    {   
+                    {
                         try
                         {
                             using (StreamReader fr_FirstDay = new StreamReader(@"C:\The Road To 100\user.ID 1\First_Day.txt"))
-                                if (thisDate.Day.ToString() != fr_FirstDay.ReadToEnd())   
+                                if (thisDate.Day.ToString() != fr_FirstDay.ReadToEnd())
                                     button1.Enabled = true;
                         }
                         catch (Exception)
                         {
                             button1.Enabled = true;
-                        }                        
+                        }
                     }
-                    
+
                     using (StreamReader fr_week2 = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
-                        if(fr_week2.ReadToEnd() == "7")
+                        if (fr_week2.ReadToEnd() == "7")
                         {
                             button1.Enabled = false;
                             pictureBox1.Visible = true;
@@ -261,7 +261,7 @@ coracobrachialis and the midsection as a whole.";
                 Repet_oneWeek();
 
             findeWorkoutParameters(Level);
-            setPR();        
+            setPR();
         }
 
         private void CloseButtoon(object sender, EventArgs e)
@@ -345,11 +345,11 @@ coracobrachialis and the midsection as a whole.";
                             PB.BackColor = Color.Gold;
                         break;
 
-                    
+
                 }
             }
-                
-            
+
+
         }
 
         #region drag form
@@ -372,7 +372,7 @@ coracobrachialis and the midsection as a whole.";
         }
 
         #endregion
-        
+
 
         #endregion
 
@@ -395,11 +395,11 @@ coracobrachialis and the midsection as a whole.";
                 creatFiles("Initial Test", "", intailTest_results);
                 creatFiles("Total Push ups Done", "", intailTest_results);
                 creatFiles("Exhaustion test", "", intailTest_results);
-                creatFiles("FirstTime", "True" ,0);
+                creatFiles("FirstTime", "True", 0);
                 createWorkoutPlanFiles("Week");
                 createWorkoutPlanFiles("Day");
 
-                
+
 
                 using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
                     if (readWeek.ReadToEnd() == "3")
@@ -409,7 +409,7 @@ coracobrachialis and the midsection as a whole.";
                     }
 
                 button1.Enabled = true;
-                using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))                    
+                using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))
                     getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
                 findeWorkoutParameters(Level);
                 fileCreate = true;
@@ -708,7 +708,7 @@ coracobrachialis and the midsection as a whole.";
                 {
                     if (test1 <= 5) { Level = 1; }
                     else if (test1 >= 6 && test1 <= 10) { Level = 2; }
-                    else if (test1 >= 11 && test1 <= 20) { Level = 3; }                  
+                    else if (test1 >= 11 && test1 <= 20) { Level = 3; }
                 }
 
                 else if (test1 > 20 || week == "3" || week == "4")
@@ -740,7 +740,7 @@ coracobrachialis and the midsection as a whole.";
                 sr.Close();
                 sr.Dispose();
             }
-                
+
         }
 
         private void Repet_oneWeek()
@@ -749,9 +749,9 @@ coracobrachialis and the midsection as a whole.";
             DialogResult dialogresult = popup.ShowDialog();
 
             string c = get_content(@"C:\The Road To 100\user.ID 1\Week.txt");
-            using (StreamWriter fw_week = new StreamWriter(@"C:\The Road To 100\user.ID 1\Week.txt"))           
+            using (StreamWriter fw_week = new StreamWriter(@"C:\The Road To 100\user.ID 1\Week.txt"))
                 fw_week.Write(int.Parse(c) - 1);
-            
+
             using (StreamReader fr_week = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
                 if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
                     using (StreamReader fr_exTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
@@ -779,7 +779,7 @@ coracobrachialis and the midsection as a whole.";
                                 break;
                             default:
                                 int o;
-                                break;                          
+                                break;
                         }
             using (StreamReader fr_week = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
                 Cweek.Text = fr_week.ReadToEnd();
@@ -789,7 +789,7 @@ coracobrachialis and the midsection as a whole.";
         {
             using (StreamReader fr_Week = new StreamReader(path))
                 return fr_Week.ReadToEnd();
-                
+
         }
 
         private void findeWorkoutParameters(int level)
@@ -806,7 +806,7 @@ coracobrachialis and the midsection as a whole.";
                 char[] readDay = x.ReadToEnd().ToCharArray();
                 day = readDay[0].ToString();
             }
-                
+
 
             #region week 1
             if (week == "1")
@@ -1492,7 +1492,7 @@ coracobrachialis and the midsection as a whole.";
             }
             #endregion
 
-            
+
         }
 
         private void createWorkoutPlanFiles(string name)
@@ -1543,7 +1543,7 @@ coracobrachialis and the midsection as a whole.";
 
         private void BstartWorkout_Click(object sender, EventArgs e)
         {
-                         
+
             workout_done = false;
 
             if (moved == false)
@@ -1643,12 +1643,12 @@ coracobrachialis and the midsection as a whole.";
             }
             #endregion
 
-            
+
         }
 
         private void Finish_Click(object sender, EventArgs e)
         {
-          #region rest
+            #region rest
             rest_done = false;
             if (workout_done == false)
             {
@@ -1660,7 +1660,7 @@ coracobrachialis and the midsection as a whole.";
 
                     Crest.Text = (rest).ToString();
                     Rest_Timer.Start();
-                }                
+                }
             }
 
             #endregion
@@ -1679,8 +1679,8 @@ coracobrachialis and the midsection as a whole.";
                     Finished_workout();
                     button1.Enabled = false;
                 }
-                    
-                if(workout_done == false)
+
+                if (workout_done == false)
                     SET_setToDo();
             }
 
@@ -1703,8 +1703,8 @@ coracobrachialis and the midsection as a whole.";
                         {
                             Finished_workout();
                             button1.Enabled = false;
-                        }                  
-                            
+                        }
+
 
                         Arrow2.Top += 37;
                     }
@@ -1733,7 +1733,7 @@ coracobrachialis and the midsection as a whole.";
                             Finished_workout();
                             button1.Enabled = false;
                         }
-                            
+
 
                         Arrow2.Top += 37;
                     }
@@ -1796,8 +1796,8 @@ coracobrachialis and the midsection as a whole.";
                     Arrow1.Top -= 39;
                 if (set_ToDo > 5)
                     Arrow1.Left -= 85;
-            }      
-                                
+            }
+
             else if (num_sets == 8 || set_ToDo == 9)
             {
                 while (Arrow1.Top != 70)
@@ -1805,7 +1805,7 @@ coracobrachialis and the midsection as a whole.";
                 while (Arrow2.Top != 70)
                     Arrow2.Top -= 37;
             }
-            
+
 
             Label[] lb = { Hours, label28, Minutes, label29, Seconds };
             foreach (Label LB in lb)
@@ -1839,7 +1839,7 @@ coracobrachialis and the midsection as a whole.";
             button4.Visible = true;
             button4.Enabled = true;
 
-            
+
 
             moved = false;
             workout_done = true;
@@ -1856,7 +1856,7 @@ coracobrachialis and the midsection as a whole.";
                     break;
                 }
                 else if (!(set_ToDo >= num_sets))
-                    Cdoset.Text = sets[set_ToDo - 1].ToString();              
+                    Cdoset.Text = sets[set_ToDo - 1].ToString();
             }
         }
 
@@ -1916,7 +1916,7 @@ coracobrachialis and the midsection as a whole.";
                     SystemSounds.Hand.Play();
                     rest_done = true;
                 }
-                    
+
                 break;
             }
 
@@ -1926,7 +1926,7 @@ coracobrachialis and the midsection as a whole.";
                 Lrest.Visible = false;
                 Crest.Visible = false;
             }
-            
+
         }
 
         private void Change_Day()
