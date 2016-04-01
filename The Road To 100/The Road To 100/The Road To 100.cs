@@ -711,7 +711,7 @@ coracobrachialis and the midsection as a whole.";
                     else if (test1 >= 11 && test1 <= 20) { Level = 3; }
                 }
 
-                else if (test1 > 20 || week == "3" || week == "4")
+                else if (test1 >= 20 || week == "3" || week == "4")
                 {
                     if (test2 >= 16 && test2 <= 20 || test1 >= 16 && test1 <= 20) { Level = 1; }
                     else if (test2 >= 21 && test2 <= 25 || test1 >= 21 && test1 <= 25) { Level = 2; }
