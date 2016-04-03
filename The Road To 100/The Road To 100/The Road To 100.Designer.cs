@@ -142,6 +142,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Workout_Timer = new System.Windows.Forms.Timer(this.components);
             this.Rest_Timer = new System.Windows.Forms.Timer(this.components);
+            this.voiceMic = new System.Windows.Forms.PictureBox();
             this.PmainManu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).BeginInit();
             this.Pnew_user.SuspendLayout();
@@ -160,6 +161,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Arrow2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).BeginInit();
             this.Pginfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.voiceMic)).BeginInit();
             this.SuspendLayout();
             // 
             // PmainManu
@@ -634,6 +636,7 @@
             // 
             this.Ppersonal_Screen.BackColor = System.Drawing.Color.FloralWhite;
             this.Ppersonal_Screen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Ppersonal_Screen.Controls.Add(this.voiceMic);
             this.Ppersonal_Screen.Controls.Add(this.label20);
             this.Ppersonal_Screen.Controls.Add(this.pictureBox1);
             this.Ppersonal_Screen.Controls.Add(this.pr1);
@@ -1049,9 +1052,9 @@
             this.Pworkout.Controls.Add(this.Lset_2);
             this.Pworkout.Controls.Add(this.label6);
             this.Pworkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pworkout.Location = new System.Drawing.Point(984, 641);
+            this.Pworkout.Location = new System.Drawing.Point(965, 632);
             this.Pworkout.Name = "Pworkout";
-            this.Pworkout.Size = new System.Drawing.Size(86, 79);
+            this.Pworkout.Size = new System.Drawing.Size(99, 79);
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -1578,15 +1581,27 @@
             this.Rest_Timer.Interval = 1000;
             this.Rest_Timer.Tick += new System.EventHandler(this.Rest_Timer_Tick);
             // 
+            // voiceMic
+            // 
+            this.voiceMic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.voiceMic.Image = global::The_Road_To_100.Properties.Resources.mic;
+            this.voiceMic.Location = new System.Drawing.Point(1275, -1);
+            this.voiceMic.Name = "voiceMic";
+            this.voiceMic.Size = new System.Drawing.Size(44, 34);
+            this.voiceMic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.voiceMic.TabIndex = 24;
+            this.voiceMic.TabStop = false;
+            this.voiceMic.Click += new System.EventHandler(this.voiceMic_Click);
+            // 
             // The_Road_To_100
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
-            this.Controls.Add(this.Ppersonal_Screen);
             this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.Pnew_user);
             this.Controls.Add(this.PmainManu);
+            this.Controls.Add(this.Ppersonal_Screen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "The_Road_To_100";
@@ -1615,6 +1630,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).EndInit();
             this.Pginfo.ResumeLayout(false);
             this.Pginfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.voiceMic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1733,6 +1749,7 @@
         private System.Windows.Forms.Label Lrest;
         private System.Windows.Forms.Timer Rest_Timer;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox voiceMic;
     }
 }
 

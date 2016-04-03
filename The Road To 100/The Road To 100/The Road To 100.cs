@@ -12,6 +12,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Media;
+using System.Speech.Recognition;
 
 namespace The_Road_To_100
 {
@@ -36,6 +37,32 @@ namespace The_Road_To_100
                 di.Create();
                 di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
 
+            }
+
+            Choices commands = new Choices();
+            commands.Add(new string[] { "start", "finish" });
+            GrammarBuilder GB = new GrammarBuilder();
+            GB.Append(commands);
+            Grammar grammar = new Grammar(GB);
+
+            sre.LoadGrammarAsync(grammar);
+            sre.SetInputToDefaultAudioDevice();
+            sre.SpeechRecognized += sre_src;
+        }
+
+        private void sre_src(object sender, SpeechRecognizedEventArgs e)
+        {
+            switch (e.Result.Text)
+            {
+                case "start":                   
+                        button1.PerformClick();                    
+                        BstartWorkout.PerformClick();
+                    break;
+
+                case "finish":
+                    if (Pworkout.Dock == DockStyle.Fill)
+                        Finish.PerformClick();
+                    break;
             }
         }
 
@@ -75,6 +102,8 @@ namespace The_Road_To_100
         string day;
         int Weekcontent;
         bool repetWeek;
+        SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
+        bool voice = false;
 
         //workout
         private bool moved = false;
@@ -372,7 +401,6 @@ coracobrachialis and the midsection as a whole.";
         }
 
         #endregion
-
 
         #endregion
 
@@ -1535,6 +1563,20 @@ coracobrachialis and the midsection as a whole.";
             Pworkout.Dock = DockStyle.Fill;
             Pworkout.BringToFront();
 
+        }
+
+        private void voiceMic_Click(object sender, EventArgs e)
+        {
+            if (voice == false)
+            {
+                sre.RecognizeAsync(RecognizeMode.Multiple);
+                voice = true;
+            }
+            else
+            {
+                sre.RecognizeAsyncStop();
+                voice = false;
+            }
         }
 
         #endregion
