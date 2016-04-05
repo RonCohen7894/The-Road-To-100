@@ -28,7 +28,6 @@ namespace The_Road_To_100
             if (Directory.Exists(@"C:\The Road To 100\user.ID 1"))
             {
                 setPersonal_Screen();
-                getRank();
                 Bcontinue.Enabled = true;
             }
             else
@@ -40,7 +39,7 @@ namespace The_Road_To_100
             }
 
             Choices commands = new Choices();
-            commands.Add(new string[] { "start", "finish" });
+            commands.Add(new string[] { "start", "finish", "quit" });
             GrammarBuilder GB = new GrammarBuilder();
             GB.Append(commands);
             Grammar grammar = new Grammar(GB);
@@ -54,15 +53,16 @@ namespace The_Road_To_100
         {
             switch (e.Result.Text)
             {
-                case "start":                   
-                        button1.PerformClick();                    
-                        BstartWorkout.PerformClick();
+                case "start":
+                    button1.PerformClick();
+                    BstartWorkout.PerformClick();
                     break;
 
                 case "finish":
                     if (Pworkout.Dock == DockStyle.Fill)
                         Finish.PerformClick();
                     break;
+
             }
         }
 
@@ -82,7 +82,6 @@ namespace The_Road_To_100
 
         //personal screen
         public static string data_set;
-        public int Rank;
         private int Age;
         private int intail_Test;
         private int Level;
@@ -304,10 +303,7 @@ coracobrachialis and the midsection as a whole.";
             {
                 if (MessageBox.Show("There is already a regitered user, \nDo you want to overwrite it?",
                     "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                {
-                    Directory.Delete(@"C:\The Road To 100\user.ID 1", true);
-                    Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1");
-
+                {                   
                     PmainManu.Dock = DockStyle.None;
                     PmainManu.SendToBack();
 
@@ -416,7 +412,10 @@ coracobrachialis and the midsection as a whole.";
 
             if (!SnewName.Visible == true && !SnewLastName.Visible == true && !SnewAge.Visible == true && !Sintailtest_results.Visible == true)
             {
-                Directory.CreateDirectory(@"C:\The Road To 100\" + "user.ID 1");
+                if(Directory.Exists(@"C:\The Road To 100\user.ID 1"))
+                    Directory.Delete(@"C:\The Road To 100\user.ID 1", true);
+                
+                Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1");
                 creatFiles("First Name", New_name, 0);
                 creatFiles("Last Name", New_lastName, 0);
                 creatFiles("Age", "", New_age);
@@ -426,9 +425,7 @@ coracobrachialis and the midsection as a whole.";
                 creatFiles("FirstTime", "True", 0);
                 createWorkoutPlanFiles("Week");
                 createWorkoutPlanFiles("Day");
-
-
-
+              
                 using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
                     if (readWeek.ReadToEnd() == "3")
                     {
@@ -441,7 +438,6 @@ coracobrachialis and the midsection as a whole.";
                     getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
                 findeWorkoutParameters(Level);
                 fileCreate = true;
-                getRank();
                 setPersonal_Screen();
                 setPR();
                 Bcontinue.Enabled = true;
@@ -478,7 +474,7 @@ coracobrachialis and the midsection as a whole.";
         }
 
         private void Checking_TB()
-        {
+        {           
             if (TBname.Text == "")
             {
                 SnewName.Text = "You must write your name";
@@ -489,7 +485,7 @@ coracobrachialis and the midsection as a whole.";
             {
                 SnewLastName.Text = "You must write your last name";
                 SnewLastName.Visible = true;
-            }
+            }           
 
             #region try_catch
             try
@@ -512,6 +508,17 @@ coracobrachialis and the midsection as a whole.";
             try
             {
                 intailTest_results = int.Parse(TBintailtest_results.Text);
+                if (int.Parse(TBintailtest_results.Text) >= 90)
+                {
+                    Sintailtest_results.Text = "If you can do 90 push ups or more there is no need for you to use \"The Road to 100\" program";
+                    Sintailtest_results.Visible = true;
+                }
+
+                if (int.Parse(TBintailtest_results.Text) <= 0)
+                {
+                    Sintailtest_results.Text = "That does'nt seem right";
+                    Sintailtest_results.Visible = true;
+                }
 
             }
             catch (Exception e)
@@ -520,6 +527,7 @@ coracobrachialis and the midsection as a whole.";
                 Sintailtest_results.Text = "You must write a number";
             }
             #endregion
+         
         }
 
         #region TB_text changed
@@ -542,6 +550,15 @@ coracobrachialis and the midsection as a whole.";
 
         private void TBname_TextChanged(object sender, EventArgs e)
         {
+            string[] chars = {"/", "*", "-", "+", ".", "[", "]", "{", "}", "+", "_", "(", ")", "&", "^", "%", "$", "#", "@", "!", "~", "<", ">", "?", "|", "\"", ":", ";", "\"", " " };
+
+            foreach (string  i in chars)
+            {
+                string str = TBname.Text.Replace(i, "");
+                TBname.Text = string.Format(str);
+            }
+
+            
             SnewName.Visible = false;
         }
 
@@ -601,75 +618,6 @@ coracobrachialis and the midsection as a whole.";
                 MessageBox.Show("The file could not be read:");
                 MessageBox.Show(e.Message);
             }
-        }
-
-        public void getRank()
-        {
-            using (StreamReader sr = new StreamReader(@"C:\The Road To 100\" + "user.ID 1" + @"\Age.txt"))
-            {
-                Age = Int32.Parse(sr.ReadToEnd());
-            }
-            using (StreamReader sr = new StreamReader(@"C:\The Road To 100\" + "user.ID 1" + @"\Initial Test.txt"))
-            {
-                intail_Test = Int32.Parse(sr.ReadToEnd());
-            }
-
-            if (Age <= 40)
-            {
-                if (intail_Test >= 0 && intail_Test <= 5)
-                    Rank = 1;
-                else if (intail_Test >= 6 && intail_Test <= 14)
-                    Rank = 2;
-                else if (intail_Test >= 15 && intail_Test <= 29)
-                    Rank = 3;
-                else if (intail_Test >= 30 && intail_Test <= 49)
-                    Rank = 4;
-                else if (intail_Test >= 50 && intail_Test <= 99)
-                    Rank = 5;
-                else
-                    Rank = 10;
-            }
-            else if (Age >= 40 && Age <= 55)
-            {
-                if (intail_Test >= 0 && intail_Test <= 5)
-                    Rank = 1;
-                else if (intail_Test >= 6 && intail_Test <= 12)
-                    Rank = 2;
-                else if (intail_Test >= 13 && intail_Test <= 24)
-                    Rank = 3;
-                else if (intail_Test >= 25 && intail_Test <= 44)
-                    Rank = 4;
-                else if (intail_Test >= 45 && intail_Test <= 74)
-                    Rank = 5;
-                else
-                    Rank = 10;
-            }
-            else if (Age >= 55)
-            {
-                if (intail_Test >= 0 && intail_Test <= 5)
-                    Rank = 1;
-                else if (intail_Test >= 6 && intail_Test <= 10)
-                    Rank = 2;
-                else if (intail_Test >= 11 && intail_Test <= 19)
-                    Rank = 3;
-                else if (intail_Test >= 20 && intail_Test <= 34)
-                    Rank = 4;
-                else if (intail_Test >= 35 && intail_Test <= 64)
-                    Rank = 5;
-
-                else
-                    Rank = 10;
-            }
-            else
-                MessageBox.Show("Rank files cannot be read");
-
-            if (Rank == 10)
-            {
-                Crank.Text = "Don't mess with the program files!";
-                Ctotal_push_done.Text = "Don't mess with the program files!";
-            }
-            else
-                Crank.Text = Rank.ToString();
         }
 
         #endregion

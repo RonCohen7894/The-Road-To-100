@@ -65,6 +65,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.Lsignup = new System.Windows.Forms.Label();
             this.Ppersonal_Screen = new System.Windows.Forms.Panel();
+            this.voiceMic = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pr1 = new System.Windows.Forms.PictureBox();
@@ -78,7 +79,6 @@
             this.Bplan = new System.Windows.Forms.Button();
             this.Cage = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.Crank = new System.Windows.Forms.Label();
             this.Ctotal_push_done = new System.Windows.Forms.Label();
             this.Cday = new System.Windows.Forms.Label();
             this.Cweek = new System.Windows.Forms.Label();
@@ -90,7 +90,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.CHname = new System.Windows.Forms.Label();
@@ -142,12 +141,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Workout_Timer = new System.Windows.Forms.Timer(this.components);
             this.Rest_Timer = new System.Windows.Forms.Timer(this.components);
-            this.voiceMic = new System.Windows.Forms.PictureBox();
             this.PmainManu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).BeginInit();
             this.Pnew_user.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PICsignup)).BeginInit();
             this.Ppersonal_Screen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.voiceMic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr2)).BeginInit();
@@ -161,7 +160,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Arrow2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).BeginInit();
             this.Pginfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.voiceMic)).BeginInit();
             this.SuspendLayout();
             // 
             // PmainManu
@@ -345,9 +343,10 @@
             this.Pnew_user.Controls.Add(this.Lintialtest);
             this.Pnew_user.Controls.Add(this.label10);
             this.Pnew_user.Controls.Add(this.Lsignup);
-            this.Pnew_user.Location = new System.Drawing.Point(1156, 641);
+            this.Pnew_user.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnew_user.Location = new System.Drawing.Point(0, 0);
             this.Pnew_user.Name = "Pnew_user";
-            this.Pnew_user.Size = new System.Drawing.Size(60, 67);
+            this.Pnew_user.Size = new System.Drawing.Size(1320, 720);
             this.Pnew_user.TabIndex = 1;
             this.Pnew_user.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -650,7 +649,6 @@
             this.Ppersonal_Screen.Controls.Add(this.Bplan);
             this.Ppersonal_Screen.Controls.Add(this.Cage);
             this.Ppersonal_Screen.Controls.Add(this.label19);
-            this.Ppersonal_Screen.Controls.Add(this.Crank);
             this.Ppersonal_Screen.Controls.Add(this.Ctotal_push_done);
             this.Ppersonal_Screen.Controls.Add(this.Cday);
             this.Ppersonal_Screen.Controls.Add(this.Cweek);
@@ -662,17 +660,27 @@
             this.Ppersonal_Screen.Controls.Add(this.label18);
             this.Ppersonal_Screen.Controls.Add(this.label16);
             this.Ppersonal_Screen.Controls.Add(this.label15);
-            this.Ppersonal_Screen.Controls.Add(this.label14);
             this.Ppersonal_Screen.Controls.Add(this.label13);
             this.Ppersonal_Screen.Controls.Add(this.label11);
             this.Ppersonal_Screen.Controls.Add(this.CHname);
             this.Ppersonal_Screen.Controls.Add(this.label4);
-            this.Ppersonal_Screen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Ppersonal_Screen.Location = new System.Drawing.Point(0, 0);
+            this.Ppersonal_Screen.Location = new System.Drawing.Point(1084, 639);
             this.Ppersonal_Screen.Name = "Ppersonal_Screen";
-            this.Ppersonal_Screen.Size = new System.Drawing.Size(1320, 720);
+            this.Ppersonal_Screen.Size = new System.Drawing.Size(66, 69);
             this.Ppersonal_Screen.TabIndex = 2;
             this.Ppersonal_Screen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
+            // voiceMic
+            // 
+            this.voiceMic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.voiceMic.Image = global::The_Road_To_100.Properties.Resources.mic;
+            this.voiceMic.Location = new System.Drawing.Point(1275, -1);
+            this.voiceMic.Name = "voiceMic";
+            this.voiceMic.Size = new System.Drawing.Size(44, 34);
+            this.voiceMic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.voiceMic.TabIndex = 24;
+            this.voiceMic.TabStop = false;
+            this.voiceMic.Click += new System.EventHandler(this.voiceMic_Click);
             // 
             // label20
             // 
@@ -756,7 +764,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.textBox1.Location = new System.Drawing.Point(190, 453);
+            this.textBox1.Location = new System.Drawing.Point(190, 426);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(415, 37);
@@ -770,7 +778,7 @@
             this.QustionMark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.QustionMark.Cursor = System.Windows.Forms.Cursors.Hand;
             this.QustionMark.Image = ((System.Drawing.Image)(resources.GetObject("QustionMark.Image")));
-            this.QustionMark.Location = new System.Drawing.Point(133, 462);
+            this.QustionMark.Location = new System.Drawing.Point(133, 435);
             this.QustionMark.Name = "QustionMark";
             this.QustionMark.Size = new System.Drawing.Size(21, 22);
             this.QustionMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -819,18 +827,6 @@
             this.label19.TabIndex = 4;
             this.label19.Text = "Age :";
             // 
-            // Crank
-            // 
-            this.Crank.AutoSize = true;
-            this.Crank.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Crank.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.Crank.Location = new System.Drawing.Point(101, 430);
-            this.Crank.Name = "Crank";
-            this.Crank.Size = new System.Drawing.Size(71, 24);
-            this.Crank.TabIndex = 3;
-            this.Crank.Text = "contant";
-            this.Crank.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
-            // 
             // Ctotal_push_done
             // 
             this.Ctotal_push_done.AutoSize = true;
@@ -848,7 +844,7 @@
             this.Cday.AutoSize = true;
             this.Cday.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cday.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.Cday.Location = new System.Drawing.Point(90, 492);
+            this.Cday.Location = new System.Drawing.Point(90, 465);
             this.Cday.Name = "Cday";
             this.Cday.Size = new System.Drawing.Size(20, 24);
             this.Cday.TabIndex = 3;
@@ -860,7 +856,7 @@
             this.Cweek.AutoSize = true;
             this.Cweek.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cweek.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.Cweek.Location = new System.Drawing.Point(107, 460);
+            this.Cweek.Location = new System.Drawing.Point(107, 433);
             this.Cweek.Name = "Cweek";
             this.Cweek.Size = new System.Drawing.Size(20, 24);
             this.Cweek.TabIndex = 3;
@@ -933,7 +929,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(32, 492);
+            this.label18.Location = new System.Drawing.Point(32, 465);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(58, 22);
             this.label18.TabIndex = 1;
@@ -955,23 +951,12 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(32, 460);
+            this.label15.Location = new System.Drawing.Point(32, 433);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(72, 22);
             this.label15.TabIndex = 1;
             this.label15.Text = "Week :";
             this.label15.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(32, 430);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 22);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Rank :";
-            this.label14.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // label13
             // 
@@ -1052,9 +1037,9 @@
             this.Pworkout.Controls.Add(this.Lset_2);
             this.Pworkout.Controls.Add(this.label6);
             this.Pworkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pworkout.Location = new System.Drawing.Point(965, 632);
+            this.Pworkout.Location = new System.Drawing.Point(988, 641);
             this.Pworkout.Name = "Pworkout";
-            this.Pworkout.Size = new System.Drawing.Size(99, 79);
+            this.Pworkout.Size = new System.Drawing.Size(75, 70);
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -1581,25 +1566,13 @@
             this.Rest_Timer.Interval = 1000;
             this.Rest_Timer.Tick += new System.EventHandler(this.Rest_Timer_Tick);
             // 
-            // voiceMic
-            // 
-            this.voiceMic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.voiceMic.Image = global::The_Road_To_100.Properties.Resources.mic;
-            this.voiceMic.Location = new System.Drawing.Point(1275, -1);
-            this.voiceMic.Name = "voiceMic";
-            this.voiceMic.Size = new System.Drawing.Size(44, 34);
-            this.voiceMic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.voiceMic.TabIndex = 24;
-            this.voiceMic.TabStop = false;
-            this.voiceMic.Click += new System.EventHandler(this.voiceMic_Click);
-            // 
             // The_Road_To_100
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
-            this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.Pnew_user);
+            this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.PmainManu);
             this.Controls.Add(this.Ppersonal_Screen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1614,6 +1587,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PICsignup)).EndInit();
             this.Ppersonal_Screen.ResumeLayout(false);
             this.Ppersonal_Screen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.voiceMic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr2)).EndInit();
@@ -1630,7 +1604,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).EndInit();
             this.Pginfo.ResumeLayout(false);
             this.Pginfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.voiceMic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1676,12 +1649,10 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label CHname;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label Crank;
         private System.Windows.Forms.Label Ctotal_push_done;
         private System.Windows.Forms.Label Cday;
         private System.Windows.Forms.Label Cweek;
