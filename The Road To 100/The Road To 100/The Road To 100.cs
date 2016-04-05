@@ -49,23 +49,6 @@ namespace The_Road_To_100
             sre.SpeechRecognized += sre_src;
         }
 
-        private void sre_src(object sender, SpeechRecognizedEventArgs e)
-        {
-            switch (e.Result.Text)
-            {
-                case "start":
-                    button1.PerformClick();
-                    BstartWorkout.PerformClick();
-                    break;
-
-                case "finish":
-                    if (Pworkout.Dock == DockStyle.Fill)
-                        Finish.PerformClick();
-                    break;
-
-            }
-        }
-
         #region Variables
         //main menu
         public static string Buttonname;
@@ -79,6 +62,7 @@ namespace The_Road_To_100
         int intailTest_results;
         public string userFileSavePath;
         public bool fileCreate = false;
+        string[] chars = { "/", "*", "-", "+", ".", "[", "]", "{", "}", "+", "_", "(", ")", "&", "^", "%", "$", "#", "@", "!", "~", "<", ">", "?", "|", "\"", ":", ";", "\"", " " };
 
         //personal screen
         public static string data_set;
@@ -125,7 +109,7 @@ namespace The_Road_To_100
             knowledge_center popup = new knowledge_center();
 
             if (button.Name == "Bintroduction")
-                popup.textBox1.Text = @"If you're serious about increasing your strength,
+                popup.GetContent(@"If you're serious about increasing your strength,
 follow this six week training program and you'll soon be on your way to completing 100 consecutive push ups!
 
 
@@ -138,10 +122,10 @@ I'm sure many of you can't even do 10.
 
 However, it really doesn't matter which group you fall into. 
 If you follow the progressive push ups training program, 
-I'm positive you'll soon be able to do 100 push ups!";
+I'm positive you'll soon be able to do 100 push ups!");
 
             else if (button.Name == "Bwhypushups")
-                popup.textBox1.Text = @"Push ups are one of the basic and most common exercises for the human body.
+                popup.GetContent(@"Push ups are one of the basic and most common exercises for the human body.
 Push ups are not only great for your chest,
 but do a tremendous job of defining your abs, triceps, shoulders and torso.
 
@@ -154,10 +138,10 @@ Your core strength will also go through the roof too!
 To improve your strength, fitness and general health all you need to do is
 commit about 30 minutes of your time per week, and follow the push ups training program 
 as closely as you can. I promise you will feel much better about yourself and much more 
-confident after just a few short workouts.";
+confident after just a few short workouts.");
 
             else if (button.Name == "Bwhatisapushup")
-                popup.textBox1.Text = @"According to Wikipedia, a push-up (USA English), or a press-up (UK English), 
+                popup.GetContent(@"According to Wikipedia, a push-up (USA English), or a press-up (UK English), 
 is ""a common strength training exercise performed in a prone position:
 
 lying horizontal and face down, raising and lowering the body using the arms.""
@@ -165,11 +149,7 @@ lying horizontal and face down, raising and lowering the body using the arms.""
 Push ups are a basic exercise used in civilian athletic training or physical education and,
 especially, in military physical training and will develop the pectoral muscles and triceps,
 with ancillary benefits to the deltoids, serratus anterior,
-coracobrachialis and the midsection as a whole.";
-
-
-
-
+coracobrachialis and the midsection as a whole.");
 
             DialogResult dialogresult = popup.ShowDialog();
         }
@@ -193,6 +173,23 @@ coracobrachialis and the midsection as a whole.";
             Bnewworksheet.Top = PmainManu.Top + 250;
 
             Pintro.Left = PmainManu.Width / 2 - Pintro.Width / 2;
+        }
+
+        private void sre_src(object sender, SpeechRecognizedEventArgs e)
+        {
+            switch (e.Result.Text)
+            {
+                case "start":
+                    button1.PerformClick();
+                    BstartWorkout.PerformClick();
+                    break;
+
+                case "finish":
+                    if (Pworkout.Dock == DockStyle.Fill)
+                        Finish.PerformClick();
+                    break;
+
+            }
         }
 
         private void Bcontinue_Click(object sender, EventArgs e)
@@ -550,15 +547,11 @@ coracobrachialis and the midsection as a whole.";
 
         private void TBname_TextChanged(object sender, EventArgs e)
         {
-            string[] chars = {"/", "*", "-", "+", ".", "[", "]", "{", "}", "+", "_", "(", ")", "&", "^", "%", "$", "#", "@", "!", "~", "<", ">", "?", "|", "\"", ":", ";", "\"", " " };
-
             foreach (string  i in chars)
             {
                 string str = TBname.Text.Replace(i, "");
                 TBname.Text = string.Format(str);
-            }
-
-            
+            }           
             SnewName.Visible = false;
         }
 

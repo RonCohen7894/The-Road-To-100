@@ -100,6 +100,6 @@
 
         private System.Windows.Forms.Panel POPUPmainmanue;
         public System.Windows.Forms.Button Boktoclose;
-        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

@@ -34,5 +34,12 @@ namespace The_Road_To_100
         {
             textBox1.Focus();
         }
+
+        public void GetContent(string content)
+        {
+            if (content == null || content == "")
+                throw new Exception("Content can not be null");
+            textBox1.Text = content;
+        }
     }
 }
