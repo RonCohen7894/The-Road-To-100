@@ -109,7 +109,6 @@
             this.Cset5.Size = new System.Drawing.Size(57, 18);
             this.Cset5.TabIndex = 3;
             this.Cset5.Text = "contant";
-            this.Cset5.Click += new System.EventHandler(this.Cset5_Click);
             this.Cset5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // Cset9
@@ -124,7 +123,6 @@
             this.Cset9.TabIndex = 3;
             this.Cset9.Text = "contant";
             this.Cset9.Visible = false;
-            this.Cset9.Click += new System.EventHandler(this.Cset9_Click);
             this.Cset9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // Cset4
@@ -137,7 +135,6 @@
             this.Cset4.Size = new System.Drawing.Size(57, 18);
             this.Cset4.TabIndex = 3;
             this.Cset4.Text = "contant";
-            this.Cset4.Click += new System.EventHandler(this.Cset4_Click);
             this.Cset4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // Cset8
@@ -152,7 +149,6 @@
             this.Cset8.TabIndex = 3;
             this.Cset8.Text = "contant";
             this.Cset8.Visible = false;
-            this.Cset8.Click += new System.EventHandler(this.Cset8_Click);
             this.Cset8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // Cset7
@@ -167,7 +163,6 @@
             this.Cset7.TabIndex = 3;
             this.Cset7.Text = "contant";
             this.Cset7.Visible = false;
-            this.Cset7.Click += new System.EventHandler(this.Cset7_Click);
             this.Cset7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // Cset3
@@ -180,7 +175,6 @@
             this.Cset3.Size = new System.Drawing.Size(57, 18);
             this.Cset3.TabIndex = 3;
             this.Cset3.Text = "contant";
-            this.Cset3.Click += new System.EventHandler(this.Cset3_Click);
             this.Cset3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // Cset6
@@ -195,7 +189,6 @@
             this.Cset6.TabIndex = 3;
             this.Cset6.Text = "contant";
             this.Cset6.Visible = false;
-            this.Cset6.Click += new System.EventHandler(this.Cset6_Click);
             this.Cset6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // Cset2
@@ -208,7 +201,6 @@
             this.Cset2.Size = new System.Drawing.Size(57, 18);
             this.Cset2.TabIndex = 3;
             this.Cset2.Text = "contant";
-            this.Cset2.Click += new System.EventHandler(this.Cset2_Click);
             this.Cset2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // Cset1
@@ -221,7 +213,6 @@
             this.Cset1.Size = new System.Drawing.Size(57, 18);
             this.Cset1.TabIndex = 3;
             this.Cset1.Text = "contant";
-            this.Cset1.Click += new System.EventHandler(this.Cset1_Click);
             this.Cset1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // label10
@@ -235,7 +226,6 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Set 9)";
             this.label10.Visible = false;
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             this.label10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // label9
@@ -248,7 +238,6 @@
             this.label9.Size = new System.Drawing.Size(58, 24);
             this.label9.TabIndex = 1;
             this.label9.Text = "Set 5)";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             this.label9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // label8
@@ -262,7 +251,6 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "Set 6)";
             this.label8.Visible = false;
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             this.label8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // label7
@@ -276,7 +264,6 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Set 7)";
             this.label7.Visible = false;
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             this.label7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // label6
@@ -290,7 +277,6 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Set 8)";
             this.label6.Visible = false;
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             this.label6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // label5
@@ -303,7 +289,6 @@
             this.label5.Size = new System.Drawing.Size(58, 24);
             this.label5.TabIndex = 1;
             this.label5.Text = "Set 4)";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // label4
@@ -316,7 +301,6 @@
             this.label4.Size = new System.Drawing.Size(58, 24);
             this.label4.TabIndex = 1;
             this.label4.Text = "Set 3)";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             this.label4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // label3
@@ -329,7 +313,6 @@
             this.label3.Size = new System.Drawing.Size(58, 24);
             this.label3.TabIndex = 1;
             this.label3.Text = "Set 2)";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // label2
@@ -342,7 +325,6 @@
             this.label2.Size = new System.Drawing.Size(58, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "Set 1)";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // label1
@@ -355,7 +337,6 @@
             this.label1.Size = new System.Drawing.Size(200, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Todays Workout";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // WorkoutPlan
@@ -383,6 +364,10 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button Boktoclose;
         public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label6;
         public System.Windows.Forms.Label Cset5;
         public System.Windows.Forms.Label Cset9;
         public System.Windows.Forms.Label Cset4;
@@ -392,9 +377,5 @@
         public System.Windows.Forms.Label Cset6;
         public System.Windows.Forms.Label Cset2;
         public System.Windows.Forms.Label Cset1;
-        public System.Windows.Forms.Label label10;
-        public System.Windows.Forms.Label label8;
-        public System.Windows.Forms.Label label7;
-        public System.Windows.Forms.Label label6;
     }
 }

@@ -17,6 +17,7 @@ namespace The_Road_To_100
         {
             InitializeComponent();
         }
+
         #region drag form
         // Code From the Internet
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -37,100 +38,5 @@ namespace The_Road_To_100
         }
 
         #endregion
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cset9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cset8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cset7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cset6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cset1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cset2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cset3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cset4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cset5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -343,10 +343,9 @@
             this.Pnew_user.Controls.Add(this.Lintialtest);
             this.Pnew_user.Controls.Add(this.label10);
             this.Pnew_user.Controls.Add(this.Lsignup);
-            this.Pnew_user.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Pnew_user.Location = new System.Drawing.Point(0, 0);
+            this.Pnew_user.Location = new System.Drawing.Point(1156, 642);
             this.Pnew_user.Name = "Pnew_user";
-            this.Pnew_user.Size = new System.Drawing.Size(1320, 720);
+            this.Pnew_user.Size = new System.Drawing.Size(60, 69);
             this.Pnew_user.TabIndex = 1;
             this.Pnew_user.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -664,9 +663,10 @@
             this.Ppersonal_Screen.Controls.Add(this.label11);
             this.Ppersonal_Screen.Controls.Add(this.CHname);
             this.Ppersonal_Screen.Controls.Add(this.label4);
-            this.Ppersonal_Screen.Location = new System.Drawing.Point(1084, 639);
+            this.Ppersonal_Screen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Ppersonal_Screen.Location = new System.Drawing.Point(0, 0);
             this.Ppersonal_Screen.Name = "Ppersonal_Screen";
-            this.Ppersonal_Screen.Size = new System.Drawing.Size(66, 69);
+            this.Ppersonal_Screen.Size = new System.Drawing.Size(1320, 720);
             this.Ppersonal_Screen.TabIndex = 2;
             this.Ppersonal_Screen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -1571,10 +1571,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
+            this.Controls.Add(this.Ppersonal_Screen);
             this.Controls.Add(this.Pnew_user);
             this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.PmainManu);
-            this.Controls.Add(this.Ppersonal_Screen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "The_Road_To_100";

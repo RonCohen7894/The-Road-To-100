@@ -50,6 +50,30 @@ namespace The_Road_To_100
         }
 
         #region Variables
+        //Genral
+        SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
+
+        public string GetC(string path, bool Long = false)
+        {
+            using (StreamReader G = new StreamReader(path))
+            {
+                if (Long == false)
+                {
+                    char[] readG = G.ReadToEnd().ToCharArray();
+                    return readG[0].ToString();
+                }
+                else
+                    return G.ReadToEnd();
+            }
+        }
+
+        public void SetC(string path, object content)
+        {
+            using (StreamWriter G = new StreamWriter(path))
+                G.Write(content);
+        }
+
+
         //main menu
         public static string Buttonname;
         public static string content;
@@ -76,7 +100,7 @@ namespace The_Road_To_100
         private int set_5;
         private int set_6;
         private int set_7;
-        private int set_8;
+        public int set_8;
         private int set_9;
         private int set_max;
         private int rest;
@@ -85,7 +109,6 @@ namespace The_Road_To_100
         string day;
         int Weekcontent;
         bool repetWeek;
-        SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
         bool voice = false;
 
         //workout
@@ -198,88 +221,75 @@ coracobrachialis and the midsection as a whole.");
             Ppersonal_Screen.Dock = DockStyle.Fill;
             Ppersonal_Screen.BringToFront();
 
-            using (StreamReader fr_week = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
+            string week_ex = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
+            string Day = GetC(@"C:\The Road To 100\user.ID 1\Day.txt");
+            int Ex_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"));
+            int initail_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt"));
+
+            if (!File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
             {
-                char[] readWeek = fr_week.ReadToEnd().ToCharArray();
-                string week_ex = readWeek[0].ToString();
+                if (week_ex == "3" || week_ex == "5" || week_ex == "6")
+                    if (Day == "1")
+                    {
+                        Exhaustion_test popup = new Exhaustion_test();
+                        DialogResult dialogresult = popup.ShowDialog();
+                    }
+            }
+            else if (File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt") && Day != "1")
+                File.Delete(@"C:\The Road To 100\user.ID 1\FirstTime.txt");
 
-                using (StreamReader fr_Day = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt"))
+
+                if (week_ex == "1" || week_ex == "2" && !File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
+                    getLevel(initail_test, null, null, null);
+
+
+                if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
+                    if (File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
+                    {
+                        getLevel(Ex_test, null, null, null);
+                        if (Day == "3")
+                            File.Delete(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt");
+                    }
+
+                switch (week_ex)
                 {
-                    char[] readDay = fr_Day.ReadToEnd().ToCharArray();
-                    string Day = readDay[0].ToString();
+                    case "3":
+                        getLevel(null, Ex_test, null, null);
+                        break;
 
-                    if (!File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
-                    {
-                        if (week_ex == "3" || week_ex == "5" || week_ex == "6")
-                            if (Day == "1")
-                            {
-                                Exhaustion_test popup = new Exhaustion_test();
-                                DialogResult dialogresult = popup.ShowDialog();
-                            }
-                    }
-                    else if (File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt") && Day != "1")
-                        File.Delete(@"C:\The Road To 100\user.ID 1\FirstTime.txt");
+                    case "4":
+                        getLevel(null, Ex_test, null, null);
+                        break;
 
-                    using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))
-                        if (week_ex == "1" || week_ex == "2" && !File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
-                            getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
+                    case "5":
+                        getLevel(null, null, Ex_test, null);
+                        break;
 
-
-                    if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
-                        using (StreamReader fr_exTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
-                        {
-                            if (File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
-                            {
-                                getLevel(int.Parse(fr_exTest.ReadToEnd()), null, null, null);
-
-                                if (Day == "3")
-                                    File.Delete(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt");
-                            }
-
-                            switch (week_ex)
-                            {
-                                case "3":
-                                    getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
-                                    break;
-
-                                case "4":
-                                    getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
-                                    break;
-
-                                case "5":
-                                    getLevel(null, null, int.Parse(fr_exTest.ReadToEnd()), null);
-                                    break;
-
-                                case "6":
-                                    getLevel(null, null, null, int.Parse(fr_exTest.ReadToEnd()));
-                                    break;
-                            }
-                        }
-
-
-                    DateTime thisDate = DateTime.Today;
-                    if (File.Exists(@"C:\The Road To 100\user.ID 1\First_Day.txt") || File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
-                    {
-                        try
-                        {
-                            using (StreamReader fr_FirstDay = new StreamReader(@"C:\The Road To 100\user.ID 1\First_Day.txt"))
-                                if (thisDate.Day.ToString() != fr_FirstDay.ReadToEnd())
-                                    button1.Enabled = true;
-                        }
-                        catch (Exception)
-                        {
-                            button1.Enabled = true;
-                        }
-                    }
-
-                    using (StreamReader fr_week2 = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
-                        if (fr_week2.ReadToEnd() == "7")
-                        {
-                            button1.Enabled = false;
-                            pictureBox1.Visible = true;
-                            pictureBox1.BringToFront();
-                        }
+                    case "6":
+                        getLevel(null, null, null, Ex_test);
+                        break;
                 }
+
+                DateTime thisDate = DateTime.Today;
+                if (File.Exists(@"C:\The Road To 100\user.ID 1\First_Day.txt") || File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
+                {
+                    try
+                    {
+                        string FirstDay = GetC(@"C:\The Road To 100\user.ID 1\First_Day.txt");
+                        if (thisDate.Day.ToString() != FirstDay)
+                            button1.Enabled = true;
+                    }
+                    catch (Exception)
+                    {
+                        button1.Enabled = true;
+                    }
+                }
+
+            if (week == "7")
+            {
+                button1.Enabled = false;
+                pictureBox1.Visible = true;
+                pictureBox1.BringToFront();
             }
 
             if (repetWeek == true)
@@ -287,7 +297,7 @@ coracobrachialis and the midsection as a whole.");
 
             findeWorkoutParameters(Level);
             setPR();
-        }
+        }                        
 
         private void CloseButtoon(object sender, EventArgs e)
         {
@@ -329,49 +339,39 @@ coracobrachialis and the midsection as a whole.");
 
         private void setPR()
         {
+            string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
             PictureBox[] pb = { pr1, pr2, pr3, pr4, pr5, pr6 };
-
-            string colorcode = "#E3D93C";
-            int argb = Int32.Parse(colorcode.Replace("#", ""), NumberStyles.HexNumber);
-            Color clr = Color.FromArgb(argb);
-
-            using (StreamReader sr = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Week.txt"))
+       
+            switch (week)
             {
-                switch (sr.ReadToEnd())
-                {
-                    case "1":
-                        pb[0].BackColor = Color.AliceBlue;
-                        break;
-                    case "2":
-                        pb[0].BackColor = Color.AliceBlue;
-                        pb[1].BackColor = Color.AliceBlue;
-                        break;
-                    case "3":
-                        for (int i = 0; i <= 2; i++)
-                            pb[i].BackColor = Color.AliceBlue;
-                        break;
-                    case "4":
-                        for (int i = 0; i <= 3; i++)
-                            pb[i].BackColor = Color.AliceBlue;
-                        break;
-                    case "5":
-                        for (int i = 0; i <= 4; i++)
-                            pb[i].BackColor = Color.AliceBlue;
-                        break;
-                    case "6":
-                        foreach (PictureBox PB in pb)
-                            PB.BackColor = Color.AliceBlue;
-                        break;
-                    case "7":
-                        foreach (PictureBox PB in pb)
-                            PB.BackColor = Color.Gold;
-                        break;
-
-
-                }
+                case "1":
+                    pb[0].BackColor = Color.AliceBlue;
+                    break;
+                case "2":
+                    pb[0].BackColor = Color.AliceBlue;
+                    pb[1].BackColor = Color.AliceBlue;
+                    break;
+                case "3":
+                    for (int i = 0; i <= 2; i++)
+                        pb[i].BackColor = Color.AliceBlue;
+                    break;
+                case "4":
+                    for (int i = 0; i <= 3; i++)
+                        pb[i].BackColor = Color.AliceBlue;
+                    break;
+                case "5":
+                    for (int i = 0; i <= 4; i++)
+                        pb[i].BackColor = Color.AliceBlue;
+                    break;
+                case "6":
+                    foreach (PictureBox PB in pb)
+                        PB.BackColor = Color.AliceBlue;
+                    break;
+                case "7":
+                    foreach (PictureBox PB in pb)
+                        PB.BackColor = Color.Gold;
+                    break;           
             }
-
-
         }
 
         #region drag form
@@ -401,6 +401,9 @@ coracobrachialis and the midsection as a whole.");
 
         private void PICsignup_Click(object sender, EventArgs e)
         {
+            string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
+            int intialTest = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt"));
+
             New_name = TBname.Text;
             New_lastName = TBlastname.Text;
             // New_age = TBage.text
@@ -423,16 +426,15 @@ coracobrachialis and the midsection as a whole.");
                 createWorkoutPlanFiles("Week");
                 createWorkoutPlanFiles("Day");
               
-                using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
-                    if (readWeek.ReadToEnd() == "3")
-                    {
-                        Cweek.Text = "3";
-                        QustionMark.Visible = true;
-                    }
+                
+                if (week == "3")
+                {
+                    Cweek.Text = "3";
+                    QustionMark.Visible = true;
+                }
 
-                button1.Enabled = true;
-                using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))
-                    getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
+                button1.Enabled = true;              
+                getLevel(intialTest, null, null, null);
                 findeWorkoutParameters(Level);
                 fileCreate = true;
                 setPersonal_Screen();
@@ -449,25 +451,11 @@ coracobrachialis and the midsection as a whole.");
         }
 
         private void creatFiles(string fileName, string TXTCONTANT, int NUMCONTANT)
-        {
-            string TXTcontant = TXTCONTANT;
-            int Numcontant = NUMCONTANT;
-
-            using (StreamWriter fw = new StreamWriter(@"C:\The Road To 100\" + "user.ID 1" + @"\" + fileName + ".txt"))
-            {
-                if (TXTcontant != "")
-                {
-                    fw.Write(TXTcontant);
-                    fw.Close();
-                    fw.Dispose();
-                }
-                else if (Numcontant != 0)
-                {
-                    fw.Write(Numcontant);
-                    fw.Close();
-                    fw.Dispose();
-                }
-            }
+        {         
+            if (TXTCONTANT != "")
+                SetC(@"C:\The Road To 100\" + "user.ID 1" + @"\" + fileName + ".txt", TXTCONTANT);
+            else if (NUMCONTANT != 0)
+                SetC(@"C:\The Road To 100\" + "user.ID 1" + @"\" + fileName + ".txt", NUMCONTANT);
         }
 
         private void Checking_TB()
@@ -566,53 +554,26 @@ coracobrachialis and the midsection as a whole.");
         {
             getdata("First Name");
             getdata("Age");
-            getdata("Total Push ups Done");
-
-            using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Week.txt"))
-            {
-                Cweek.Text = readWeek.ReadToEnd();
-                readWeek.Close();
-                readWeek.Dispose();
-            }
-            using (StreamReader readDay = new StreamReader(@"C:\The Road To 100\" + @"user.ID 1\Day.txt"))
-            {
-                Cday.Text = readDay.ReadToEnd();
-                readDay.Close();
-                readDay.Dispose();
-            }
+            getdata("Total Push ups Done");                 
+            Cweek.Text = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");          
+            Cday.Text = GetC(@"C:\The Road To 100\user.ID 1\Day.txt");            
         }
 
         public void getdata(string filename)
-        {
-            try
+        {                             
+            data_set = GetC(@"C:\The Road To 100\" + "user.ID 1" + @"\" + filename + ".txt", true);
+            
+            if (filename == "First Name")
             {
-                using (StreamReader sr = new StreamReader(@"C:\The Road To 100\" + "user.ID 1" + @"\" + filename + ".txt"))
-                {
-                    data_set = sr.ReadToEnd();
-                    if (filename == "First Name")
-                    {
-                        CHname.Text = data_set;
-                        Cname.Text = data_set;
-                    }
-
-                    else if (filename == "Age")
-                    {
-                        Cage.Text = data_set;
-                    }
-
-                    else if (filename == "Total Push ups Done")
-                    {
-                        Ctotal_push_done.Text = data_set;
-                    }
-                }
+                CHname.Text = data_set;
+                Cname.Text = data_set;
             }
-            catch (Exception e)
-            {
-                MessageBox.Show("The file could not be read:");
-                MessageBox.Show(e.Message);
-            }
+            else if (filename == "Age")
+                Cage.Text = data_set;
+            else if (filename == "Total Push ups Done")
+                Ctotal_push_done.Text = data_set;
         }
-
+        
         #endregion
 
         #region Personal Screen
@@ -626,9 +587,20 @@ coracobrachialis and the midsection as a whole.");
         private void Bplan_Click(object sender, EventArgs e)
         {
             WorkoutPlan popup = new WorkoutPlan();
-            using (StreamReader readTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Initial Test.txt"))
-                getLevel(int.Parse(readTest.ReadToEnd()), null, null, null);
-
+            string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
+            int Ex_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"));
+            
+            if(week == "1" || week == "2")
+                getLevel(int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt")), null, null, null);
+            else if(week == "3")
+              getLevel(null, Ex_test, null, null);
+            else if (week == "4")
+                getLevel(null, Ex_test, null, null);
+            else if (week == "5")
+                getLevel(null, null, Ex_test, null);
+            else if (week == "6")
+                getLevel(null, null, null, Ex_test);
+                    
             findeWorkoutParameters(Level);
 
             if (set_8 == 0)
@@ -668,48 +640,41 @@ coracobrachialis and the midsection as a whole.");
 
         private void getLevel(int? test1, int? test2, int? test3, int? test4)
         {
-            using (StreamReader sr = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
+            string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
+
+            if (test1 < 20 && week == "1" || week == "2")
             {
-                char[] x = (sr.ReadToEnd()).ToCharArray();
-                string week = x[0].ToString();
-
-                if (test1 < 20 && week == "1" || week == "2")
-                {
-                    if (test1 <= 5) { Level = 1; }
-                    else if (test1 >= 6 && test1 <= 10) { Level = 2; }
-                    else if (test1 >= 11 && test1 <= 20) { Level = 3; }
-                }
-
-                else if (test1 >= 20 || week == "3" || week == "4")
-                {
-                    if (test2 >= 16 && test2 <= 20 || test1 >= 16 && test1 <= 20) { Level = 1; }
-                    else if (test2 >= 21 && test2 <= 25 || test1 >= 21 && test1 <= 25) { Level = 2; }
-                    else if (test2 > 25 || test1 > 25) { Level = 3; }
-                    else
-                        repetWeek = true;
-                }
-
-                else if (week == "5")
-                {
-                    if (test3 >= 31 && test3 <= 35) { Level = 1; }
-                    else if (test3 >= 36 && test3 <= 40) { Level = 2; }
-                    else if (test3 > 40) { Level = 3; }
-                    else
-                        repetWeek = true;
-                }
-
-                else if (week == "6")
-                {
-                    if (test4 >= 46 && test4 <= 50) { Level = 1; }
-                    else if (test4 >= 51 && test4 <= 60) { Level = 2; }
-                    else if (test4 > 60) { Level = 3; }
-                    else
-                        repetWeek = true;
-                }
-                sr.Close();
-                sr.Dispose();
+                if (test1 <= 5) { Level = 1; }
+                else if (test1 >= 6 && test1 <= 10) { Level = 2; }
+                else if (test1 >= 11 && test1 <= 20) { Level = 3; }
             }
 
+            else if (test1 >= 20 || week == "3" || week == "4")
+            {
+                if (test2 >= 16 && test2 <= 20 || test1 >= 16 && test1 <= 20) { Level = 1; }
+                else if (test2 >= 21 && test2 <= 25 || test1 >= 21 && test1 <= 25) { Level = 2; }
+                else if (test2 > 25 || test1 > 25) { Level = 3; }
+                else
+                    repetWeek = true;
+            }
+
+            else if (week == "5")
+            {
+                if (test3 >= 31 && test3 <= 35) { Level = 1; }
+                else if (test3 >= 36 && test3 <= 40) { Level = 2; }
+                else if (test3 > 40) { Level = 3; }
+                else
+                    repetWeek = true;
+            }
+
+            else if (week == "6")
+            {
+                if (test4 >= 46 && test4 <= 50) { Level = 1; }
+                else if (test4 >= 51 && test4 <= 60) { Level = 2; }
+                else if (test4 > 60) { Level = 3; }
+                else
+                    repetWeek = true;
+            }
         }
 
         private void Repet_oneWeek()
@@ -717,64 +682,39 @@ coracobrachialis and the midsection as a whole.");
             Sorry popup = new Sorry();
             DialogResult dialogresult = popup.ShowDialog();
 
-            string c = get_content(@"C:\The Road To 100\user.ID 1\Week.txt");
-            using (StreamWriter fw_week = new StreamWriter(@"C:\The Road To 100\user.ID 1\Week.txt"))
-                fw_week.Write(int.Parse(c) - 1);
+            string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
+            string exTest = GetC(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt");
 
-            using (StreamReader fr_week = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
-                if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
-                    using (StreamReader fr_exTest = new StreamReader(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
-                        switch (fr_week.ReadToEnd())
-                        {
-                            case "2":
-                                getLevel(int.Parse(fr_exTest.ReadToEnd()), null, null, null);
-                                creatFiles("repetOneWeek", "true", 0);
-                                break;
+            SetC(@"C:\The Road To 100\user.ID 1\Week.txt", int.Parse(week) - 1);
 
-                            case "3":
-                                getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
-                                break;
-
-                            case "4":
-                                getLevel(null, int.Parse(fr_exTest.ReadToEnd()), null, null);
-                                break;
-
-                            case "5":
-                                getLevel(null, null, int.Parse(fr_exTest.ReadToEnd()), null);
-                                break;
-
-                            case "6":
-                                getLevel(null, null, null, int.Parse(fr_exTest.ReadToEnd()));
-                                break;
-                            default:
-                                int o;
-                                break;
-                        }
-            using (StreamReader fr_week = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
-                Cweek.Text = fr_week.ReadToEnd();
-        }
-
-        private string get_content(string path)
-        {
-            using (StreamReader fr_Week = new StreamReader(path))
-                return fr_Week.ReadToEnd();
-
+            
+            if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
+                switch (week)
+                {
+                    case "2":
+                        getLevel(int.Parse(exTest), null, null, null);
+                        creatFiles("repetOneWeek", "true", 0);
+                        break;
+                    case "3":
+                        getLevel(null, int.Parse(exTest), null, null);
+                        break;
+                    case "4":
+                        getLevel(null, int.Parse(exTest), null, null);
+                        break;
+                    case "5":
+                        getLevel(null, null, int.Parse(exTest), null);
+                        break;
+                    case "6":
+                        getLevel(null, null, null, int.Parse(exTest));
+                        break;               
+                  }
+            Cweek.Text = week;
         }
 
         private void findeWorkoutParameters(int level)
         {
-            using (StreamReader y = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
-            {
-                char[] readWeek = y.ReadToEnd().ToCharArray();
-                week = readWeek[0].ToString();
-            }
-
-
-            using (StreamReader x = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt"))
-            {
-                char[] readDay = x.ReadToEnd().ToCharArray();
-                day = readDay[0].ToString();
-            }
+            string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
+            string day = GetC(@"C:\The Road To 100\user.ID 1\Day.txt");
 
 
             #region week 1
@@ -1465,26 +1405,18 @@ coracobrachialis and the midsection as a whole.");
         }
 
         private void createWorkoutPlanFiles(string name)
-        {
-            using (StreamWriter sw = new StreamWriter(@"C:\The Road To 100\user.ID 1\" + name + ".txt"))
+        {            
+            switch (name)
             {
-                switch (name)
-                {
-                    case "Week":
-                        if (int.Parse(TBintailtest_results.Text) > 20)
-                            sw.Write("3");
-                        else
-                            sw.Write("1");
-                        sw.Close();
-                        sw.Dispose();
-                        break;
-
-                    case "Day":
-                        sw.Write("1");
-                        sw.Close();
-                        sw.Dispose();
-                        break;
-                }
+                case "Week":
+                    if (int.Parse(TBintailtest_results.Text) > 20)
+                        SetC(@"C:\The Road To 100\user.ID 1\" + name + ".txt", "3");
+                    else
+                        SetC(@"C:\The Road To 100\user.ID 1\" + name + ".txt", "1");
+                    break;
+                case "Day":
+                    SetC(@"C:\The Road To 100\user.ID 1\" + name + ".txt", "1");
+                    break; 
             }
         }
 
@@ -1585,12 +1517,10 @@ coracobrachialis and the midsection as a whole.");
             CrestTime.Text = String.Format("{0} seconds", rest).ToString();
 
             //set week
-            using (StreamReader readWeek = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
-                C_week.Text = readWeek.ReadToEnd();
+            C_week.Text = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
 
             //set day
-            using (StreamReader readDay = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt"))
-                C_Day.Text = readDay.ReadToEnd();
+            C_Day.Text = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
 
             #region set Sets
 
@@ -1625,8 +1555,6 @@ coracobrachialis and the midsection as a whole.");
                 Cset9.Text = String.Format("max (at least  {0})", set_max.ToString());
             }
             #endregion
-
-
         }
 
         private void Finish_Click(object sender, EventArgs e)
@@ -1640,7 +1568,6 @@ coracobrachialis and the midsection as a whole.");
                     Finish.Enabled = false;
                     Lrest.Visible = true;
                     Crest.Visible = true;
-
                     Crest.Text = (rest).ToString();
                     Rest_Timer.Start();
                 }
@@ -1741,8 +1668,8 @@ coracobrachialis and the midsection as a whole.");
             //Change day and (if needed) change week
             Change_Day();
 
-            using (StreamWriter fw_push = new StreamWriter(@"C:\The Road To 100\user.ID 1\Total Push ups Done.txt"))
-                fw_push.Write(int.Parse(Ctotal_push_done.Text) + int.Parse(Ctodayspushups.Text));
+            
+            SetC(@"C:\The Road To 100\user.ID 1\Total Push ups Done.txt", (int.Parse(Ctotal_push_done.Text) + int.Parse(Ctodayspushups.Text)));
             int c = int.Parse(Ctotal_push_done.Text);
             Ctotal_push_done.Text = (c + int.Parse(Ctodayspushups.Text)).ToString();
 
@@ -1914,57 +1841,22 @@ coracobrachialis and the midsection as a whole.");
 
         private void Change_Day()
         {
-            using (StreamReader fr = new StreamReader(@"C:\The Road To 100\user.ID 1\Day.txt"))
-            {
-                char[] readDay = fr.ReadToEnd().ToCharArray();
-                string day;
-                day = readDay[0].ToString();
-
+            string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
+            string day = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
+            
                 if (day == "1")
-                {
-                    fr.Close();
-                    fr.Dispose();
-                    using (StreamWriter fw = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt"))
-                        fw.Write("2");
-
-                }
+                    SetC(@"C:\The Road To 100\user.ID 1\Day.txt", "2");
                 else if (day == "2")
-                {
-                    fr.Close();
-                    fr.Dispose();
-                    using (StreamWriter fw = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt"))
-                        fw.Write("3");
+                    SetC(@"C:\The Road To 100\user.ID 1\Day.txt", "3");
 
-                }
                 else if (day == "3")
                 {
-                    fr.Close();
-                    fr.Dispose();
-
-                    using (StreamReader Week_R = new StreamReader(@"C:\The Road To 100\user.ID 1\Week.txt"))
-                    {
-                        content_W = Week_R.ReadToEnd();
-                        Week_R.Close();
-                        Week_R.Dispose();
-                    }
-
+                    content_W = week;
                     if (int.Parse(content_W) < 7)
                     {
-                        using (StreamWriter fw_W = new StreamWriter(@"C:\The Road To 100\user.ID 1\Week.txt"))
-                        {
-                            fw_W.Write(int.Parse(content_W) + 1);
-                            fw_W.Close();
-                            fw_W.Dispose();
-                        }
-
-                        using (StreamWriter fw_D = new StreamWriter(@"C:\The Road To 100\user.ID 1\Day.txt"))
-                        {
-                            fw_D.Write("1");
-                            fw_D.Close();
-                            fw_D.Dispose();
-                        }
+                        SetC(@"C:\The Road To 100\user.ID 1\Day.txt", int.Parse(content_W) + 1);
+                        SetC(@"C:\The Road To 100\user.ID 1\Day.txt", "1");
                     }
-                }
             }
         }
 
