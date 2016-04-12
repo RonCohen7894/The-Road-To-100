@@ -141,6 +141,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Workout_Timer = new System.Windows.Forms.Timer(this.components);
             this.Rest_Timer = new System.Windows.Forms.Timer(this.components);
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Bapp = new System.Windows.Forms.PictureBox();
             this.PmainManu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).BeginInit();
             this.Pnew_user.SuspendLayout();
@@ -160,6 +162,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Arrow2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).BeginInit();
             this.Pginfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Bapp)).BeginInit();
             this.SuspendLayout();
             // 
             // PmainManu
@@ -663,10 +666,9 @@
             this.Ppersonal_Screen.Controls.Add(this.label11);
             this.Ppersonal_Screen.Controls.Add(this.CHname);
             this.Ppersonal_Screen.Controls.Add(this.label4);
-            this.Ppersonal_Screen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Ppersonal_Screen.Location = new System.Drawing.Point(0, 0);
+            this.Ppersonal_Screen.Location = new System.Drawing.Point(1069, 642);
             this.Ppersonal_Screen.Name = "Ppersonal_Screen";
-            this.Ppersonal_Screen.Size = new System.Drawing.Size(1320, 720);
+            this.Ppersonal_Screen.Size = new System.Drawing.Size(74, 66);
             this.Ppersonal_Screen.TabIndex = 2;
             this.Ppersonal_Screen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -1003,6 +1005,8 @@
             // Pworkout
             // 
             this.Pworkout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pworkout.Controls.Add(this.textBox3);
+            this.Pworkout.Controls.Add(this.Bapp);
             this.Pworkout.Controls.Add(this.BstartWorkout);
             this.Pworkout.Controls.Add(this.Tstatment);
             this.Pworkout.Controls.Add(this.Crest);
@@ -1036,10 +1040,11 @@
             this.Pworkout.Controls.Add(this.Lset_3);
             this.Pworkout.Controls.Add(this.Lset_2);
             this.Pworkout.Controls.Add(this.label6);
+            this.Pworkout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Pworkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pworkout.Location = new System.Drawing.Point(988, 641);
+            this.Pworkout.Location = new System.Drawing.Point(0, 0);
             this.Pworkout.Name = "Pworkout";
-            this.Pworkout.Size = new System.Drawing.Size(75, 70);
+            this.Pworkout.Size = new System.Drawing.Size(1320, 720);
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -1566,14 +1571,42 @@
             this.Rest_Timer.Interval = 1000;
             this.Rest_Timer.Tick += new System.EventHandler(this.Rest_Timer_Tick);
             // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.MediumTurquoise;
+            this.textBox3.Location = new System.Drawing.Point(763, 333);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(87, 24);
+            this.textBox3.TabIndex = 25;
+            this.textBox3.Text = "Use the app";
+            this.textBox3.Visible = false;
+            // 
+            // Bapp
+            // 
+            this.Bapp.Image = global::The_Road_To_100.Properties.Resources.phone_icon;
+            this.Bapp.Location = new System.Drawing.Point(709, 322);
+            this.Bapp.Name = "Bapp";
+            this.Bapp.Size = new System.Drawing.Size(47, 48);
+            this.Bapp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Bapp.TabIndex = 23;
+            this.Bapp.TabStop = false;
+            this.Bapp.Visible = false;
+            this.Bapp.Click += new System.EventHandler(this.Bapp_Click);
+            this.Bapp.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
+            this.Bapp.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
+            // 
             // The_Road_To_100
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
+            this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.Ppersonal_Screen);
             this.Controls.Add(this.Pnew_user);
-            this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.PmainManu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1604,6 +1637,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).EndInit();
             this.Pginfo.ResumeLayout(false);
             this.Pginfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Bapp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1721,6 +1755,8 @@
         private System.Windows.Forms.Timer Rest_Timer;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox voiceMic;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.PictureBox Bapp;
     }
 }
 

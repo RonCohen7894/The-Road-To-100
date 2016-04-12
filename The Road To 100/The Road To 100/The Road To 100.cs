@@ -93,24 +93,24 @@ namespace The_Road_To_100
         private int Age;
         private int intail_Test;
         private int Level;
-        private int set_1;
-        private int set_2;
-        private int set_3;
-        private int set_4;
-        private int set_5;
-        private int set_6;
-        private int set_7;
-        public int set_8;
-        private int set_9;
-        private int set_max;
+        static private int set_1;
+        static private int set_2;
+        static private int set_3;
+        static private int set_4;
+        static private int set_5;
+        static private int set_6;
+        static private int set_7;
+        static public int set_8;
+        static private int set_max;
         private int rest;
-        private int num_sets;
+        public static int num_sets;
         string week;
         string day;
         int Weekcontent;
         bool repetWeek;
         bool voice = false;
-
+        public int[] sets = { set_1, set_2 , set_3, set_4, set_5, set_6, set_7, set_8, set_max, num_sets };
+ 
         //workout
         private bool moved = false;
         private bool workout_done = false;
@@ -400,10 +400,7 @@ coracobrachialis and the midsection as a whole.");
         #region New User
 
         private void PICsignup_Click(object sender, EventArgs e)
-        {
-            string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
-            int intialTest = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt"));
-
+        {           
             New_name = TBname.Text;
             New_lastName = TBlastname.Text;
             // New_age = TBage.text
@@ -425,8 +422,9 @@ coracobrachialis and the midsection as a whole.");
                 creatFiles("FirstTime", "True", 0);
                 createWorkoutPlanFiles("Week");
                 createWorkoutPlanFiles("Day");
-              
-                
+
+                string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
+                int intialTest = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt"));
                 if (week == "3")
                 {
                     Cweek.Text = "3";
@@ -602,39 +600,38 @@ coracobrachialis and the midsection as a whole.");
                 getLevel(null, null, null, Ex_test);
                     
             findeWorkoutParameters(Level);
+                        if (set_8 == 0)
+                        {
 
-            if (set_8 == 0)
-            {
+                            popup.Cset1.Text = set_1.ToString();
+                            popup.Cset2.Text = set_2.ToString();
+                            popup.Cset3.Text = set_3.ToString();
+                            popup.Cset4.Text = set_4.ToString();
+                            popup.Cset5.Text = String.Format("max (at least  {0})", set_max.ToString());
+                        }
 
-                popup.Cset1.Text = set_1.ToString();
-                popup.Cset2.Text = set_2.ToString();
-                popup.Cset3.Text = set_3.ToString();
-                popup.Cset4.Text = set_4.ToString();
-                popup.Cset5.Text = String.Format("max (at least  {0})", set_max.ToString());
-            }
+                        else
+                        {
+                            popup.Cset6.Visible = true;
+                            popup.Cset7.Visible = true;
+                            popup.Cset8.Visible = true;
+                            popup.Cset9.Visible = true;
+                            popup.label6.Visible = true;
+                            popup.label7.Visible = true;
+                            popup.label8.Visible = true;
+                            popup.label10.Visible = true;
 
-            else
-            {
-                popup.Cset6.Visible = true;
-                popup.Cset7.Visible = true;
-                popup.Cset8.Visible = true;
-                popup.Cset9.Visible = true;
-                popup.label6.Visible = true;
-                popup.label7.Visible = true;
-                popup.label8.Visible = true;
-                popup.label10.Visible = true;
-
-                popup.Cset1.Text = set_1.ToString();
-                popup.Cset2.Text = set_2.ToString();
-                popup.Cset3.Text = set_3.ToString();
-                popup.Cset4.Text = set_4.ToString();
-                popup.Cset5.Text = set_5.ToString();
-                popup.Cset6.Text = set_6.ToString();
-                popup.Cset7.Text = set_7.ToString();
-                popup.Cset8.Text = set_8.ToString();
-                popup.Cset9.Text = String.Format("max (at least  {0})", set_max.ToString());
-            }
-
+                            popup.Cset1.Text = set_1.ToString();
+                            popup.Cset2.Text = set_2.ToString();
+                            popup.Cset3.Text = set_3.ToString();
+                            popup.Cset4.Text = set_4.ToString();
+                            popup.Cset5.Text = set_5.ToString();
+                            popup.Cset6.Text = set_6.ToString();
+                            popup.Cset7.Text = set_7.ToString();
+                            popup.Cset8.Text = set_8.ToString();
+                            popup.Cset9.Text = String.Format("max (at least  {0})", set_max.ToString());
+                        }
+            
             DialogResult dialogresult = popup.ShowDialog();
         }
 
@@ -1492,7 +1489,9 @@ coracobrachialis and the midsection as a whole.");
 
                 Finish.Top -= 150;
                 Finish.Visible = true;
-
+                textBox3.Top -= 150;
+                Bapp.Top -= 150;
+                Bapp.Visible = true;
 
             }
             else if (moved == true)
@@ -1555,6 +1554,11 @@ coracobrachialis and the midsection as a whole.");
                 Cset9.Text = String.Format("max (at least  {0})", set_max.ToString());
             }
             #endregion
+        }
+
+        private void Bapp_Click(object sender, EventArgs e)
+        {
+            
         }
 
         private void Finish_Click(object sender, EventArgs e)
@@ -1745,11 +1749,12 @@ coracobrachialis and the midsection as a whole.");
             Finish.Top += 150;
             Finish.Visible = false;
             Finish.Enabled = true;
-
+            Bapp.Top += 150;
+            Bapp.Visible = false;
+            textBox3.Top += 150;
+            textBox3.Visible = false;
             button4.Visible = true;
             button4.Enabled = true;
-
-
 
             moved = false;
             workout_done = true;
@@ -1860,6 +1865,16 @@ coracobrachialis and the midsection as a whole.");
             }
         }
 
-        #endregion
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            textBox3.Visible = true;
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            textBox3.Visible = false;
+        }
+
+        #endregion        
     }
 }
