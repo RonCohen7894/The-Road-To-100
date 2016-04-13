@@ -223,8 +223,8 @@ coracobrachialis and the midsection as a whole.");
 
             string week_ex = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
             string Day = GetC(@"C:\The Road To 100\user.ID 1\Day.txt");
-            int Ex_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"));
-            int initail_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt"));
+            int Ex_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt", true));
+            int initail_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt", true));
 
             if (!File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
             {
@@ -424,7 +424,7 @@ coracobrachialis and the midsection as a whole.");
                 createWorkoutPlanFiles("Day");
 
                 string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
-                int intialTest = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt"));
+                int intialTest = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt", true));
                 if (week == "3")
                 {
                     Cweek.Text = "3";
@@ -586,10 +586,10 @@ coracobrachialis and the midsection as a whole.");
         {
             WorkoutPlan popup = new WorkoutPlan();
             string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
-            int Ex_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"));
+            int Ex_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt", true));
             
             if(week == "1" || week == "2")
-                getLevel(int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt")), null, null, null);
+                getLevel(int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt", true)), null, null, null);
             else if(week == "3")
               getLevel(null, Ex_test, null, null);
             else if (week == "4")
@@ -680,7 +680,7 @@ coracobrachialis and the midsection as a whole.");
             DialogResult dialogresult = popup.ShowDialog();
 
             string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
-            string exTest = GetC(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt");
+            string exTest = GetC(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt", true);
 
             SetC(@"C:\The Road To 100\user.ID 1\Week.txt", int.Parse(week) - 1);
 
@@ -1439,14 +1439,33 @@ coracobrachialis and the midsection as a whole.");
         {
             if (voice == false)
             {
-                sre.RecognizeAsync(RecognizeMode.Multiple);
+                sre.RecognizeAsync(RecognizeMode.Multiple);            
                 voice = true;
+                Mic_Animation();
             }
-            else
+            else if(voice == true)
             {
                 sre.RecognizeAsyncStop();
-                voice = false;
+                voice = false;  
             }
+        }
+
+        private async void Mic_Animation()
+        {
+            PictureBox[] images = { Green, Yellow, Red, Blue };
+            await Task.Delay(450);
+            foreach (PictureBox img in images)
+            {
+                if (voice == true)
+                { 
+                img.Visible = true;
+                await Task.Delay(650);
+                }
+            }
+            foreach (PictureBox img in images)
+                img.Visible = false;
+            if(voice == true)
+                Mic_Animation();
         }
 
         #endregion

@@ -64,7 +64,6 @@
     <Compile Include="Exhaustion test.Designer.cs">
       <DependentUpon>Exhaustion test.cs</DependentUpon>
     </Compile>
-    <Compile Include="Server.cs" />
     <Compile Include="Sorry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +143,11 @@
   <ItemGroup>
     <Content Include="icon done.ico" />
     <Content Include="IntorductionTXT.txt" />
+    <None Include="Resources\Red.png" />
+    <None Include="Resources\Green.png" />
+    <None Include="Resources\Blue.png" />
+    <None Include="Resources\Yellow.png" />
+    <None Include="Resources\Blue.bmp" />
     <None Include="Resources\phone icon.png" />
     <None Include="Resources\mic.png" />
     <None Include="Resources\100-fireworks.png" />

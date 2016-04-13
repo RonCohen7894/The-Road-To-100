@@ -95,6 +95,8 @@
             this.CHname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Pworkout = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Bapp = new System.Windows.Forms.PictureBox();
             this.BstartWorkout = new System.Windows.Forms.Button();
             this.Tstatment = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
@@ -141,8 +143,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Workout_Timer = new System.Windows.Forms.Timer(this.components);
             this.Rest_Timer = new System.Windows.Forms.Timer(this.components);
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.Bapp = new System.Windows.Forms.PictureBox();
+            this.Green = new System.Windows.Forms.PictureBox();
+            this.Yellow = new System.Windows.Forms.PictureBox();
+            this.Red = new System.Windows.Forms.PictureBox();
+            this.Blue = new System.Windows.Forms.PictureBox();
             this.PmainManu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).BeginInit();
             this.Pnew_user.SuspendLayout();
@@ -158,11 +162,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pr6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).BeginInit();
             this.Pworkout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Bapp)).BeginInit();
             this.Tstatment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).BeginInit();
             this.Pginfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Bapp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Green)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Yellow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Red)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Blue)).BeginInit();
             this.SuspendLayout();
             // 
             // PmainManu
@@ -346,10 +354,11 @@
             this.Pnew_user.Controls.Add(this.Lintialtest);
             this.Pnew_user.Controls.Add(this.label10);
             this.Pnew_user.Controls.Add(this.Lsignup);
-            this.Pnew_user.Location = new System.Drawing.Point(1156, 642);
+            this.Pnew_user.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnew_user.Location = new System.Drawing.Point(0, 0);
             this.Pnew_user.Name = "Pnew_user";
-            this.Pnew_user.Size = new System.Drawing.Size(60, 69);
-            this.Pnew_user.TabIndex = 1;
+            this.Pnew_user.Size = new System.Drawing.Size(1320, 720);
+            this.Pnew_user.TabIndex = 2;
             this.Pnew_user.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // BbackToMainMenue
@@ -362,7 +371,7 @@
             this.BbackToMainMenue.Location = new System.Drawing.Point(11, 655);
             this.BbackToMainMenue.Name = "BbackToMainMenue";
             this.BbackToMainMenue.Size = new System.Drawing.Size(133, 52);
-            this.BbackToMainMenue.TabIndex = 7;
+            this.BbackToMainMenue.TabIndex = 5;
             this.BbackToMainMenue.Text = "back";
             this.BbackToMainMenue.UseVisualStyleBackColor = false;
             this.BbackToMainMenue.Click += new System.EventHandler(this.backToMainMenu);
@@ -425,7 +434,7 @@
             this.Bexit_newUser.Location = new System.Drawing.Point(1165, 11);
             this.Bexit_newUser.Name = "Bexit_newUser";
             this.Bexit_newUser.Size = new System.Drawing.Size(141, 72);
-            this.Bexit_newUser.TabIndex = 5;
+            this.Bexit_newUser.TabIndex = 6;
             this.Bexit_newUser.Text = "Exit";
             this.Bexit_newUser.UseVisualStyleBackColor = false;
             this.Bexit_newUser.Click += new System.EventHandler(this.CloseButtoon);
@@ -637,6 +646,10 @@
             // 
             this.Ppersonal_Screen.BackColor = System.Drawing.Color.FloralWhite;
             this.Ppersonal_Screen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Ppersonal_Screen.Controls.Add(this.Blue);
+            this.Ppersonal_Screen.Controls.Add(this.Red);
+            this.Ppersonal_Screen.Controls.Add(this.Yellow);
+            this.Ppersonal_Screen.Controls.Add(this.Green);
             this.Ppersonal_Screen.Controls.Add(this.voiceMic);
             this.Ppersonal_Screen.Controls.Add(this.label20);
             this.Ppersonal_Screen.Controls.Add(this.pictureBox1);
@@ -676,9 +689,9 @@
             // 
             this.voiceMic.Cursor = System.Windows.Forms.Cursors.Hand;
             this.voiceMic.Image = global::The_Road_To_100.Properties.Resources.mic;
-            this.voiceMic.Location = new System.Drawing.Point(1275, -1);
+            this.voiceMic.Location = new System.Drawing.Point(1263, -1);
             this.voiceMic.Name = "voiceMic";
-            this.voiceMic.Size = new System.Drawing.Size(44, 34);
+            this.voiceMic.Size = new System.Drawing.Size(56, 51);
             this.voiceMic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.voiceMic.TabIndex = 24;
             this.voiceMic.TabStop = false;
@@ -1040,13 +1053,40 @@
             this.Pworkout.Controls.Add(this.Lset_3);
             this.Pworkout.Controls.Add(this.Lset_2);
             this.Pworkout.Controls.Add(this.label6);
-            this.Pworkout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Pworkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pworkout.Location = new System.Drawing.Point(0, 0);
+            this.Pworkout.Location = new System.Drawing.Point(987, 657);
             this.Pworkout.Name = "Pworkout";
-            this.Pworkout.Size = new System.Drawing.Size(1320, 720);
+            this.Pworkout.Size = new System.Drawing.Size(64, 51);
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.ForeColor = System.Drawing.Color.MediumTurquoise;
+            this.textBox3.Location = new System.Drawing.Point(763, 333);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(87, 24);
+            this.textBox3.TabIndex = 25;
+            this.textBox3.Text = "Use the app";
+            this.textBox3.Visible = false;
+            // 
+            // Bapp
+            // 
+            this.Bapp.Image = global::The_Road_To_100.Properties.Resources.phone_icon;
+            this.Bapp.Location = new System.Drawing.Point(709, 322);
+            this.Bapp.Name = "Bapp";
+            this.Bapp.Size = new System.Drawing.Size(47, 48);
+            this.Bapp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Bapp.TabIndex = 23;
+            this.Bapp.TabStop = false;
+            this.Bapp.Visible = false;
+            this.Bapp.Click += new System.EventHandler(this.Bapp_Click);
+            this.Bapp.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
+            this.Bapp.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
             // 
             // BstartWorkout
             // 
@@ -1571,42 +1611,58 @@
             this.Rest_Timer.Interval = 1000;
             this.Rest_Timer.Tick += new System.EventHandler(this.Rest_Timer_Tick);
             // 
-            // textBox3
+            // Green
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.textBox3.Location = new System.Drawing.Point(763, 333);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(87, 24);
-            this.textBox3.TabIndex = 25;
-            this.textBox3.Text = "Use the app";
-            this.textBox3.Visible = false;
+            this.Green.Image = global::The_Road_To_100.Properties.Resources.Green;
+            this.Green.Location = new System.Drawing.Point(1234, 6);
+            this.Green.Name = "Green";
+            this.Green.Size = new System.Drawing.Size(15, 44);
+            this.Green.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Green.TabIndex = 25;
+            this.Green.TabStop = false;
+            this.Green.Visible = false;
             // 
-            // Bapp
+            // Yellow
             // 
-            this.Bapp.Image = global::The_Road_To_100.Properties.Resources.phone_icon;
-            this.Bapp.Location = new System.Drawing.Point(709, 322);
-            this.Bapp.Name = "Bapp";
-            this.Bapp.Size = new System.Drawing.Size(47, 48);
-            this.Bapp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Bapp.TabIndex = 23;
-            this.Bapp.TabStop = false;
-            this.Bapp.Visible = false;
-            this.Bapp.Click += new System.EventHandler(this.Bapp_Click);
-            this.Bapp.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
-            this.Bapp.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
+            this.Yellow.Image = global::The_Road_To_100.Properties.Resources.Yellow;
+            this.Yellow.Location = new System.Drawing.Point(1218, 6);
+            this.Yellow.Name = "Yellow";
+            this.Yellow.Size = new System.Drawing.Size(10, 49);
+            this.Yellow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Yellow.TabIndex = 25;
+            this.Yellow.TabStop = false;
+            this.Yellow.Visible = false;
+            // 
+            // Red
+            // 
+            this.Red.Image = global::The_Road_To_100.Properties.Resources.Red;
+            this.Red.Location = new System.Drawing.Point(1202, 11);
+            this.Red.Name = "Red";
+            this.Red.Size = new System.Drawing.Size(10, 39);
+            this.Red.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Red.TabIndex = 25;
+            this.Red.TabStop = false;
+            this.Red.Visible = false;
+            // 
+            // Blue
+            // 
+            this.Blue.Image = global::The_Road_To_100.Properties.Resources.Blue;
+            this.Blue.Location = new System.Drawing.Point(1185, 6);
+            this.Blue.Name = "Blue";
+            this.Blue.Size = new System.Drawing.Size(11, 51);
+            this.Blue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Blue.TabIndex = 25;
+            this.Blue.TabStop = false;
+            this.Blue.Visible = false;
             // 
             // The_Road_To_100
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
-            this.Controls.Add(this.Pworkout);
-            this.Controls.Add(this.Ppersonal_Screen);
             this.Controls.Add(this.Pnew_user);
+            this.Controls.Add(this.Ppersonal_Screen);
+            this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.PmainManu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1631,13 +1687,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).EndInit();
             this.Pworkout.ResumeLayout(false);
             this.Pworkout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Bapp)).EndInit();
             this.Tstatment.ResumeLayout(false);
             this.Tstatment.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).EndInit();
             this.Pginfo.ResumeLayout(false);
             this.Pginfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Bapp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Green)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Yellow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Red)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Blue)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1757,6 +1817,10 @@
         private System.Windows.Forms.PictureBox voiceMic;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.PictureBox Bapp;
+        private System.Windows.Forms.PictureBox Blue;
+        private System.Windows.Forms.PictureBox Red;
+        private System.Windows.Forms.PictureBox Yellow;
+        private System.Windows.Forms.PictureBox Green;
     }
 }
 
