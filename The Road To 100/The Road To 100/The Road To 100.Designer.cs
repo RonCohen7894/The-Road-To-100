@@ -65,6 +65,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.Lsignup = new System.Windows.Forms.Label();
             this.Ppersonal_Screen = new System.Windows.Forms.Panel();
+            this.Blue = new System.Windows.Forms.PictureBox();
+            this.Red = new System.Windows.Forms.PictureBox();
+            this.Yellow = new System.Windows.Forms.PictureBox();
+            this.Green = new System.Windows.Forms.PictureBox();
             this.voiceMic = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -143,15 +147,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Workout_Timer = new System.Windows.Forms.Timer(this.components);
             this.Rest_Timer = new System.Windows.Forms.Timer(this.components);
-            this.Green = new System.Windows.Forms.PictureBox();
-            this.Yellow = new System.Windows.Forms.PictureBox();
-            this.Red = new System.Windows.Forms.PictureBox();
-            this.Blue = new System.Windows.Forms.PictureBox();
             this.PmainManu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).BeginInit();
             this.Pnew_user.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PICsignup)).BeginInit();
             this.Ppersonal_Screen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Blue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Red)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Yellow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Green)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voiceMic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr1)).BeginInit();
@@ -167,10 +171,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Arrow2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).BeginInit();
             this.Pginfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Green)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Yellow)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Red)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Blue)).BeginInit();
             this.SuspendLayout();
             // 
             // PmainManu
@@ -354,10 +354,9 @@
             this.Pnew_user.Controls.Add(this.Lintialtest);
             this.Pnew_user.Controls.Add(this.label10);
             this.Pnew_user.Controls.Add(this.Lsignup);
-            this.Pnew_user.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Pnew_user.Location = new System.Drawing.Point(0, 0);
+            this.Pnew_user.Location = new System.Drawing.Point(1154, 658);
             this.Pnew_user.Name = "Pnew_user";
-            this.Pnew_user.Size = new System.Drawing.Size(1320, 720);
+            this.Pnew_user.Size = new System.Drawing.Size(62, 50);
             this.Pnew_user.TabIndex = 2;
             this.Pnew_user.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -679,11 +678,56 @@
             this.Ppersonal_Screen.Controls.Add(this.label11);
             this.Ppersonal_Screen.Controls.Add(this.CHname);
             this.Ppersonal_Screen.Controls.Add(this.label4);
-            this.Ppersonal_Screen.Location = new System.Drawing.Point(1069, 642);
+            this.Ppersonal_Screen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Ppersonal_Screen.Location = new System.Drawing.Point(0, 0);
             this.Ppersonal_Screen.Name = "Ppersonal_Screen";
-            this.Ppersonal_Screen.Size = new System.Drawing.Size(74, 66);
+            this.Ppersonal_Screen.Size = new System.Drawing.Size(1320, 720);
             this.Ppersonal_Screen.TabIndex = 2;
             this.Ppersonal_Screen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
+            // Blue
+            // 
+            this.Blue.Image = global::The_Road_To_100.Properties.Resources.Blue;
+            this.Blue.Location = new System.Drawing.Point(1185, 6);
+            this.Blue.Name = "Blue";
+            this.Blue.Size = new System.Drawing.Size(11, 51);
+            this.Blue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Blue.TabIndex = 25;
+            this.Blue.TabStop = false;
+            this.Blue.Visible = false;
+            // 
+            // Red
+            // 
+            this.Red.Image = global::The_Road_To_100.Properties.Resources.Red;
+            this.Red.Location = new System.Drawing.Point(1202, 11);
+            this.Red.Name = "Red";
+            this.Red.Size = new System.Drawing.Size(10, 39);
+            this.Red.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Red.TabIndex = 25;
+            this.Red.TabStop = false;
+            this.Red.Visible = false;
+            // 
+            // Yellow
+            // 
+            this.Yellow.Image = global::The_Road_To_100.Properties.Resources.Yellow;
+            this.Yellow.Location = new System.Drawing.Point(1218, 6);
+            this.Yellow.Name = "Yellow";
+            this.Yellow.Size = new System.Drawing.Size(10, 49);
+            this.Yellow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Yellow.TabIndex = 25;
+            this.Yellow.TabStop = false;
+            this.Yellow.Visible = false;
+            // 
+            // Green
+            // 
+            this.Green.Image = global::The_Road_To_100.Properties.Resources.Green;
+            this.Green.Location = new System.Drawing.Point(1234, 6);
+            this.Green.Name = "Green";
+            this.Green.Size = new System.Drawing.Size(15, 44);
+            this.Green.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Green.TabIndex = 25;
+            this.Green.TabStop = false;
+            this.Green.Visible = false;
             // 
             // voiceMic
             // 
@@ -1611,57 +1655,13 @@
             this.Rest_Timer.Interval = 1000;
             this.Rest_Timer.Tick += new System.EventHandler(this.Rest_Timer_Tick);
             // 
-            // Green
-            // 
-            this.Green.Image = global::The_Road_To_100.Properties.Resources.Green;
-            this.Green.Location = new System.Drawing.Point(1234, 6);
-            this.Green.Name = "Green";
-            this.Green.Size = new System.Drawing.Size(15, 44);
-            this.Green.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Green.TabIndex = 25;
-            this.Green.TabStop = false;
-            this.Green.Visible = false;
-            // 
-            // Yellow
-            // 
-            this.Yellow.Image = global::The_Road_To_100.Properties.Resources.Yellow;
-            this.Yellow.Location = new System.Drawing.Point(1218, 6);
-            this.Yellow.Name = "Yellow";
-            this.Yellow.Size = new System.Drawing.Size(10, 49);
-            this.Yellow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Yellow.TabIndex = 25;
-            this.Yellow.TabStop = false;
-            this.Yellow.Visible = false;
-            // 
-            // Red
-            // 
-            this.Red.Image = global::The_Road_To_100.Properties.Resources.Red;
-            this.Red.Location = new System.Drawing.Point(1202, 11);
-            this.Red.Name = "Red";
-            this.Red.Size = new System.Drawing.Size(10, 39);
-            this.Red.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Red.TabIndex = 25;
-            this.Red.TabStop = false;
-            this.Red.Visible = false;
-            // 
-            // Blue
-            // 
-            this.Blue.Image = global::The_Road_To_100.Properties.Resources.Blue;
-            this.Blue.Location = new System.Drawing.Point(1185, 6);
-            this.Blue.Name = "Blue";
-            this.Blue.Size = new System.Drawing.Size(11, 51);
-            this.Blue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Blue.TabIndex = 25;
-            this.Blue.TabStop = false;
-            this.Blue.Visible = false;
-            // 
             // The_Road_To_100
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
-            this.Controls.Add(this.Pnew_user);
             this.Controls.Add(this.Ppersonal_Screen);
+            this.Controls.Add(this.Pnew_user);
             this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.PmainManu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1676,6 +1676,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.PICsignup)).EndInit();
             this.Ppersonal_Screen.ResumeLayout(false);
             this.Ppersonal_Screen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Blue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Red)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Yellow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Green)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.voiceMic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr1)).EndInit();
@@ -1694,10 +1698,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).EndInit();
             this.Pginfo.ResumeLayout(false);
             this.Pginfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Green)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Yellow)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Red)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Blue)).EndInit();
             this.ResumeLayout(false);
 
         }
