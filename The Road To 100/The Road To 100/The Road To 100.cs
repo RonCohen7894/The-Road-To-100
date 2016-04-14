@@ -600,37 +600,32 @@ coracobrachialis and the midsection as a whole.");
                 getLevel(null, null, null, Ex_test);
                     
             findeWorkoutParameters(Level);
-                        if (set_8 == 0)
-                        {
+            if (set_8 == 0)
+            {
+                popup.set8();
+            }
 
-                            popup.Cset1.Text = set_1.ToString();
-                            popup.Cset2.Text = set_2.ToString();
-                            popup.Cset3.Text = set_3.ToString();
-                            popup.Cset4.Text = set_4.ToString();
-                            popup.Cset5.Text = String.Format("max (at least  {0})", set_max.ToString());
-                        }
+            else
+            {
+                popup.Cset6.Visible = true;
+                popup.Cset7.Visible = true;
+                popup.Cset8.Visible = true;
+                popup.Cset9.Visible = true;
+                popup.label6.Visible = true;
+                popup.label7.Visible = true;
+                popup.label8.Visible = true;
+                popup.label10.Visible = true;
 
-                        else
-                        {
-                            popup.Cset6.Visible = true;
-                            popup.Cset7.Visible = true;
-                            popup.Cset8.Visible = true;
-                            popup.Cset9.Visible = true;
-                            popup.label6.Visible = true;
-                            popup.label7.Visible = true;
-                            popup.label8.Visible = true;
-                            popup.label10.Visible = true;
-
-                            popup.Cset1.Text = set_1.ToString();
-                            popup.Cset2.Text = set_2.ToString();
-                            popup.Cset3.Text = set_3.ToString();
-                            popup.Cset4.Text = set_4.ToString();
-                            popup.Cset5.Text = set_5.ToString();
-                            popup.Cset6.Text = set_6.ToString();
-                            popup.Cset7.Text = set_7.ToString();
-                            popup.Cset8.Text = set_8.ToString();
-                            popup.Cset9.Text = String.Format("max (at least  {0})", set_max.ToString());
-                        }
+                popup.Cset1.Text = set_1.ToString();
+                popup.Cset2.Text = set_2.ToString();
+                popup.Cset3.Text = set_3.ToString();
+                popup.Cset4.Text = set_4.ToString();
+                popup.Cset5.Text = set_5.ToString();
+                popup.Cset6.Text = set_6.ToString();
+                popup.Cset7.Text = set_7.ToString();
+                popup.Cset8.Text = set_8.ToString();
+                popup.Cset9.Text = String.Format("max (at least  {0})", set_max.ToString());
+            }
             
             DialogResult dialogresult = popup.ShowDialog();
         }

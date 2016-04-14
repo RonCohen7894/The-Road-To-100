@@ -39,31 +39,34 @@ namespace The_Road_To_100
 
         #endregion
 
-        public void setSets()
+        public void set8()
+        {
+            The_Road_To_100 trt = new The_Road_To_100();
+            int num_sets = trt.sets[9];
+            Label[] lb = { Cset1, Cset2, Cset3, Cset4, Cset5, Cset6, Cset7, Cset8, label10, label6, label7, label8 };
+            int[] sets = { trt.sets[0], trt.sets[1], trt.sets[2], trt.sets[3], trt.sets[4], trt.sets[5], trt.sets[6], trt.sets[7], trt.sets[8] };
+
+            for (int i = 0; i <= 4; i++)
+            {
+                lb[i].Text = sets[i].ToString();
+                if (i == 4)
+                    Cset5.Text = String.Format("max (at least  {0})", sets[8].ToString());
+            }
+        }
+        public void set9()
         {
             The_Road_To_100 trt = new The_Road_To_100();
             int num_sets = trt.sets[9];
             Label[] lb = { Cset1, Cset2, Cset3, Cset4, Cset5, Cset6, Cset7, Cset8, label10, label6, label7, label8 };
             int[] sets = { trt.sets[0], trt.sets[1], trt.sets[2], trt.sets[3], trt.sets[4], trt.sets[5], trt.sets[6], trt.sets[7] };
-            lb[0].Text = sets[0].ToString();
 
-            if (sets[7] == 0)
-                for (int i = 0; i <= 4; i++)
-                {
-                    lb[i].Text = sets[i].ToString();
-                    if (i == 4) lb[i].Text = String.Format("max (at least  {0})", trt.sets[8].ToString());
-                }
-            else
+            for (int i = 0; i <= 9; i++)
             {
-                foreach (Label LB in lb)
-                    LB.Visible = true;
-                for (int i = 0; i <= 8; i++)
-                {
-                    lb[i].Text = sets[i].ToString();
-                    if (i == 8) lb[i].Text = String.Format("max (at least  {0})", trt.sets[8].ToString());
-                }
+                lb[i].Visible = true;
+                lb[i].Text = sets[i].ToString();
+                if (i == 9)
+                    Cset5.Text = String.Format("max (at least  {0})", sets[6].ToString());
             }
-                
         }
     }
 }
