@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Text.RegularExpressions;
-using System.Globalization;
 using System.Media;
 using System.Speech.Recognition;
 
@@ -76,7 +69,7 @@ namespace The_Road_To_100
         string[] chars = { "/", "*", "-", "+", ".", "[", "]", "{", "}", "+", "_", "(", ")", "&", "^", "%", "$", "#", "@", "!", "`",
                            "\\", "~", "<", ">", "?", "|", "\"", ":", ";", "\'", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-
+        
         //main menu
         public static string Buttonname;
         public static string content;
@@ -185,7 +178,32 @@ coracobrachialis and the midsection as a whole.");
 
         public void organizeMenu()
         {
-            Menuheadline.Left = PmainManu.Width / 2 - Menuheadline.Width / 2;
+            System.Drawing.Color rain = System.Drawing.ColorTranslator.FromHtml("#98DBC6");
+            System.Drawing.Color ocean = System.Drawing.ColorTranslator.FromHtml("#808F99");
+            Color wave = System.Drawing.ColorTranslator.FromHtml("#5BC8AC");
+            System.Drawing.Color seafoam = ColorTranslator.FromHtml("#34675C");
+            Color cold = ColorTranslator.FromHtml("#597696");
+
+            //Main menu
+            panel1.BackColor = wave;
+            panel2.BackColor = seafoam;
+            PmainManu.BackColor = rain;
+            panel3.BackColor = wave;
+            panel4.BackColor = seafoam;
+
+            //Personal screen
+            panel5.BackColor = ocean;
+            label11.BackColor = ocean;
+            label19.BackColor = ocean;
+            label15.BackColor = ocean;
+            label18.BackColor = ocean;
+            label13.BackColor = ocean;
+            Cweek.BackColor = ocean;
+            Cday.BackColor = ocean;
+            Cname.BackColor = ocean;
+            Cage.BackColor = ocean;
+            panel6.BackColor = cold;
+
 
             Bintroduction.Top = PmainManu.Top + 100;
             Bwhypushups.Top = PmainManu.Top + 250;
@@ -194,8 +212,6 @@ coracobrachialis and the midsection as a whole.");
 
             Bcontinue.Top = PmainManu.Top + 100;
             Bnewworksheet.Top = PmainManu.Top + 250;
-
-            Pintro.Left = PmainManu.Width / 2 - Pintro.Width / 2;
         }
 
         private void sre_src(object sender, SpeechRecognizedEventArgs e)
