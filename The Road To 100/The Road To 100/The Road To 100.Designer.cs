@@ -41,6 +41,8 @@
             this.Bwhypushups = new System.Windows.Forms.Button();
             this.Menuheadline = new System.Windows.Forms.Label();
             this.Pnew_user = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.BbackToMainMenue = new System.Windows.Forms.Button();
             this.Sintailtest_results = new System.Windows.Forms.Label();
             this.SnewLastName = new System.Windows.Forms.Label();
@@ -62,7 +64,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Lintialtest = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.Lsignup = new System.Windows.Forms.Label();
             this.Ppersonal_Screen = new System.Windows.Forms.Panel();
             this.Blue = new System.Windows.Forms.PictureBox();
@@ -185,9 +186,10 @@
             this.PmainManu.Controls.Add(this.Bwhatisapushup);
             this.PmainManu.Controls.Add(this.Bwhypushups);
             this.PmainManu.Controls.Add(this.Menuheadline);
-            this.PmainManu.Location = new System.Drawing.Point(1222, 641);
+            this.PmainManu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PmainManu.Location = new System.Drawing.Point(0, 0);
             this.PmainManu.Name = "PmainManu";
-            this.PmainManu.Size = new System.Drawing.Size(76, 70);
+            this.PmainManu.Size = new System.Drawing.Size(1320, 720);
             this.PmainManu.TabIndex = 0;
             this.PmainManu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -331,6 +333,8 @@
             // 
             this.Pnew_user.BackColor = System.Drawing.SystemColors.Control;
             this.Pnew_user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pnew_user.Controls.Add(this.label10);
+            this.Pnew_user.Controls.Add(this.button3);
             this.Pnew_user.Controls.Add(this.BbackToMainMenue);
             this.Pnew_user.Controls.Add(this.Sintailtest_results);
             this.Pnew_user.Controls.Add(this.SnewLastName);
@@ -352,13 +356,34 @@
             this.Pnew_user.Controls.Add(this.label5);
             this.Pnew_user.Controls.Add(this.label1);
             this.Pnew_user.Controls.Add(this.Lintialtest);
-            this.Pnew_user.Controls.Add(this.label10);
             this.Pnew_user.Controls.Add(this.Lsignup);
-            this.Pnew_user.Location = new System.Drawing.Point(1154, 658);
+            this.Pnew_user.Location = new System.Drawing.Point(1154, 641);
             this.Pnew_user.Name = "Pnew_user";
-            this.Pnew_user.Size = new System.Drawing.Size(62, 50);
+            this.Pnew_user.Size = new System.Drawing.Size(62, 67);
             this.Pnew_user.TabIndex = 2;
             this.Pnew_user.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.MediumTurquoise;
+            this.label10.Location = new System.Drawing.Point(1039, 643);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(151, 42);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Sign Up";
+            this.label10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1062, 651);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(72, 24);
+            this.button3.TabIndex = 7;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.signup_Click);
             // 
             // BbackToMainMenue
             // 
@@ -478,6 +503,7 @@
             this.TBage.Size = new System.Drawing.Size(75, 22);
             this.TBage.TabIndex = 3;
             this.TBage.TextChanged += new System.EventHandler(this.TBage_TextChanged);
+            this.TBage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Press);
             // 
             // TBlastname
             // 
@@ -491,6 +517,7 @@
             this.TBlastname.Size = new System.Drawing.Size(190, 22);
             this.TBlastname.TabIndex = 2;
             this.TBlastname.TextChanged += new System.EventHandler(this.TBlastname_TextChanged);
+            this.TBlastname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Press);
             // 
             // TBintailtest_results
             // 
@@ -504,6 +531,7 @@
             this.TBintailtest_results.Size = new System.Drawing.Size(59, 22);
             this.TBintailtest_results.TabIndex = 4;
             this.TBintailtest_results.TextChanged += new System.EventHandler(this.TBintailtest_results_TextChanged);
+            this.TBintailtest_results.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Press);
             // 
             // TBname
             // 
@@ -517,6 +545,7 @@
             this.TBname.Size = new System.Drawing.Size(230, 22);
             this.TBname.TabIndex = 1;
             this.TBname.TextChanged += new System.EventHandler(this.TBname_TextChanged);
+            this.TBname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Press);
             // 
             // label3
             // 
@@ -618,18 +647,6 @@
             this.Lintialtest.Text = "Initial Test";
             this.Lintialtest.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.label10.Location = new System.Drawing.Point(1039, 643);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(151, 42);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Sign Up";
-            this.label10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
-            // 
             // Lsignup
             // 
             this.Lsignup.AutoSize = true;
@@ -678,10 +695,9 @@
             this.Ppersonal_Screen.Controls.Add(this.label11);
             this.Ppersonal_Screen.Controls.Add(this.CHname);
             this.Ppersonal_Screen.Controls.Add(this.label4);
-            this.Ppersonal_Screen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Ppersonal_Screen.Location = new System.Drawing.Point(0, 0);
+            this.Ppersonal_Screen.Location = new System.Drawing.Point(1080, 657);
             this.Ppersonal_Screen.Name = "Ppersonal_Screen";
-            this.Ppersonal_Screen.Size = new System.Drawing.Size(1320, 720);
+            this.Ppersonal_Screen.Size = new System.Drawing.Size(68, 54);
             this.Ppersonal_Screen.TabIndex = 2;
             this.Ppersonal_Screen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -809,7 +825,6 @@
             // 
             // pr6
             // 
-            this.pr6.BackColor = System.Drawing.Color.FloralWhite;
             this.pr6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pr6.Location = new System.Drawing.Point(725, 179);
             this.pr6.Name = "pr6";
@@ -1098,9 +1113,9 @@
             this.Pworkout.Controls.Add(this.Lset_2);
             this.Pworkout.Controls.Add(this.label6);
             this.Pworkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pworkout.Location = new System.Drawing.Point(987, 657);
+            this.Pworkout.Location = new System.Drawing.Point(987, 641);
             this.Pworkout.Name = "Pworkout";
-            this.Pworkout.Size = new System.Drawing.Size(64, 51);
+            this.Pworkout.Size = new System.Drawing.Size(64, 67);
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -1660,10 +1675,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
+            this.Controls.Add(this.PmainManu);
             this.Controls.Add(this.Ppersonal_Screen);
             this.Controls.Add(this.Pnew_user);
             this.Controls.Add(this.Pworkout);
-            this.Controls.Add(this.PmainManu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "The_Road_To_100";
@@ -1821,6 +1836,7 @@
         private System.Windows.Forms.PictureBox Red;
         private System.Windows.Forms.PictureBox Yellow;
         private System.Windows.Forms.PictureBox Green;
+        private System.Windows.Forms.Button button3;
     }
 }
 

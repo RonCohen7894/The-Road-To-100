@@ -73,6 +73,9 @@ namespace The_Road_To_100
                 G.Write(content);
         }
 
+        string[] chars = { "/", "*", "-", "+", ".", "[", "]", "{", "}", "+", "_", "(", ")", "&", "^", "%", "$", "#", "@", "!", "`",
+                           "\\", "~", "<", ">", "?", "|", "\"", ":", ";", "\'", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+
 
         //main menu
         public static string Buttonname;
@@ -86,12 +89,9 @@ namespace The_Road_To_100
         int intailTest_results;
         public string userFileSavePath;
         public bool fileCreate = false;
-        string[] chars = { "/", "*", "-", "+", ".", "[", "]", "{", "}", "+", "_", "(", ")", "&", "^", "%", "$", "#", "@", "!", "~", "<", ">", "?", "|", "\"", ":", ";", "\"", " " };
-
+        
         //personal screen
         public static string data_set;
-        private int Age;
-        private int intail_Test;
         private int Level;
         static private int set_1;
         static private int set_2;
@@ -345,27 +345,27 @@ coracobrachialis and the midsection as a whole.");
             switch (week)
             {
                 case "1":
-                    pb[0].BackColor = Color.AliceBlue;
+                    pb[0].BackColor = Color.MediumSeaGreen;
                     break;
                 case "2":
-                    pb[0].BackColor = Color.AliceBlue;
-                    pb[1].BackColor = Color.AliceBlue;
+                    pb[0].BackColor = Color.MediumSeaGreen;
+                    pb[1].BackColor = Color.MediumSeaGreen;
                     break;
                 case "3":
                     for (int i = 0; i <= 2; i++)
-                        pb[i].BackColor = Color.AliceBlue;
+                        pb[i].BackColor = Color.MediumSeaGreen;
                     break;
                 case "4":
                     for (int i = 0; i <= 3; i++)
-                        pb[i].BackColor = Color.AliceBlue;
+                        pb[i].BackColor = Color.MediumSeaGreen;
                     break;
                 case "5":
                     for (int i = 0; i <= 4; i++)
-                        pb[i].BackColor = Color.AliceBlue;
+                        pb[i].BackColor = Color.MediumSeaGreen;
                     break;
                 case "6":
                     foreach (PictureBox PB in pb)
-                        PB.BackColor = Color.AliceBlue;
+                        PB.BackColor = Color.MediumSeaGreen;
                     break;
                 case "7":
                     foreach (PictureBox PB in pb)
@@ -400,7 +400,12 @@ coracobrachialis and the midsection as a whole.");
         #region New User
 
         private void PICsignup_Click(object sender, EventArgs e)
-        {           
+        {
+            signup_Click();
+        }
+
+        private void signup_Click()
+        {
             New_name = TBname.Text;
             New_lastName = TBlastname.Text;
             // New_age = TBage.text
@@ -409,9 +414,9 @@ coracobrachialis and the midsection as a whole.");
 
             if (!SnewName.Visible == true && !SnewLastName.Visible == true && !SnewAge.Visible == true && !Sintailtest_results.Visible == true)
             {
-                if(Directory.Exists(@"C:\The Road To 100\user.ID 1"))
+                if (Directory.Exists(@"C:\The Road To 100\user.ID 1"))
                     Directory.Delete(@"C:\The Road To 100\user.ID 1", true);
-                
+
                 Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1");
                 creatFiles("First Name", New_name, 0);
                 creatFiles("Last Name", New_lastName, 0);
@@ -431,7 +436,7 @@ coracobrachialis and the midsection as a whole.");
                     QustionMark.Visible = true;
                 }
 
-                button1.Enabled = true;              
+                button1.Enabled = true;
                 getLevel(intialTest, null, null, null);
                 findeWorkoutParameters(Level);
                 fileCreate = true;
@@ -536,13 +541,18 @@ coracobrachialis and the midsection as a whole.");
             foreach (string  i in chars)
             {
                 string str = TBname.Text.Replace(i, "");
-                TBname.Text = string.Format(str);
+                TBname.Text = string.Format(@"{0}", str.ToString());
             }           
             SnewName.Visible = false;
         }
 
         private void TBlastname_TextChanged(object sender, EventArgs e)
         {
+            foreach (string i in chars)
+            {
+                string str = TBlastname.Text.Replace(i, "");
+                TBlastname.Text = string.Format(@"{0}", str.ToString());
+            }
             SnewLastName.Visible = false;
         }
 
@@ -571,7 +581,18 @@ coracobrachialis and the midsection as a whole.");
             else if (filename == "Total Push ups Done")
                 Ctotal_push_done.Text = data_set;
         }
-        
+
+        private void Enter_Press(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                button3.PerformClick();
+        }
+
+        private void signup_Click(object sender, EventArgs e)
+        {
+            signup_Click();
+        }
+
         #endregion
 
         #region Personal Screen
@@ -1889,6 +1910,7 @@ coracobrachialis and the midsection as a whole.");
             textBox3.Visible = false;
         }
 
-        #endregion        
+        #endregion
+
     }
 }
