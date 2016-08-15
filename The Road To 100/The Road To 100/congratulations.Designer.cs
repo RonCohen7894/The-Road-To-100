@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.Pcongratulations = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Ltime = new System.Windows.Forms.Label();
+            this.Lpushups = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Cset1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Boktoclose = new System.Windows.Forms.Button();
-            this.Cset1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Lpushups = new System.Windows.Forms.Label();
-            this.Ltime = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.Pcongratulations.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,12 +58,78 @@
             this.Pcongratulations.Size = new System.Drawing.Size(668, 262);
             this.Pcongratulations.TabIndex = 0;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label6.Location = new System.Drawing.Point(204, 188);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(245, 25);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "See You  In Two Days";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Azure;
+            this.label5.Location = new System.Drawing.Point(16, 57);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(120, 25);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Good Job!";
+            // 
+            // Ltime
+            // 
+            this.Ltime.AutoSize = true;
+            this.Ltime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Ltime.ForeColor = System.Drawing.Color.Azure;
+            this.Ltime.Location = new System.Drawing.Point(316, 82);
+            this.Ltime.Name = "Ltime";
+            this.Ltime.Size = new System.Drawing.Size(90, 25);
+            this.Ltime.TabIndex = 18;
+            this.Ltime.Text = "contant";
+            // 
+            // Lpushups
+            // 
+            this.Lpushups.AutoSize = true;
+            this.Lpushups.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lpushups.ForeColor = System.Drawing.Color.Azure;
+            this.Lpushups.Location = new System.Drawing.Point(157, 110);
+            this.Lpushups.Name = "Lpushups";
+            this.Lpushups.Size = new System.Drawing.Size(90, 25);
+            this.Lpushups.TabIndex = 17;
+            this.Lpushups.Text = "contant";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Azure;
+            this.label2.Location = new System.Drawing.Point(16, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 25);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "And You Did";
+            // 
+            // Cset1
+            // 
+            this.Cset1.AutoSize = true;
+            this.Cset1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cset1.ForeColor = System.Drawing.Color.Azure;
+            this.Cset1.Location = new System.Drawing.Point(16, 82);
+            this.Cset1.Name = "Cset1";
+            this.Cset1.Size = new System.Drawing.Size(313, 25);
+            this.Cset1.TabIndex = 15;
+            this.Cset1.Text = "You finshed your workout in ";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.LemonChiffon;
-            this.label1.Location = new System.Drawing.Point(46, 8);
+            this.label1.Location = new System.Drawing.Point(130, 8);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(382, 39);
             this.label1.TabIndex = 9;
@@ -84,72 +150,6 @@
             this.Boktoclose.TabIndex = 8;
             this.Boktoclose.Text = "OK";
             this.Boktoclose.UseVisualStyleBackColor = false;
-            // 
-            // Cset1
-            // 
-            this.Cset1.AutoSize = true;
-            this.Cset1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cset1.ForeColor = System.Drawing.Color.Azure;
-            this.Cset1.Location = new System.Drawing.Point(16, 82);
-            this.Cset1.Name = "Cset1";
-            this.Cset1.Size = new System.Drawing.Size(313, 25);
-            this.Cset1.TabIndex = 15;
-            this.Cset1.Text = "You finshed your workout in ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Azure;
-            this.label2.Location = new System.Drawing.Point(16, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 25);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "And You Did";
-            // 
-            // Lpushups
-            // 
-            this.Lpushups.AutoSize = true;
-            this.Lpushups.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lpushups.ForeColor = System.Drawing.Color.Azure;
-            this.Lpushups.Location = new System.Drawing.Point(157, 110);
-            this.Lpushups.Name = "Lpushups";
-            this.Lpushups.Size = new System.Drawing.Size(90, 25);
-            this.Lpushups.TabIndex = 17;
-            this.Lpushups.Text = "contant";
-            // 
-            // Ltime
-            // 
-            this.Ltime.AutoSize = true;
-            this.Ltime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ltime.ForeColor = System.Drawing.Color.Azure;
-            this.Ltime.Location = new System.Drawing.Point(316, 82);
-            this.Ltime.Name = "Ltime";
-            this.Ltime.Size = new System.Drawing.Size(90, 25);
-            this.Ltime.TabIndex = 18;
-            this.Ltime.Text = "contant";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Azure;
-            this.label5.Location = new System.Drawing.Point(16, 57);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(120, 25);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Good Job!";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label6.Location = new System.Drawing.Point(204, 188);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(212, 25);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "See You Tomorrow";
             // 
             // congratulations
             // 

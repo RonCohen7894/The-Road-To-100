@@ -1,11 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Globalization;
 using System.Media;
 using System.Speech.Recognition;
+using System.Speech.Synthesis;
 
 namespace The_Road_To_100
 {
@@ -32,7 +40,7 @@ namespace The_Road_To_100
             }
 
             Choices commands = new Choices();
-            commands.Add(new string[] { "start", "finish", "quit" });
+            commands.Add(new string[] { "start", "finish", "close"});
             GrammarBuilder GB = new GrammarBuilder();
             GB.Append(commands);
             Grammar grammar = new Grammar(GB);
@@ -45,7 +53,7 @@ namespace The_Road_To_100
         #region Variables
         //Genral
         SpeechRecognitionEngine sre = new SpeechRecognitionEngine();
-
+        SpeechSynthesizer ss = new SpeechSynthesizer();
         public string GetC(string path, bool Long = false)
         {
             using (StreamReader G = new StreamReader(path))
@@ -66,10 +74,7 @@ namespace The_Road_To_100
                 G.Write(content);
         }
 
-        string[] chars = { "/", "*", "-", "+", ".", "[", "]", "{", "}", "+", "_", "(", ")", "&", "^", "%", "$", "#", "@", "!", "`",
-                           "\\", "~", "<", ">", "?", "|", "\"", ":", ";", "\'", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
-        
         //main menu
         public static string Buttonname;
         public static string content;
@@ -82,9 +87,12 @@ namespace The_Road_To_100
         int intailTest_results;
         public string userFileSavePath;
         public bool fileCreate = false;
-        
+        string[] chars = { "/", "*", "-", "+", ".", "[", "]", "{", "}", "+", "_", "(", ")", "&", "^", "%", "$", "#", "@", "!", "~", "<", ">", "?", "|", "\"", ":", ";", "\"", " " };
+
         //personal screen
         public static string data_set;
+        private int Age;
+        private int intail_Test;
         private int Level;
         static private int set_1;
         static private int set_2;
@@ -102,8 +110,8 @@ namespace The_Road_To_100
         int Weekcontent;
         bool repetWeek;
         bool voice = false;
-        public int[] sets = { set_1, set_2 , set_3, set_4, set_5, set_6, set_7, set_8, set_max, num_sets };
- 
+        public int[] sets = { set_1, set_2, set_3, set_4, set_5, set_6, set_7, set_8, set_max, num_sets };
+
         //workout
         private bool moved = false;
         private bool workout_done = false;
@@ -178,32 +186,7 @@ coracobrachialis and the midsection as a whole.");
 
         public void organizeMenu()
         {
-            System.Drawing.Color rain = System.Drawing.ColorTranslator.FromHtml("#98DBC6");
-            System.Drawing.Color ocean = System.Drawing.ColorTranslator.FromHtml("#808F99");
-            Color wave = System.Drawing.ColorTranslator.FromHtml("#5BC8AC");
-            System.Drawing.Color seafoam = ColorTranslator.FromHtml("#34675C");
-            Color cold = ColorTranslator.FromHtml("#597696");
-
-            //Main menu
-            panel1.BackColor = wave;
-            panel2.BackColor = seafoam;
-            PmainManu.BackColor = rain;
-            panel3.BackColor = wave;
-            panel4.BackColor = seafoam;
-
-            //Personal screen
-            panel5.BackColor = ocean;
-            label11.BackColor = ocean;
-            label19.BackColor = ocean;
-            label15.BackColor = ocean;
-            label18.BackColor = ocean;
-            label13.BackColor = ocean;
-            Cweek.BackColor = ocean;
-            Cday.BackColor = ocean;
-            Cname.BackColor = ocean;
-            Cage.BackColor = ocean;
-            panel6.BackColor = cold;
-
+            Menuheadline.Left = PmainManu.Width / 2 - Menuheadline.Width / 2;
 
             Bintroduction.Top = PmainManu.Top + 100;
             Bwhypushups.Top = PmainManu.Top + 250;
@@ -212,6 +195,8 @@ coracobrachialis and the midsection as a whole.");
 
             Bcontinue.Top = PmainManu.Top + 100;
             Bnewworksheet.Top = PmainManu.Top + 250;
+
+            Pintro.Left = PmainManu.Width / 2 - Pintro.Width / 2;
         }
 
         private void sre_src(object sender, SpeechRecognizedEventArgs e)
@@ -227,7 +212,6 @@ coracobrachialis and the midsection as a whole.");
                     if (Pworkout.Dock == DockStyle.Fill)
                         Finish.PerformClick();
                     break;
-
             }
         }
 
@@ -255,51 +239,51 @@ coracobrachialis and the midsection as a whole.");
                 File.Delete(@"C:\The Road To 100\user.ID 1\FirstTime.txt");
 
 
-                if (week_ex == "1" || week_ex == "2" && !File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
-                    getLevel(initail_test, null, null, null);
+            if (week_ex == "1" || week_ex == "2" && !File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
+                getLevel(initail_test, null, null, null);
 
 
-                if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
-                    if (File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
-                    {
-                        getLevel(Ex_test, null, null, null);
-                        if (Day == "3")
-                            File.Delete(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt");
-                    }
-
-                switch (week_ex)
+            if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
+                if (File.Exists(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt"))
                 {
-                    case "3":
-                        getLevel(null, Ex_test, null, null);
-                        break;
-
-                    case "4":
-                        getLevel(null, Ex_test, null, null);
-                        break;
-
-                    case "5":
-                        getLevel(null, null, Ex_test, null);
-                        break;
-
-                    case "6":
-                        getLevel(null, null, null, Ex_test);
-                        break;
+                    getLevel(Ex_test, null, null, null);
+                    if (Day == "3")
+                        File.Delete(@"C:\The Road To 100\user.ID 1\repetOneWeek.txt");
                 }
 
-                DateTime thisDate = DateTime.Today;
-                if (File.Exists(@"C:\The Road To 100\user.ID 1\First_Day.txt") || File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
+            switch (week_ex)
+            {
+                case "3":
+                    getLevel(null, Ex_test, null, null);
+                    break;
+
+                case "4":
+                    getLevel(null, Ex_test, null, null);
+                    break;
+
+                case "5":
+                    getLevel(null, null, Ex_test, null);
+                    break;
+
+                case "6":
+                    getLevel(null, null, null, Ex_test);
+                    break;
+            }
+
+            DateTime thisDate = DateTime.Today;
+            if (File.Exists(@"C:\The Road To 100\user.ID 1\First_Day.txt") || File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
+            {
+                try
                 {
-                    try
-                    {
-                        string FirstDay = GetC(@"C:\The Road To 100\user.ID 1\First_Day.txt");
-                        if (thisDate.Day.ToString() != FirstDay)
-                            button1.Enabled = true;
-                    }
-                    catch (Exception)
-                    {
+                    string FirstDay = GetC(@"C:\The Road To 100\user.ID 1\First_Day.txt");
+                    if (thisDate.Day.ToString() != FirstDay)
                         button1.Enabled = true;
-                    }
                 }
+                catch (Exception)
+                {
+                    button1.Enabled = true;
+                }
+            }
 
             if (week == "7")
             {
@@ -313,7 +297,7 @@ coracobrachialis and the midsection as a whole.");
 
             findeWorkoutParameters(Level);
             setPR();
-        }                        
+        }
 
         private void CloseButtoon(object sender, EventArgs e)
         {
@@ -326,7 +310,7 @@ coracobrachialis and the midsection as a whole.");
             {
                 if (MessageBox.Show("There is already a regitered user, \nDo you want to overwrite it?",
                     "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
-                {                   
+                {
                     PmainManu.Dock = DockStyle.None;
                     PmainManu.SendToBack();
 
@@ -357,36 +341,36 @@ coracobrachialis and the midsection as a whole.");
         {
             string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
             PictureBox[] pb = { pr1, pr2, pr3, pr4, pr5, pr6 };
-       
+
             switch (week)
             {
                 case "1":
-                    pb[0].BackColor = Color.MediumSeaGreen;
+                    pb[0].BackColor = Color.AliceBlue;
                     break;
                 case "2":
-                    pb[0].BackColor = Color.MediumSeaGreen;
-                    pb[1].BackColor = Color.MediumSeaGreen;
+                    pb[0].BackColor = Color.AliceBlue;
+                    pb[1].BackColor = Color.AliceBlue;
                     break;
                 case "3":
                     for (int i = 0; i <= 2; i++)
-                        pb[i].BackColor = Color.MediumSeaGreen;
+                        pb[i].BackColor = Color.AliceBlue;
                     break;
                 case "4":
                     for (int i = 0; i <= 3; i++)
-                        pb[i].BackColor = Color.MediumSeaGreen;
+                        pb[i].BackColor = Color.AliceBlue;
                     break;
                 case "5":
                     for (int i = 0; i <= 4; i++)
-                        pb[i].BackColor = Color.MediumSeaGreen;
+                        pb[i].BackColor = Color.AliceBlue;
                     break;
                 case "6":
                     foreach (PictureBox PB in pb)
-                        PB.BackColor = Color.MediumSeaGreen;
+                        PB.BackColor = Color.AliceBlue;
                     break;
                 case "7":
                     foreach (PictureBox PB in pb)
                         PB.BackColor = Color.Gold;
-                    break;           
+                    break;
             }
         }
 
@@ -416,11 +400,6 @@ coracobrachialis and the midsection as a whole.");
         #region New User
 
         private void PICsignup_Click(object sender, EventArgs e)
-        {
-            signup_Click();
-        }
-
-        private void signup_Click()
         {
             New_name = TBname.Text;
             New_lastName = TBlastname.Text;
@@ -470,7 +449,7 @@ coracobrachialis and the midsection as a whole.");
         }
 
         private void creatFiles(string fileName, string TXTCONTANT, int NUMCONTANT)
-        {         
+        {
             if (TXTCONTANT != "")
                 SetC(@"C:\The Road To 100\" + "user.ID 1" + @"\" + fileName + ".txt", TXTCONTANT);
             else if (NUMCONTANT != 0)
@@ -478,7 +457,7 @@ coracobrachialis and the midsection as a whole.");
         }
 
         private void Checking_TB()
-        {           
+        {
             if (TBname.Text == "")
             {
                 SnewName.Text = "You must write your name";
@@ -489,7 +468,7 @@ coracobrachialis and the midsection as a whole.");
             {
                 SnewLastName.Text = "You must write your last name";
                 SnewLastName.Visible = true;
-            }           
+            }
 
             #region try_catch
             try
@@ -531,7 +510,7 @@ coracobrachialis and the midsection as a whole.");
                 Sintailtest_results.Text = "You must write a number";
             }
             #endregion
-         
+
         }
 
         #region TB_text changed
@@ -554,21 +533,16 @@ coracobrachialis and the midsection as a whole.");
 
         private void TBname_TextChanged(object sender, EventArgs e)
         {
-            foreach (string  i in chars)
+            foreach (string i in chars)
             {
                 string str = TBname.Text.Replace(i, "");
-                TBname.Text = string.Format(@"{0}", str.ToString());
-            }           
+                TBname.Text = string.Format(str);
+            }
             SnewName.Visible = false;
         }
 
         private void TBlastname_TextChanged(object sender, EventArgs e)
         {
-            foreach (string i in chars)
-            {
-                string str = TBlastname.Text.Replace(i, "");
-                TBlastname.Text = string.Format(@"{0}", str.ToString());
-            }
             SnewLastName.Visible = false;
         }
 
@@ -578,15 +552,15 @@ coracobrachialis and the midsection as a whole.");
         {
             getdata("First Name");
             getdata("Age");
-            getdata("Total Push ups Done");                 
-            Cweek.Text = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");          
-            Cday.Text = GetC(@"C:\The Road To 100\user.ID 1\Day.txt");            
+            getdata("Total Push ups Done");
+            Cweek.Text = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
+            Cday.Text = GetC(@"C:\The Road To 100\user.ID 1\Day.txt");
         }
 
         public void getdata(string filename)
-        {                             
+        {
             data_set = GetC(@"C:\The Road To 100\" + "user.ID 1" + @"\" + filename + ".txt", true);
-            
+
             if (filename == "First Name")
             {
                 CHname.Text = data_set;
@@ -598,17 +572,6 @@ coracobrachialis and the midsection as a whole.");
                 Ctotal_push_done.Text = data_set;
         }
 
-        private void Enter_Press(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-                button3.PerformClick();
-        }
-
-        private void signup_Click(object sender, EventArgs e)
-        {
-            signup_Click();
-        }
-
         #endregion
 
         #region Personal Screen
@@ -618,29 +581,52 @@ coracobrachialis and the midsection as a whole.");
             this.Close();
         }
 
+        // Also change the sets here
         private void Bplan_Click(object sender, EventArgs e)
         {
             WorkoutPlan popup = new WorkoutPlan();
             string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
             int Ex_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt", true));
-            
-            if(week == "1" || week == "2")
+
+            if (week == "1" || week == "2")
                 getLevel(int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt", true)), null, null, null);
-            else if(week == "3")
-              getLevel(null, Ex_test, null, null);
+            else if (week == "3")
+                getLevel(null, Ex_test, null, null);
             else if (week == "4")
                 getLevel(null, Ex_test, null, null);
             else if (week == "5")
                 getLevel(null, null, Ex_test, null);
             else if (week == "6")
                 getLevel(null, null, null, Ex_test);
-                    
+
             findeWorkoutParameters(Level);
             if (set_8 == 0)
+            {
                 popup.set8();
+            }
+
             else
-                popup.set9();
-            
+            {
+                popup.Cset6.Visible = true;
+                popup.Cset7.Visible = true;
+                popup.Cset8.Visible = true;
+                popup.Cset9.Visible = true;
+                popup.label6.Visible = true;
+                popup.label7.Visible = true;
+                popup.label8.Visible = true;
+                popup.label10.Visible = true;
+
+                popup.Cset1.Text = set_1.ToString();
+                popup.Cset2.Text = set_2.ToString();
+                popup.Cset3.Text = set_3.ToString();
+                popup.Cset4.Text = set_4.ToString();
+                popup.Cset5.Text = set_5.ToString();
+                popup.Cset6.Text = set_6.ToString();
+                popup.Cset7.Text = set_7.ToString();
+                popup.Cset8.Text = set_8.ToString();
+                popup.Cset9.Text = String.Format("max (at least  {0})", set_max.ToString());
+            }
+
             DialogResult dialogresult = popup.ShowDialog();
         }
 
@@ -693,7 +679,7 @@ coracobrachialis and the midsection as a whole.");
 
             SetC(@"C:\The Road To 100\user.ID 1\Week.txt", int.Parse(week) - 1);
 
-            
+
             if (File.Exists(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt"))
                 switch (week)
                 {
@@ -712,8 +698,8 @@ coracobrachialis and the midsection as a whole.");
                         break;
                     case "6":
                         getLevel(null, null, null, int.Parse(exTest));
-                        break;               
-                  }
+                        break;
+                }
             Cweek.Text = week;
         }
 
@@ -1411,7 +1397,7 @@ coracobrachialis and the midsection as a whole.");
         }
 
         private void createWorkoutPlanFiles(string name)
-        {            
+        {
             switch (name)
             {
                 case "Week":
@@ -1422,7 +1408,7 @@ coracobrachialis and the midsection as a whole.");
                     break;
                 case "Day":
                     SetC(@"C:\The Road To 100\user.ID 1\" + name + ".txt", "1");
-                    break; 
+                    break;
             }
         }
 
@@ -1448,14 +1434,14 @@ coracobrachialis and the midsection as a whole.");
         {
             if (voice == false)
             {
-                sre.RecognizeAsync(RecognizeMode.Multiple);            
+                sre.RecognizeAsync(RecognizeMode.Multiple);
                 voice = true;
                 Mic_Animation();
             }
-            else if(voice == true)
+            else if (voice == true)
             {
                 sre.RecognizeAsyncStop();
-                voice = false;  
+                voice = false;
             }
         }
 
@@ -1466,14 +1452,14 @@ coracobrachialis and the midsection as a whole.");
             foreach (PictureBox img in images)
             {
                 if (voice == true)
-                { 
-                img.Visible = true;
-                await Task.Delay(650);
+                {
+                    img.Visible = true;
+                    await Task.Delay(650);
                 }
             }
             foreach (PictureBox img in images)
                 img.Visible = false;
-            if(voice == true)
+            if (voice == true)
                 Mic_Animation();
         }
 
@@ -1586,7 +1572,7 @@ coracobrachialis and the midsection as a whole.");
 
         private void Bapp_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void Finish_Click(object sender, EventArgs e)
@@ -1600,7 +1586,7 @@ coracobrachialis and the midsection as a whole.");
                     Finish.Enabled = false;
                     Lrest.Visible = true;
                     Crest.Visible = true;
-                    Crest.Text = (rest).ToString();
+                    Crest.Text = (3).ToString();
                     Rest_Timer.Start();
                 }
             }
@@ -1700,7 +1686,7 @@ coracobrachialis and the midsection as a whole.");
             //Change day and (if needed) change week
             Change_Day();
 
-            
+
             SetC(@"C:\The Road To 100\user.ID 1\Total Push ups Done.txt", (int.Parse(Ctotal_push_done.Text) + int.Parse(Ctodayspushups.Text)));
             int c = int.Parse(Ctotal_push_done.Text);
             Ctotal_push_done.Text = (c + int.Parse(Ctodayspushups.Text)).ToString();
@@ -1854,12 +1840,20 @@ coracobrachialis and the midsection as a whole.");
                 int time_Left = int.Parse(Crest.Text);
                 time_Left--;
                 Crest.Text = time_Left.ToString();
-                if (Crest.Text == "0")
+
+                if (time_Left == 10)
+                    ss.SpeakAsync("ten more seconds");
+
+                else if (time_Left == 30)
+                    ss.SpeakAsync("thirty seconds to go");
+                else
+                    ss.SpeakAsync("tocha");
+                if (Crest.Text == "0" && workout_done == false)
                 {
-                    SystemSounds.Hand.Play();
+                    ss.SpeakAsync("get back to work");
                     rest_done = true;
                 }
-
+                
                 break;
             }
 
@@ -1876,20 +1870,20 @@ coracobrachialis and the midsection as a whole.");
         {
             string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
             string day = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
-            
-                if (day == "1")
-                    SetC(@"C:\The Road To 100\user.ID 1\Day.txt", "2");
-                else if (day == "2")
-                    SetC(@"C:\The Road To 100\user.ID 1\Day.txt", "3");
 
-                else if (day == "3")
+            if (day == "1")
+                SetC(@"C:\The Road To 100\user.ID 1\Day.txt", "2");
+            else if (day == "2")
+                SetC(@"C:\The Road To 100\user.ID 1\Day.txt", "3");
+
+            else if (day == "3")
+            {
+                content_W = week;
+                if (int.Parse(content_W) < 7)
                 {
-                    content_W = week;
-                    if (int.Parse(content_W) < 7)
-                    {
-                        SetC(@"C:\The Road To 100\user.ID 1\Day.txt", int.Parse(content_W) + 1);
-                        SetC(@"C:\The Road To 100\user.ID 1\Day.txt", "1");
-                    }
+                    SetC(@"C:\The Road To 100\user.ID 1\Day.txt", int.Parse(content_W) + 1);
+                    SetC(@"C:\The Road To 100\user.ID 1\Day.txt", "1");
+                }
             }
         }
 
@@ -1903,7 +1897,6 @@ coracobrachialis and the midsection as a whole.");
             textBox3.Visible = false;
         }
 
-        #endregion
-
+        #endregion        
     }
 }

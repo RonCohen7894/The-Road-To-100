@@ -31,22 +31,16 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(The_Road_To_100));
             this.PmainManu = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Bwhatisapushup = new System.Windows.Forms.Button();
-            this.Bwhypushups = new System.Windows.Forms.Button();
-            this.Bproperform = new System.Windows.Forms.Button();
-            this.Bintroduction = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.Pintro = new System.Windows.Forms.PictureBox();
             this.Bnewworksheet = new System.Windows.Forms.Button();
             this.Bcontinue = new System.Windows.Forms.Button();
-            this.Menuheadline = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.Bexit = new System.Windows.Forms.Button();
+            this.Bintroduction = new System.Windows.Forms.Button();
+            this.Bproperform = new System.Windows.Forms.Button();
+            this.Bwhatisapushup = new System.Windows.Forms.Button();
+            this.Bwhypushups = new System.Windows.Forms.Button();
+            this.Menuheadline = new System.Windows.Forms.Label();
             this.Pnew_user = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.BbackToMainMenue = new System.Windows.Forms.Button();
             this.Sintailtest_results = new System.Windows.Forms.Label();
             this.SnewLastName = new System.Windows.Forms.Label();
@@ -68,6 +62,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Lintialtest = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.Lsignup = new System.Windows.Forms.Label();
             this.Ppersonal_Screen = new System.Windows.Forms.Panel();
             this.Blue = new System.Windows.Forms.PictureBox();
@@ -103,7 +98,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.CHname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.Pworkout = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.Bapp = new System.Windows.Forms.PictureBox();
@@ -153,11 +147,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Workout_Timer = new System.Windows.Forms.Timer(this.components);
             this.Rest_Timer = new System.Windows.Forms.Timer(this.components);
-            this.panel6 = new System.Windows.Forms.Panel();
             this.PmainManu.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).BeginInit();
-            this.panel3.SuspendLayout();
             this.Pnew_user.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PICsignup)).BeginInit();
             this.Ppersonal_Screen.SuspendLayout();
@@ -174,7 +165,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pr5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).BeginInit();
-            this.panel5.SuspendLayout();
             this.Pworkout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Bapp)).BeginInit();
             this.Tstatment.SuspendLayout();
@@ -185,43 +175,123 @@
             // 
             // PmainManu
             // 
-            this.PmainManu.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.PmainManu.Controls.Add(this.panel1);
+            this.PmainManu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PmainManu.Controls.Add(this.Pintro);
             this.PmainManu.Controls.Add(this.Bnewworksheet);
             this.PmainManu.Controls.Add(this.Bcontinue);
+            this.PmainManu.Controls.Add(this.Bexit);
+            this.PmainManu.Controls.Add(this.Bintroduction);
+            this.PmainManu.Controls.Add(this.Bproperform);
+            this.PmainManu.Controls.Add(this.Bwhatisapushup);
+            this.PmainManu.Controls.Add(this.Bwhypushups);
             this.PmainManu.Controls.Add(this.Menuheadline);
-            this.PmainManu.Controls.Add(this.panel3);
-            this.PmainManu.Location = new System.Drawing.Point(1229, 638);
+            this.PmainManu.Location = new System.Drawing.Point(1222, 641);
             this.PmainManu.Name = "PmainManu";
-            this.PmainManu.Size = new System.Drawing.Size(70, 70);
+            this.PmainManu.Size = new System.Drawing.Size(76, 70);
             this.PmainManu.TabIndex = 0;
             this.PmainManu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
-            // panel1
+            // Pintro
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkCyan;
-            this.panel1.Controls.Add(this.Bwhatisapushup);
-            this.panel1.Controls.Add(this.Bwhypushups);
-            this.panel1.Controls.Add(this.Bproperform);
-            this.panel1.Controls.Add(this.Bintroduction);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(287, 70);
-            this.panel1.TabIndex = 3;
+            this.Pintro.BackColor = System.Drawing.Color.Transparent;
+            this.Pintro.Image = ((System.Drawing.Image)(resources.GetObject("Pintro.Image")));
+            this.Pintro.Location = new System.Drawing.Point(327, 97);
+            this.Pintro.Name = "Pintro";
+            this.Pintro.Size = new System.Drawing.Size(636, 525);
+            this.Pintro.TabIndex = 2;
+            this.Pintro.TabStop = false;
+            this.Pintro.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
+            // Bnewworksheet
+            // 
+            this.Bnewworksheet.BackColor = System.Drawing.Color.Cornsilk;
+            this.Bnewworksheet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Bnewworksheet.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.Bnewworksheet.FlatAppearance.BorderSize = 0;
+            this.Bnewworksheet.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bnewworksheet.ForeColor = System.Drawing.Color.Orange;
+            this.Bnewworksheet.Location = new System.Drawing.Point(989, 263);
+            this.Bnewworksheet.Name = "Bnewworksheet";
+            this.Bnewworksheet.Size = new System.Drawing.Size(318, 103);
+            this.Bnewworksheet.TabIndex = 1;
+            this.Bnewworksheet.Text = "New Work Sheet";
+            this.Bnewworksheet.UseVisualStyleBackColor = false;
+            this.Bnewworksheet.Click += new System.EventHandler(this.Bnewworksheet_Click);
+            // 
+            // Bcontinue
+            // 
+            this.Bcontinue.BackColor = System.Drawing.Color.Cornsilk;
+            this.Bcontinue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Bcontinue.Enabled = false;
+            this.Bcontinue.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.Bcontinue.FlatAppearance.BorderSize = 0;
+            this.Bcontinue.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bcontinue.ForeColor = System.Drawing.Color.Orange;
+            this.Bcontinue.Location = new System.Drawing.Point(989, 97);
+            this.Bcontinue.Name = "Bcontinue";
+            this.Bcontinue.Size = new System.Drawing.Size(318, 103);
+            this.Bcontinue.TabIndex = 1;
+            this.Bcontinue.Text = "Continue";
+            this.Bcontinue.UseVisualStyleBackColor = false;
+            this.Bcontinue.Click += new System.EventHandler(this.Bcontinue_Click);
+            // 
+            // Bexit
+            // 
+            this.Bexit.BackColor = System.Drawing.Color.LightCyan;
+            this.Bexit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Bexit.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.Bexit.FlatAppearance.BorderSize = 0;
+            this.Bexit.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bexit.ForeColor = System.Drawing.Color.MediumSpringGreen;
+            this.Bexit.Location = new System.Drawing.Point(1166, 636);
+            this.Bexit.Name = "Bexit";
+            this.Bexit.Size = new System.Drawing.Size(141, 72);
+            this.Bexit.TabIndex = 1;
+            this.Bexit.Text = "Exit";
+            this.Bexit.UseVisualStyleBackColor = false;
+            this.Bexit.Click += new System.EventHandler(this.CloseButtoon);
+            // 
+            // Bintroduction
+            // 
+            this.Bintroduction.BackColor = System.Drawing.Color.LightCyan;
+            this.Bintroduction.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Bintroduction.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.Bintroduction.FlatAppearance.BorderSize = 0;
+            this.Bintroduction.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bintroduction.ForeColor = System.Drawing.Color.MediumSpringGreen;
+            this.Bintroduction.Location = new System.Drawing.Point(12, 97);
+            this.Bintroduction.Name = "Bintroduction";
+            this.Bintroduction.Size = new System.Drawing.Size(244, 103);
+            this.Bintroduction.TabIndex = 1;
+            this.Bintroduction.Text = "Introduction";
+            this.Bintroduction.UseVisualStyleBackColor = false;
+            this.Bintroduction.Click += new System.EventHandler(this.MainMenuButtonClick);
+            // 
+            // Bproperform
+            // 
+            this.Bproperform.BackColor = System.Drawing.Color.LightCyan;
+            this.Bproperform.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Bproperform.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.Bproperform.FlatAppearance.BorderSize = 0;
+            this.Bproperform.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bproperform.ForeColor = System.Drawing.Color.MediumSpringGreen;
+            this.Bproperform.Location = new System.Drawing.Point(12, 548);
+            this.Bproperform.Name = "Bproperform";
+            this.Bproperform.Size = new System.Drawing.Size(244, 103);
+            this.Bproperform.TabIndex = 1;
+            this.Bproperform.Text = "Proper Form";
+            this.Bproperform.UseVisualStyleBackColor = false;
+            this.Bproperform.Click += new System.EventHandler(this.properForm_ButtonClick);
             // 
             // Bwhatisapushup
             // 
-            this.Bwhatisapushup.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.Bwhatisapushup.BackColor = System.Drawing.Color.LightCyan;
             this.Bwhatisapushup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Bwhatisapushup.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
-            this.Bwhatisapushup.FlatAppearance.BorderSize = 3;
-            this.Bwhatisapushup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bwhatisapushup.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bwhatisapushup.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Bwhatisapushup.Location = new System.Drawing.Point(21, 387);
+            this.Bwhatisapushup.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.Bwhatisapushup.FlatAppearance.BorderSize = 0;
+            this.Bwhatisapushup.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bwhatisapushup.ForeColor = System.Drawing.Color.MediumSpringGreen;
+            this.Bwhatisapushup.Location = new System.Drawing.Point(12, 399);
             this.Bwhatisapushup.Name = "Bwhatisapushup";
             this.Bwhatisapushup.Size = new System.Drawing.Size(244, 103);
             this.Bwhatisapushup.TabIndex = 1;
@@ -231,14 +301,13 @@
             // 
             // Bwhypushups
             // 
-            this.Bwhypushups.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.Bwhypushups.BackColor = System.Drawing.Color.LightCyan;
             this.Bwhypushups.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Bwhypushups.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
-            this.Bwhypushups.FlatAppearance.BorderSize = 3;
-            this.Bwhypushups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bwhypushups.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bwhypushups.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Bwhypushups.Location = new System.Drawing.Point(21, 240);
+            this.Bwhypushups.FlatAppearance.BorderColor = System.Drawing.Color.LightCyan;
+            this.Bwhypushups.FlatAppearance.BorderSize = 0;
+            this.Bwhypushups.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Bwhypushups.ForeColor = System.Drawing.Color.MediumSpringGreen;
+            this.Bwhypushups.Location = new System.Drawing.Point(12, 252);
             this.Bwhypushups.Name = "Bwhypushups";
             this.Bwhypushups.Size = new System.Drawing.Size(244, 103);
             this.Bwhypushups.TabIndex = 1;
@@ -246,148 +315,22 @@
             this.Bwhypushups.UseVisualStyleBackColor = false;
             this.Bwhypushups.Click += new System.EventHandler(this.MainMenuButtonClick);
             // 
-            // Bproperform
-            // 
-            this.Bproperform.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.Bproperform.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Bproperform.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
-            this.Bproperform.FlatAppearance.BorderSize = 3;
-            this.Bproperform.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bproperform.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bproperform.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Bproperform.Location = new System.Drawing.Point(21, 536);
-            this.Bproperform.Name = "Bproperform";
-            this.Bproperform.Size = new System.Drawing.Size(244, 103);
-            this.Bproperform.TabIndex = 1;
-            this.Bproperform.Text = "Proper Form";
-            this.Bproperform.UseVisualStyleBackColor = false;
-            this.Bproperform.Click += new System.EventHandler(this.properForm_ButtonClick);
-            // 
-            // Bintroduction
-            // 
-            this.Bintroduction.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.Bintroduction.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Bintroduction.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
-            this.Bintroduction.FlatAppearance.BorderSize = 3;
-            this.Bintroduction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bintroduction.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bintroduction.ForeColor = System.Drawing.Color.GhostWhite;
-            this.Bintroduction.Location = new System.Drawing.Point(21, 97);
-            this.Bintroduction.Name = "Bintroduction";
-            this.Bintroduction.Size = new System.Drawing.Size(244, 103);
-            this.Bintroduction.TabIndex = 1;
-            this.Bintroduction.Text = "Introduction";
-            this.Bintroduction.UseVisualStyleBackColor = false;
-            this.Bintroduction.Click += new System.EventHandler(this.MainMenuButtonClick);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.PowderBlue;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, -232);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(287, 302);
-            this.panel2.TabIndex = 2;
-            // 
-            // Pintro
-            // 
-            this.Pintro.BackColor = System.Drawing.Color.Transparent;
-            this.Pintro.Image = ((System.Drawing.Image)(resources.GetObject("Pintro.Image")));
-            this.Pintro.Location = new System.Drawing.Point(300, 97);
-            this.Pintro.Name = "Pintro";
-            this.Pintro.Size = new System.Drawing.Size(636, 525);
-            this.Pintro.TabIndex = 2;
-            this.Pintro.TabStop = false;
-            this.Pintro.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
-            // 
-            // Bnewworksheet
-            // 
-            this.Bnewworksheet.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.Bnewworksheet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Bnewworksheet.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.Bnewworksheet.FlatAppearance.BorderSize = 3;
-            this.Bnewworksheet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bnewworksheet.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bnewworksheet.ForeColor = System.Drawing.Color.MintCream;
-            this.Bnewworksheet.Location = new System.Drawing.Point(1013, 263);
-            this.Bnewworksheet.Name = "Bnewworksheet";
-            this.Bnewworksheet.Size = new System.Drawing.Size(294, 103);
-            this.Bnewworksheet.TabIndex = 1;
-            this.Bnewworksheet.Text = "New Work Sheet";
-            this.Bnewworksheet.UseVisualStyleBackColor = false;
-            this.Bnewworksheet.Click += new System.EventHandler(this.Bnewworksheet_Click);
-            // 
-            // Bcontinue
-            // 
-            this.Bcontinue.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.Bcontinue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Bcontinue.Enabled = false;
-            this.Bcontinue.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.Bcontinue.FlatAppearance.BorderSize = 3;
-            this.Bcontinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bcontinue.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bcontinue.ForeColor = System.Drawing.Color.FloralWhite;
-            this.Bcontinue.Location = new System.Drawing.Point(1013, 97);
-            this.Bcontinue.Name = "Bcontinue";
-            this.Bcontinue.Size = new System.Drawing.Size(294, 103);
-            this.Bcontinue.TabIndex = 1;
-            this.Bcontinue.Text = "Continue";
-            this.Bcontinue.UseVisualStyleBackColor = false;
-            this.Bcontinue.Click += new System.EventHandler(this.Bcontinue_Click);
-            // 
             // Menuheadline
             // 
             this.Menuheadline.AutoSize = true;
-            this.Menuheadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Menuheadline.ForeColor = System.Drawing.Color.MistyRose;
-            this.Menuheadline.Location = new System.Drawing.Point(477, 8);
+            this.Menuheadline.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Menuheadline.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Menuheadline.Location = new System.Drawing.Point(484, 9);
             this.Menuheadline.Name = "Menuheadline";
             this.Menuheadline.Size = new System.Drawing.Size(280, 37);
             this.Menuheadline.TabIndex = 1;
             this.Menuheadline.Text = "The Road To 100";
             this.Menuheadline.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.DarkCyan;
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.Bexit);
-            this.panel3.Location = new System.Drawing.Point(988, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(332, 720);
-            this.panel3.TabIndex = 4;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.PowderBlue;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(332, 325);
-            this.panel4.TabIndex = 0;
-            // 
-            // Bexit
-            // 
-            this.Bexit.BackColor = System.Drawing.Color.LightCyan;
-            this.Bexit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Bexit.FlatAppearance.BorderColor = System.Drawing.Color.LightSeaGreen;
-            this.Bexit.FlatAppearance.BorderSize = 4;
-            this.Bexit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Bexit.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Bexit.ForeColor = System.Drawing.Color.MediumSpringGreen;
-            this.Bexit.Location = new System.Drawing.Point(178, 630);
-            this.Bexit.Name = "Bexit";
-            this.Bexit.Size = new System.Drawing.Size(141, 72);
-            this.Bexit.TabIndex = 1;
-            this.Bexit.Text = "Exit";
-            this.Bexit.UseVisualStyleBackColor = false;
-            this.Bexit.Click += new System.EventHandler(this.CloseButtoon);
-            // 
             // Pnew_user
             // 
             this.Pnew_user.BackColor = System.Drawing.SystemColors.Control;
             this.Pnew_user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Pnew_user.Controls.Add(this.label10);
-            this.Pnew_user.Controls.Add(this.button3);
             this.Pnew_user.Controls.Add(this.BbackToMainMenue);
             this.Pnew_user.Controls.Add(this.Sintailtest_results);
             this.Pnew_user.Controls.Add(this.SnewLastName);
@@ -409,34 +352,13 @@
             this.Pnew_user.Controls.Add(this.label5);
             this.Pnew_user.Controls.Add(this.label1);
             this.Pnew_user.Controls.Add(this.Lintialtest);
+            this.Pnew_user.Controls.Add(this.label10);
             this.Pnew_user.Controls.Add(this.Lsignup);
-            this.Pnew_user.Location = new System.Drawing.Point(1154, 641);
+            this.Pnew_user.Location = new System.Drawing.Point(1154, 658);
             this.Pnew_user.Name = "Pnew_user";
-            this.Pnew_user.Size = new System.Drawing.Size(62, 67);
+            this.Pnew_user.Size = new System.Drawing.Size(62, 50);
             this.Pnew_user.TabIndex = 2;
             this.Pnew_user.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.label10.Location = new System.Drawing.Point(1039, 643);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(151, 42);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Sign Up";
-            this.label10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(1062, 651);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(72, 24);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.signup_Click);
             // 
             // BbackToMainMenue
             // 
@@ -556,7 +478,6 @@
             this.TBage.Size = new System.Drawing.Size(75, 22);
             this.TBage.TabIndex = 3;
             this.TBage.TextChanged += new System.EventHandler(this.TBage_TextChanged);
-            this.TBage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Press);
             // 
             // TBlastname
             // 
@@ -570,7 +491,6 @@
             this.TBlastname.Size = new System.Drawing.Size(190, 22);
             this.TBlastname.TabIndex = 2;
             this.TBlastname.TextChanged += new System.EventHandler(this.TBlastname_TextChanged);
-            this.TBlastname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Press);
             // 
             // TBintailtest_results
             // 
@@ -584,7 +504,6 @@
             this.TBintailtest_results.Size = new System.Drawing.Size(59, 22);
             this.TBintailtest_results.TabIndex = 4;
             this.TBintailtest_results.TextChanged += new System.EventHandler(this.TBintailtest_results_TextChanged);
-            this.TBintailtest_results.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Press);
             // 
             // TBname
             // 
@@ -598,7 +517,6 @@
             this.TBname.Size = new System.Drawing.Size(230, 22);
             this.TBname.TabIndex = 1;
             this.TBname.TextChanged += new System.EventHandler(this.TBname_TextChanged);
-            this.TBname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Press);
             // 
             // label3
             // 
@@ -700,6 +618,18 @@
             this.Lintialtest.Text = "Initial Test";
             this.Lintialtest.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.MediumTurquoise;
+            this.label10.Location = new System.Drawing.Point(1039, 643);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(151, 42);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Sign Up";
+            this.label10.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
             // Lsignup
             // 
             this.Lsignup.AutoSize = true;
@@ -721,27 +651,36 @@
             this.Ppersonal_Screen.Controls.Add(this.Green);
             this.Ppersonal_Screen.Controls.Add(this.voiceMic);
             this.Ppersonal_Screen.Controls.Add(this.label20);
-            this.Ppersonal_Screen.Controls.Add(this.pictureBox1);
             this.Ppersonal_Screen.Controls.Add(this.pr1);
             this.Ppersonal_Screen.Controls.Add(this.pr2);
             this.Ppersonal_Screen.Controls.Add(this.pr3);
             this.Ppersonal_Screen.Controls.Add(this.pr4);
             this.Ppersonal_Screen.Controls.Add(this.pr5);
             this.Ppersonal_Screen.Controls.Add(this.pr6);
+            this.Ppersonal_Screen.Controls.Add(this.textBox1);
+            this.Ppersonal_Screen.Controls.Add(this.QustionMark);
+            this.Ppersonal_Screen.Controls.Add(this.Bplan);
+            this.Ppersonal_Screen.Controls.Add(this.Cage);
+            this.Ppersonal_Screen.Controls.Add(this.label19);
             this.Ppersonal_Screen.Controls.Add(this.Ctotal_push_done);
+            this.Ppersonal_Screen.Controls.Add(this.Cday);
+            this.Ppersonal_Screen.Controls.Add(this.Cweek);
+            this.Ppersonal_Screen.Controls.Add(this.Cname);
             this.Ppersonal_Screen.Controls.Add(this.button2);
             this.Ppersonal_Screen.Controls.Add(this.CloseButton);
             this.Ppersonal_Screen.Controls.Add(this.button1);
             this.Ppersonal_Screen.Controls.Add(this.label12);
+            this.Ppersonal_Screen.Controls.Add(this.label18);
             this.Ppersonal_Screen.Controls.Add(this.label16);
+            this.Ppersonal_Screen.Controls.Add(this.label15);
+            this.Ppersonal_Screen.Controls.Add(this.label13);
+            this.Ppersonal_Screen.Controls.Add(this.label11);
             this.Ppersonal_Screen.Controls.Add(this.CHname);
             this.Ppersonal_Screen.Controls.Add(this.label4);
-            this.Ppersonal_Screen.Controls.Add(this.panel5);
-            this.Ppersonal_Screen.Controls.Add(this.panel6);
-            this.Ppersonal_Screen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Ppersonal_Screen.Location = new System.Drawing.Point(0, 0);
+            this.Ppersonal_Screen.Controls.Add(this.pictureBox1);
+            this.Ppersonal_Screen.Location = new System.Drawing.Point(1057, 632);
             this.Ppersonal_Screen.Name = "Ppersonal_Screen";
-            this.Ppersonal_Screen.Size = new System.Drawing.Size(1320, 720);
+            this.Ppersonal_Screen.Size = new System.Drawing.Size(91, 79);
             this.Ppersonal_Screen.TabIndex = 2;
             this.Ppersonal_Screen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -869,6 +808,7 @@
             // 
             // pr6
             // 
+            this.pr6.BackColor = System.Drawing.Color.FloralWhite;
             this.pr6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pr6.Location = new System.Drawing.Point(725, 179);
             this.pr6.Name = "pr6";
@@ -882,7 +822,7 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.MediumTurquoise;
-            this.textBox1.Location = new System.Drawing.Point(190, 125);
+            this.textBox1.Location = new System.Drawing.Point(190, 426);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(415, 37);
@@ -896,7 +836,7 @@
             this.QustionMark.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.QustionMark.Cursor = System.Windows.Forms.Cursors.Hand;
             this.QustionMark.Image = ((System.Drawing.Image)(resources.GetObject("QustionMark.Image")));
-            this.QustionMark.Location = new System.Drawing.Point(133, 134);
+            this.QustionMark.Location = new System.Drawing.Point(133, 435);
             this.QustionMark.Name = "QustionMark";
             this.QustionMark.Size = new System.Drawing.Size(21, 22);
             this.QustionMark.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -916,7 +856,7 @@
             this.Bplan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Bplan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.Bplan.ForeColor = System.Drawing.Color.DarkGray;
-            this.Bplan.Location = new System.Drawing.Point(133, 26);
+            this.Bplan.Location = new System.Drawing.Point(133, 327);
             this.Bplan.Name = "Bplan";
             this.Bplan.Size = new System.Drawing.Size(112, 38);
             this.Bplan.TabIndex = 6;
@@ -928,8 +868,8 @@
             // 
             this.Cage.AutoSize = true;
             this.Cage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cage.ForeColor = System.Drawing.Color.Silver;
-            this.Cage.Location = new System.Drawing.Point(96, 99);
+            this.Cage.ForeColor = System.Drawing.Color.MediumTurquoise;
+            this.Cage.Location = new System.Drawing.Point(96, 400);
             this.Cage.Name = "Cage";
             this.Cage.Size = new System.Drawing.Size(71, 24);
             this.Cage.TabIndex = 5;
@@ -939,7 +879,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(32, 99);
+            this.label19.Location = new System.Drawing.Point(32, 400);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(58, 22);
             this.label19.TabIndex = 4;
@@ -961,8 +901,8 @@
             // 
             this.Cday.AutoSize = true;
             this.Cday.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cday.ForeColor = System.Drawing.Color.Silver;
-            this.Cday.Location = new System.Drawing.Point(90, 164);
+            this.Cday.ForeColor = System.Drawing.Color.MediumTurquoise;
+            this.Cday.Location = new System.Drawing.Point(90, 465);
             this.Cday.Name = "Cday";
             this.Cday.Size = new System.Drawing.Size(20, 24);
             this.Cday.TabIndex = 3;
@@ -973,8 +913,8 @@
             // 
             this.Cweek.AutoSize = true;
             this.Cweek.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cweek.ForeColor = System.Drawing.Color.Silver;
-            this.Cweek.Location = new System.Drawing.Point(107, 132);
+            this.Cweek.ForeColor = System.Drawing.Color.MediumTurquoise;
+            this.Cweek.Location = new System.Drawing.Point(107, 433);
             this.Cweek.Name = "Cweek";
             this.Cweek.Size = new System.Drawing.Size(20, 24);
             this.Cweek.TabIndex = 3;
@@ -985,8 +925,8 @@
             // 
             this.Cname.AutoSize = true;
             this.Cname.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cname.ForeColor = System.Drawing.Color.Silver;
-            this.Cname.Location = new System.Drawing.Point(112, 67);
+            this.Cname.ForeColor = System.Drawing.Color.MediumTurquoise;
+            this.Cname.Location = new System.Drawing.Point(112, 368);
             this.Cname.Name = "Cname";
             this.Cname.Size = new System.Drawing.Size(71, 24);
             this.Cname.TabIndex = 3;
@@ -1047,7 +987,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(32, 164);
+            this.label18.Location = new System.Drawing.Point(32, 465);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(58, 22);
             this.label18.TabIndex = 1;
@@ -1069,7 +1009,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(32, 132);
+            this.label15.Location = new System.Drawing.Point(32, 433);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(72, 22);
             this.label15.TabIndex = 1;
@@ -1080,7 +1020,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(34, 67);
+            this.label13.Location = new System.Drawing.Point(34, 368);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(74, 22);
             this.label13.TabIndex = 1;
@@ -1091,7 +1031,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(36, 25);
+            this.label11.Location = new System.Drawing.Point(36, 326);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 31);
             this.label11.TabIndex = 1;
@@ -1102,7 +1042,7 @@
             // 
             this.CHname.AutoSize = true;
             this.CHname.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CHname.Location = new System.Drawing.Point(113, 26);
+            this.CHname.Location = new System.Drawing.Point(104, 27);
             this.CHname.Name = "CHname";
             this.CHname.Size = new System.Drawing.Size(202, 37);
             this.CHname.TabIndex = 0;
@@ -1117,26 +1057,6 @@
             this.label4.Size = new System.Drawing.Size(94, 37);
             this.label4.TabIndex = 0;
             this.label4.Text = "Hello";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label11);
-            this.panel5.Controls.Add(this.label13);
-            this.panel5.Controls.Add(this.label15);
-            this.panel5.Controls.Add(this.label18);
-            this.panel5.Controls.Add(this.Cname);
-            this.panel5.Controls.Add(this.Cweek);
-            this.panel5.Controls.Add(this.Cday);
-            this.panel5.Controls.Add(this.label19);
-            this.panel5.Controls.Add(this.Cage);
-            this.panel5.Controls.Add(this.Bplan);
-            this.panel5.Controls.Add(this.QustionMark);
-            this.panel5.Controls.Add(this.textBox1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 286);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1318, 432);
-            this.panel5.TabIndex = 26;
             // 
             // Pworkout
             // 
@@ -1176,10 +1096,11 @@
             this.Pworkout.Controls.Add(this.Lset_3);
             this.Pworkout.Controls.Add(this.Lset_2);
             this.Pworkout.Controls.Add(this.label6);
+            this.Pworkout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Pworkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pworkout.Location = new System.Drawing.Point(987, 641);
+            this.Pworkout.Location = new System.Drawing.Point(0, 0);
             this.Pworkout.Name = "Pworkout";
-            this.Pworkout.Size = new System.Drawing.Size(64, 67);
+            this.Pworkout.Size = new System.Drawing.Size(1320, 720);
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -1734,32 +1655,22 @@
             this.Rest_Timer.Interval = 1000;
             this.Rest_Timer.Tick += new System.EventHandler(this.Rest_Timer_Tick);
             // 
-            // panel6
-            // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1318, 288);
-            this.panel6.TabIndex = 27;
-            // 
             // The_Road_To_100
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
             this.Controls.Add(this.Ppersonal_Screen);
-            this.Controls.Add(this.PmainManu);
-            this.Controls.Add(this.Pnew_user);
             this.Controls.Add(this.Pworkout);
+            this.Controls.Add(this.Pnew_user);
+            this.Controls.Add(this.PmainManu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "The_Road_To_100";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.PmainManu.ResumeLayout(false);
             this.PmainManu.PerformLayout();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).EndInit();
-            this.panel3.ResumeLayout(false);
             this.Pnew_user.ResumeLayout(false);
             this.Pnew_user.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PICsignup)).EndInit();
@@ -1778,8 +1689,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pr5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.Pworkout.ResumeLayout(false);
             this.Pworkout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Bapp)).EndInit();
@@ -1912,13 +1821,6 @@
         private System.Windows.Forms.PictureBox Red;
         private System.Windows.Forms.PictureBox Yellow;
         private System.Windows.Forms.PictureBox Green;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
     }
 }
 
