@@ -41,6 +41,9 @@
             this.Bwhypushups = new System.Windows.Forms.Button();
             this.Menuheadline = new System.Windows.Forms.Label();
             this.Pnew_user = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.UploadBeforePic = new System.Windows.Forms.Button();
+            this.PICbefore = new System.Windows.Forms.PictureBox();
             this.BbackToMainMenue = new System.Windows.Forms.Button();
             this.Sintailtest_results = new System.Windows.Forms.Label();
             this.SnewLastName = new System.Windows.Forms.Label();
@@ -65,13 +68,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.Lsignup = new System.Windows.Forms.Label();
             this.Ppersonal_Screen = new System.Windows.Forms.Panel();
+            this.ProfilePic = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.Blue = new System.Windows.Forms.PictureBox();
             this.Red = new System.Windows.Forms.PictureBox();
             this.Yellow = new System.Windows.Forms.PictureBox();
             this.Green = new System.Windows.Forms.PictureBox();
             this.voiceMic = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pr1 = new System.Windows.Forms.PictureBox();
             this.pr2 = new System.Windows.Forms.PictureBox();
             this.pr3 = new System.Windows.Forms.PictureBox();
@@ -98,6 +102,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.CHname = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Pworkout = new System.Windows.Forms.Panel();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.Bapp = new System.Windows.Forms.PictureBox();
@@ -150,14 +155,15 @@
             this.PmainManu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).BeginInit();
             this.Pnew_user.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PICbefore)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PICsignup)).BeginInit();
             this.Ppersonal_Screen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Blue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Red)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Yellow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Green)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.voiceMic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr3)).BeginInit();
@@ -165,6 +171,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pr5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Pworkout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Bapp)).BeginInit();
             this.Tstatment.SuspendLayout();
@@ -331,6 +338,9 @@
             // 
             this.Pnew_user.BackColor = System.Drawing.SystemColors.Control;
             this.Pnew_user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pnew_user.Controls.Add(this.textBox2);
+            this.Pnew_user.Controls.Add(this.UploadBeforePic);
+            this.Pnew_user.Controls.Add(this.PICbefore);
             this.Pnew_user.Controls.Add(this.BbackToMainMenue);
             this.Pnew_user.Controls.Add(this.Sintailtest_results);
             this.Pnew_user.Controls.Add(this.SnewLastName);
@@ -354,11 +364,50 @@
             this.Pnew_user.Controls.Add(this.Lintialtest);
             this.Pnew_user.Controls.Add(this.label10);
             this.Pnew_user.Controls.Add(this.Lsignup);
-            this.Pnew_user.Location = new System.Drawing.Point(1154, 658);
+            this.Pnew_user.Location = new System.Drawing.Point(1154, 639);
             this.Pnew_user.Name = "Pnew_user";
-            this.Pnew_user.Size = new System.Drawing.Size(62, 50);
+            this.Pnew_user.Size = new System.Drawing.Size(57, 67);
             this.Pnew_user.TabIndex = 2;
             this.Pnew_user.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Turquoise;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.ForeColor = System.Drawing.Color.Ivory;
+            this.textBox2.Location = new System.Drawing.Point(521, 42);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(306, 29);
+            this.textBox2.TabIndex = 9;
+            this.textBox2.Text = "Upload  a before picure of yourself\r\n";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // UploadBeforePic
+            // 
+            this.UploadBeforePic.BackColor = System.Drawing.Color.Aquamarine;
+            this.UploadBeforePic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UploadBeforePic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.UploadBeforePic.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UploadBeforePic.ForeColor = System.Drawing.Color.LightSeaGreen;
+            this.UploadBeforePic.Location = new System.Drawing.Point(717, 82);
+            this.UploadBeforePic.Name = "UploadBeforePic";
+            this.UploadBeforePic.Size = new System.Drawing.Size(92, 137);
+            this.UploadBeforePic.TabIndex = 8;
+            this.UploadBeforePic.Text = "Browse ";
+            this.UploadBeforePic.UseVisualStyleBackColor = false;
+            this.UploadBeforePic.Click += new System.EventHandler(this.UploadPicture);
+            // 
+            // PICbefore
+            // 
+            this.PICbefore.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PICbefore.Cursor = System.Windows.Forms.Cursors.Default;
+            this.PICbefore.Location = new System.Drawing.Point(544, 82);
+            this.PICbefore.Name = "PICbefore";
+            this.PICbefore.Size = new System.Drawing.Size(167, 137);
+            this.PICbefore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PICbefore.TabIndex = 7;
+            this.PICbefore.TabStop = false;
             // 
             // BbackToMainMenue
             // 
@@ -645,6 +694,8 @@
             // 
             this.Ppersonal_Screen.BackColor = System.Drawing.Color.FloralWhite;
             this.Ppersonal_Screen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Ppersonal_Screen.Controls.Add(this.ProfilePic);
+            this.Ppersonal_Screen.Controls.Add(this.button3);
             this.Ppersonal_Screen.Controls.Add(this.Blue);
             this.Ppersonal_Screen.Controls.Add(this.Red);
             this.Ppersonal_Screen.Controls.Add(this.Yellow);
@@ -678,11 +729,31 @@
             this.Ppersonal_Screen.Controls.Add(this.CHname);
             this.Ppersonal_Screen.Controls.Add(this.label4);
             this.Ppersonal_Screen.Controls.Add(this.pictureBox1);
-            this.Ppersonal_Screen.Location = new System.Drawing.Point(1057, 632);
+            this.Ppersonal_Screen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Ppersonal_Screen.Location = new System.Drawing.Point(0, 0);
             this.Ppersonal_Screen.Name = "Ppersonal_Screen";
-            this.Ppersonal_Screen.Size = new System.Drawing.Size(91, 79);
+            this.Ppersonal_Screen.Size = new System.Drawing.Size(1320, 720);
             this.Ppersonal_Screen.TabIndex = 2;
             this.Ppersonal_Screen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
+            // ProfilePic
+            // 
+            this.ProfilePic.Location = new System.Drawing.Point(316, 11);
+            this.ProfilePic.Name = "ProfilePic";
+            this.ProfilePic.Size = new System.Drawing.Size(137, 114);
+            this.ProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ProfilePic.TabIndex = 27;
+            this.ProfilePic.TabStop = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(36, 503);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(131, 23);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "Add progression picture";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.UploadPicture);
             // 
             // Blue
             // 
@@ -749,17 +820,6 @@
             this.label20.Size = new System.Drawing.Size(204, 108);
             this.label20.TabIndex = 10;
             this.label20.Text = "100";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::The_Road_To_100.Properties.Resources._100_fireworks1;
-            this.pictureBox1.Location = new System.Drawing.Point(872, 132);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(280, 130);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
             // 
             // pr1
             // 
@@ -1058,6 +1118,17 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Hello";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::The_Road_To_100.Properties.Resources._100_fireworks1;
+            this.pictureBox1.Location = new System.Drawing.Point(872, 132);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(280, 130);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            // 
             // Pworkout
             // 
             this.Pworkout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1096,11 +1167,10 @@
             this.Pworkout.Controls.Add(this.Lset_3);
             this.Pworkout.Controls.Add(this.Lset_2);
             this.Pworkout.Controls.Add(this.label6);
-            this.Pworkout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Pworkout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pworkout.Location = new System.Drawing.Point(0, 0);
+            this.Pworkout.Location = new System.Drawing.Point(970, 641);
             this.Pworkout.Name = "Pworkout";
-            this.Pworkout.Size = new System.Drawing.Size(1320, 720);
+            this.Pworkout.Size = new System.Drawing.Size(81, 69);
             this.Pworkout.TabIndex = 3;
             this.Pworkout.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -1661,8 +1731,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
             this.Controls.Add(this.Ppersonal_Screen);
-            this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.Pnew_user);
+            this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.PmainManu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1673,15 +1743,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).EndInit();
             this.Pnew_user.ResumeLayout(false);
             this.Pnew_user.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PICbefore)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PICsignup)).EndInit();
             this.Ppersonal_Screen.ResumeLayout(false);
             this.Ppersonal_Screen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ProfilePic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Blue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Red)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Yellow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Green)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.voiceMic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr3)).EndInit();
@@ -1689,6 +1760,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pr5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pr6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QustionMark)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Pworkout.ResumeLayout(false);
             this.Pworkout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Bapp)).EndInit();
@@ -1821,6 +1893,11 @@
         private System.Windows.Forms.PictureBox Red;
         private System.Windows.Forms.PictureBox Yellow;
         private System.Windows.Forms.PictureBox Green;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox PICbefore;
+        private System.Windows.Forms.PictureBox ProfilePic;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button UploadBeforePic;
     }
 }
 

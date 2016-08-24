@@ -38,9 +38,8 @@ namespace The_Road_To_100
                 di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
 
             }
-
             Choices commands = new Choices();
-            commands.Add(new string[] { "start", "finish", "close"});
+            commands.Add(new string[] { "start", "finish", "close" });
             GrammarBuilder GB = new GrammarBuilder();
             GB.Append(commands);
             Grammar grammar = new Grammar(GB);
@@ -84,6 +83,7 @@ namespace The_Road_To_100
         string New_name;
         string New_lastName;
         int New_age;
+        public static string ext;
         int intailTest_results;
         public string userFileSavePath;
         public bool fileCreate = false;
@@ -413,6 +413,9 @@ coracobrachialis and the midsection as a whole.");
                     Directory.Delete(@"C:\The Road To 100\user.ID 1", true);
 
                 Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1");
+                Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1\pics");
+                SetC(@"C:\The Road To 100\user.ID 1\pics\imgCount.txt", "0");
+                SetC(@"C:\The Road To 100\user.ID 1\pics\ext.txt", ext);
                 creatFiles("First Name", New_name, 0);
                 creatFiles("Last Name", New_lastName, 0);
                 creatFiles("Age", "", New_age);
@@ -422,6 +425,12 @@ coracobrachialis and the midsection as a whole.");
                 creatFiles("FirstTime", "True", 0);
                 createWorkoutPlanFiles("Week");
                 createWorkoutPlanFiles("Day");
+
+                if (File.Exists(@"C:\The Road To 100\Before Picture" + ext))
+                {
+                    File.Copy(@"C:\The Road To 100\Before Picture" + ext , @"C:\The Road To 100\user.ID 1\pics\Before Picture" + ext);
+                    File.Delete(@"C:\The Road To 100\Before Picture" + ext);
+                }
 
                 string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
                 int intialTest = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt", true));
@@ -555,6 +564,7 @@ coracobrachialis and the midsection as a whole.");
             getdata("Total Push ups Done");
             Cweek.Text = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
             Cday.Text = GetC(@"C:\The Road To 100\user.ID 1\Day.txt");
+            ProfilePic.Image = Image.FromFile(@"C:\The Road To 100\user.ID 1\pics\Before Picture" + ext);
         }
 
         public void getdata(string filename)
@@ -1463,6 +1473,37 @@ coracobrachialis and the midsection as a whole.");
                 Mic_Animation();
         }
 
+        private void UploadPicture(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                ext = Path.GetExtension(ofd.FileName);
+
+                if (btn.Name == "button3")
+                {
+                    int imgCount = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\pics\imgCount.txt")); imgCount++;
+                    File.Copy(ofd.FileName, @"C:\The Road To 100\user.ID 1\pics\" + imgCount + ext);
+                    SetC(@"C:\The Road To 100\user.ID 1\pics\imgCount.txt", imgCount);
+                }
+
+                else if (btn.Name == "UploadBeforePic")
+                {
+                    string[] exts = { ".jpg", ".jpeg", ".jpe", ".jfif", ".png" };
+                    foreach (string E in exts)
+                        if (File.Exists(@"C:\The Road To 100\Before Picture" + E))
+                            File.Delete(@"C:\The Road To 100\Before Picture" + E);
+
+                    File.Copy(ofd.FileName, @"C:\The Road To 100\Before Picture" + ext);
+                    PICbefore.Image = Image.FromFile(ofd.FileName);
+                }
+            }
+        }
+
         #endregion
 
         #region Workout
@@ -1846,14 +1887,12 @@ coracobrachialis and the midsection as a whole.");
 
                 else if (time_Left == 30)
                     ss.SpeakAsync("thirty seconds to go");
-                else
-                    ss.SpeakAsync("tocha");
                 if (Crest.Text == "0" && workout_done == false)
                 {
                     ss.SpeakAsync("get back to work");
                     rest_done = true;
                 }
-                
+
                 break;
             }
 
@@ -1897,6 +1936,9 @@ coracobrachialis and the midsection as a whole.");
             textBox3.Visible = false;
         }
 
-        #endregion        
+        #endregion
     }
 }
+//Add the option to choose not to upload a profile picture -- make sure to add catching statment in all the nececty locations in the code.
+//Limit the progrection pictures to 1 per week.
+//Add a reveal fanction (pictures), when the end user finishes the program  
