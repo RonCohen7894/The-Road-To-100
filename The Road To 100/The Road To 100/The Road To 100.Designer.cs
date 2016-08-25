@@ -561,7 +561,7 @@
             this.TBname.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TBname.ForeColor = System.Drawing.Color.Tan;
             this.TBname.Location = new System.Drawing.Point(107, 96);
-            this.TBname.MaxLength = 12;
+            this.TBname.MaxLength = 11;
             this.TBname.Name = "TBname";
             this.TBname.Size = new System.Drawing.Size(230, 22);
             this.TBname.TabIndex = 1;
@@ -738,6 +738,7 @@
             // 
             // ProfilePic
             // 
+            this.ProfilePic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ProfilePic.Location = new System.Drawing.Point(316, 11);
             this.ProfilePic.Name = "ProfilePic";
             this.ProfilePic.Size = new System.Drawing.Size(137, 114);

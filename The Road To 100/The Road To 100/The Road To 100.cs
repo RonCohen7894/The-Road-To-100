@@ -411,6 +411,7 @@ coracobrachialis and the midsection as a whole.");
             {
                 if (Directory.Exists(@"C:\The Road To 100\user.ID 1"))
                     Directory.Delete(@"C:\The Road To 100\user.ID 1", true);
+                    
 
                 Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1");
                 Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1\pics");
@@ -564,7 +565,13 @@ coracobrachialis and the midsection as a whole.");
             getdata("Total Push ups Done");
             Cweek.Text = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
             Cday.Text = GetC(@"C:\The Road To 100\user.ID 1\Day.txt");
-            ProfilePic.Image = Image.FromFile(@"C:\The Road To 100\user.ID 1\pics\Before Picture" + ext);
+
+            Image img;
+            using (var stream = File.OpenRead(@"C:\The Road To 100\user.ID 1\pics\Before Picture" + GetC(@"C:\The Road To 100\user.ID 1\pics\ext.txt", true)))
+                img = new Bitmap(stream);
+              ProfilePic.Image = img;
+
+            ProfilePic.Left = CHname.Left + CHname.Width + 5;
         }
 
         public void getdata(string filename)
@@ -1499,7 +1506,11 @@ coracobrachialis and the midsection as a whole.");
                             File.Delete(@"C:\The Road To 100\Before Picture" + E);
 
                     File.Copy(ofd.FileName, @"C:\The Road To 100\Before Picture" + ext);
-                    PICbefore.Image = Image.FromFile(ofd.FileName);
+
+                    Image img;
+                    using (var stream = File.OpenRead(ofd.FileName))
+                        img = new Bitmap(stream);
+                    PICbefore.Image = img;
                 }
             }
         }
