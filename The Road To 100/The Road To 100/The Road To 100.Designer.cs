@@ -41,6 +41,7 @@
             this.Bwhypushups = new System.Windows.Forms.Button();
             this.Menuheadline = new System.Windows.Forms.Label();
             this.Pnew_user = new System.Windows.Forms.Panel();
+            this.CBpic = new System.Windows.Forms.CheckBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.UploadBeforePic = new System.Windows.Forms.Button();
             this.PICbefore = new System.Windows.Forms.PictureBox();
@@ -338,6 +339,7 @@
             // 
             this.Pnew_user.BackColor = System.Drawing.SystemColors.Control;
             this.Pnew_user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pnew_user.Controls.Add(this.CBpic);
             this.Pnew_user.Controls.Add(this.textBox2);
             this.Pnew_user.Controls.Add(this.UploadBeforePic);
             this.Pnew_user.Controls.Add(this.PICbefore);
@@ -364,11 +366,25 @@
             this.Pnew_user.Controls.Add(this.Lintialtest);
             this.Pnew_user.Controls.Add(this.label10);
             this.Pnew_user.Controls.Add(this.Lsignup);
-            this.Pnew_user.Location = new System.Drawing.Point(1154, 639);
+            this.Pnew_user.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Pnew_user.Location = new System.Drawing.Point(0, 0);
             this.Pnew_user.Name = "Pnew_user";
-            this.Pnew_user.Size = new System.Drawing.Size(57, 67);
+            this.Pnew_user.Size = new System.Drawing.Size(1320, 720);
             this.Pnew_user.TabIndex = 2;
             this.Pnew_user.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
+            // 
+            // CBpic
+            // 
+            this.CBpic.AutoSize = true;
+            this.CBpic.Checked = true;
+            this.CBpic.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CBpic.Location = new System.Drawing.Point(816, 82);
+            this.CBpic.Name = "CBpic";
+            this.CBpic.Size = new System.Drawing.Size(122, 17);
+            this.CBpic.TabIndex = 10;
+            this.CBpic.Text = "Add a Profile Picture";
+            this.CBpic.UseVisualStyleBackColor = true;
+            this.CBpic.CheckedChanged += new System.EventHandler(this.CBpic_CheckedChanged);
             // 
             // textBox2
             // 
@@ -729,10 +745,9 @@
             this.Ppersonal_Screen.Controls.Add(this.CHname);
             this.Ppersonal_Screen.Controls.Add(this.label4);
             this.Ppersonal_Screen.Controls.Add(this.pictureBox1);
-            this.Ppersonal_Screen.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Ppersonal_Screen.Location = new System.Drawing.Point(0, 0);
+            this.Ppersonal_Screen.Location = new System.Drawing.Point(1063, 656);
             this.Ppersonal_Screen.Name = "Ppersonal_Screen";
-            this.Ppersonal_Screen.Size = new System.Drawing.Size(1320, 720);
+            this.Ppersonal_Screen.Size = new System.Drawing.Size(59, 52);
             this.Ppersonal_Screen.TabIndex = 2;
             this.Ppersonal_Screen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -754,6 +769,7 @@
             this.button3.TabIndex = 26;
             this.button3.Text = "Add progression picture";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.UploadPicture);
             // 
             // Blue
@@ -1731,8 +1747,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
-            this.Controls.Add(this.Ppersonal_Screen);
             this.Controls.Add(this.Pnew_user);
+            this.Controls.Add(this.Ppersonal_Screen);
             this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.PmainManu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1899,6 +1915,7 @@
         private System.Windows.Forms.PictureBox ProfilePic;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button UploadBeforePic;
+        private System.Windows.Forms.CheckBox CBpic;
     }
 }
 

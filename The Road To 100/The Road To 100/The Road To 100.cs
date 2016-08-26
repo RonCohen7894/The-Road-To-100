@@ -226,6 +226,10 @@ coracobrachialis and the midsection as a whole.");
             int Ex_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Exhaustion test.txt", true));
             int initail_test = int.Parse(GetC(@"C:\The Road To 100\user.ID 1\Initial Test.txt", true));
 
+            if (Directory.Exists(@"C:\The Road To 100\user.ID 1\pics"))
+                button3.Visible = true;
+            else  ProfilePic.Visible = false;
+
             if (!File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
             {
                 if (week_ex == "3" || week_ex == "5" || week_ex == "6")
@@ -411,12 +415,17 @@ coracobrachialis and the midsection as a whole.");
             {
                 if (Directory.Exists(@"C:\The Road To 100\user.ID 1"))
                     Directory.Delete(@"C:\The Road To 100\user.ID 1", true);
-                    
+
+                if (CBpic.Checked)
+                {
+                    Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1\pics");
+                    SetC(@"C:\The Road To 100\user.ID 1\pics\imgCount.txt", "0");
+                    SetC(@"C:\The Road To 100\user.ID 1\pics\ext.txt", ext);
+                }
+                else
+                    ProfilePic.Visible = false;
 
                 Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1");
-                Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1\pics");
-                SetC(@"C:\The Road To 100\user.ID 1\pics\imgCount.txt", "0");
-                SetC(@"C:\The Road To 100\user.ID 1\pics\ext.txt", ext);
                 creatFiles("First Name", New_name, 0);
                 creatFiles("Last Name", New_lastName, 0);
                 creatFiles("Age", "", New_age);
@@ -427,10 +436,12 @@ coracobrachialis and the midsection as a whole.");
                 createWorkoutPlanFiles("Week");
                 createWorkoutPlanFiles("Day");
 
-                if (File.Exists(@"C:\The Road To 100\Before Picture" + ext))
+                if (File.Exists(@"C:\The Road To 100\Before Picture" + ext) && CBpic.Checked)
                 {
                     File.Copy(@"C:\The Road To 100\Before Picture" + ext , @"C:\The Road To 100\user.ID 1\pics\Before Picture" + ext);
                     File.Delete(@"C:\The Road To 100\Before Picture" + ext);
+                    button3.Visible = true;
+                    ProfilePic.Visible = true;
                 }
 
                 string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
@@ -566,12 +577,15 @@ coracobrachialis and the midsection as a whole.");
             Cweek.Text = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
             Cday.Text = GetC(@"C:\The Road To 100\user.ID 1\Day.txt");
 
-            Image img;
-            using (var stream = File.OpenRead(@"C:\The Road To 100\user.ID 1\pics\Before Picture" + GetC(@"C:\The Road To 100\user.ID 1\pics\ext.txt", true)))
-                img = new Bitmap(stream);
-              ProfilePic.Image = img;
+            if (Directory.Exists(@"C:\The Road To 100\user.ID 1\pics"))
+            {
+                Image img;
+                using (var stream = File.OpenRead(@"C:\The Road To 100\user.ID 1\pics\Before Picture" + GetC(@"C:\The Road To 100\user.ID 1\pics\ext.txt", true)))
+                    img = new Bitmap(stream);
+                ProfilePic.Image = img;
 
-            ProfilePic.Left = CHname.Left + CHname.Width + 5;
+                ProfilePic.Left = CHname.Left + CHname.Width + 5;
+            }       
         }
 
         public void getdata(string filename)
@@ -1484,10 +1498,10 @@ coracobrachialis and the midsection as a whole.");
         {
             Button btn = (Button)sender;
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            ofd.Filter = "Image files ( *Shmolik, *.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.Shmolik; *.jpg; *.jpeg; *.jpe; *.jfif; *.png ";
 
 
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if (ofd.ShowDialog() == DialogResult.OK && CBpic.Checked)
             {
                 ext = Path.GetExtension(ofd.FileName);
 
@@ -1948,8 +1962,21 @@ coracobrachialis and the midsection as a whole.");
         }
 
         #endregion
+
+        private void CBpic_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CBpic.Checked) UploadBeforePic.Enabled = true;
+            else
+            {
+                UploadBeforePic.Enabled = false;
+                if (File.Exists(@"C:\The Road To 100\Before Picture" + ext))
+                {
+                    File.Delete(@"C:\The Road To 100\Before Picture" + ext);
+                    PICbefore.Image = null;
+                }
+            }
+        }
     }
 }
-//Add the option to choose not to upload a profile picture -- make sure to add catching statment in all the nececty locations in the code.
 //Limit the progrection pictures to 1 per week.
 //Add a reveal fanction (pictures), when the end user finishes the program  
