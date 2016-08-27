@@ -153,6 +153,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.Workout_Timer = new System.Windows.Forms.Timer(this.components);
             this.Rest_Timer = new System.Windows.Forms.Timer(this.components);
+            this.Limage = new System.Windows.Forms.Label();
+            this.Beditpicure = new System.Windows.Forms.Label();
+            this.PprofilePic = new System.Windows.Forms.Panel();
             this.PmainManu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Pintro)).BeginInit();
             this.Pnew_user.SuspendLayout();
@@ -179,6 +182,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Arrow2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).BeginInit();
             this.Pginfo.SuspendLayout();
+            this.PprofilePic.SuspendLayout();
             this.SuspendLayout();
             // 
             // PmainManu
@@ -346,6 +350,7 @@
             this.Pnew_user.Controls.Add(this.BbackToMainMenue);
             this.Pnew_user.Controls.Add(this.Sintailtest_results);
             this.Pnew_user.Controls.Add(this.SnewLastName);
+            this.Pnew_user.Controls.Add(this.Limage);
             this.Pnew_user.Controls.Add(this.SnewName);
             this.Pnew_user.Controls.Add(this.SnewAge);
             this.Pnew_user.Controls.Add(this.Bexit_newUser);
@@ -366,10 +371,9 @@
             this.Pnew_user.Controls.Add(this.Lintialtest);
             this.Pnew_user.Controls.Add(this.label10);
             this.Pnew_user.Controls.Add(this.Lsignup);
-            this.Pnew_user.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Pnew_user.Location = new System.Drawing.Point(0, 0);
+            this.Pnew_user.Location = new System.Drawing.Point(1133, 653);
             this.Pnew_user.Name = "Pnew_user";
-            this.Pnew_user.Size = new System.Drawing.Size(1320, 720);
+            this.Pnew_user.Size = new System.Drawing.Size(78, 57);
             this.Pnew_user.TabIndex = 2;
             this.Pnew_user.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
@@ -710,7 +714,9 @@
             // 
             this.Ppersonal_Screen.BackColor = System.Drawing.Color.FloralWhite;
             this.Ppersonal_Screen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Ppersonal_Screen.Controls.Add(this.ProfilePic);
+            this.Ppersonal_Screen.Controls.Add(this.Ctotal_push_done);
+            this.Ppersonal_Screen.Controls.Add(this.label16);
+            this.Ppersonal_Screen.Controls.Add(this.PprofilePic);
             this.Ppersonal_Screen.Controls.Add(this.button3);
             this.Ppersonal_Screen.Controls.Add(this.Blue);
             this.Ppersonal_Screen.Controls.Add(this.Red);
@@ -729,7 +735,6 @@
             this.Ppersonal_Screen.Controls.Add(this.Bplan);
             this.Ppersonal_Screen.Controls.Add(this.Cage);
             this.Ppersonal_Screen.Controls.Add(this.label19);
-            this.Ppersonal_Screen.Controls.Add(this.Ctotal_push_done);
             this.Ppersonal_Screen.Controls.Add(this.Cday);
             this.Ppersonal_Screen.Controls.Add(this.Cweek);
             this.Ppersonal_Screen.Controls.Add(this.Cname);
@@ -738,23 +743,23 @@
             this.Ppersonal_Screen.Controls.Add(this.button1);
             this.Ppersonal_Screen.Controls.Add(this.label12);
             this.Ppersonal_Screen.Controls.Add(this.label18);
-            this.Ppersonal_Screen.Controls.Add(this.label16);
             this.Ppersonal_Screen.Controls.Add(this.label15);
             this.Ppersonal_Screen.Controls.Add(this.label13);
             this.Ppersonal_Screen.Controls.Add(this.label11);
             this.Ppersonal_Screen.Controls.Add(this.CHname);
             this.Ppersonal_Screen.Controls.Add(this.label4);
             this.Ppersonal_Screen.Controls.Add(this.pictureBox1);
-            this.Ppersonal_Screen.Location = new System.Drawing.Point(1063, 656);
+            this.Ppersonal_Screen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Ppersonal_Screen.Location = new System.Drawing.Point(0, 0);
             this.Ppersonal_Screen.Name = "Ppersonal_Screen";
-            this.Ppersonal_Screen.Size = new System.Drawing.Size(59, 52);
+            this.Ppersonal_Screen.Size = new System.Drawing.Size(1320, 720);
             this.Ppersonal_Screen.TabIndex = 2;
             this.Ppersonal_Screen.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown);
             // 
             // ProfilePic
             // 
             this.ProfilePic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ProfilePic.Location = new System.Drawing.Point(316, 11);
+            this.ProfilePic.Location = new System.Drawing.Point(3, 3);
             this.ProfilePic.Name = "ProfilePic";
             this.ProfilePic.Size = new System.Drawing.Size(137, 114);
             this.ProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1742,13 +1747,47 @@
             this.Rest_Timer.Interval = 1000;
             this.Rest_Timer.Tick += new System.EventHandler(this.Rest_Timer_Tick);
             // 
+            // Limage
+            // 
+            this.Limage.AutoSize = true;
+            this.Limage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Limage.ForeColor = System.Drawing.Color.Red;
+            this.Limage.Location = new System.Drawing.Point(541, 222);
+            this.Limage.Name = "Limage";
+            this.Limage.Size = new System.Drawing.Size(43, 16);
+            this.Limage.TabIndex = 6;
+            this.Limage.Text = "status";
+            this.Limage.Visible = false;
+            // 
+            // Beditpicure
+            // 
+            this.Beditpicure.AutoSize = true;
+            this.Beditpicure.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Beditpicure.ForeColor = System.Drawing.Color.DarkGray;
+            this.Beditpicure.Location = new System.Drawing.Point(3, 124);
+            this.Beditpicure.Name = "Beditpicure";
+            this.Beditpicure.Size = new System.Drawing.Size(25, 13);
+            this.Beditpicure.TabIndex = 28;
+            this.Beditpicure.Text = "Edit";
+            this.Beditpicure.Click += new System.EventHandler(this.Beditpicure_Click);
+            // 
+            // PprofilePic
+            // 
+            this.PprofilePic.Controls.Add(this.ProfilePic);
+            this.PprofilePic.Controls.Add(this.Beditpicure);
+            this.PprofilePic.Location = new System.Drawing.Point(312, 11);
+            this.PprofilePic.Name = "PprofilePic";
+            this.PprofilePic.Size = new System.Drawing.Size(200, 142);
+            this.PprofilePic.TabIndex = 29;
+            this.PprofilePic.Visible = false;
+            // 
             // The_Road_To_100
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 720);
-            this.Controls.Add(this.Pnew_user);
             this.Controls.Add(this.Ppersonal_Screen);
+            this.Controls.Add(this.Pnew_user);
             this.Controls.Add(this.Pworkout);
             this.Controls.Add(this.PmainManu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1787,6 +1826,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Arrow1)).EndInit();
             this.Pginfo.ResumeLayout(false);
             this.Pginfo.PerformLayout();
+            this.PprofilePic.ResumeLayout(false);
+            this.PprofilePic.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1916,6 +1957,9 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button UploadBeforePic;
         private System.Windows.Forms.CheckBox CBpic;
+        private System.Windows.Forms.Label Limage;
+        private System.Windows.Forms.Label Beditpicure;
+        private System.Windows.Forms.Panel PprofilePic;
     }
 }
 

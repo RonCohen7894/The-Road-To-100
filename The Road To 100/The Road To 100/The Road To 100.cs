@@ -123,6 +123,7 @@ namespace The_Road_To_100
         int sec = 0;
         int min = 0;
         int houres = 0;
+
         #endregion
 
         #region main Menu
@@ -228,7 +229,7 @@ coracobrachialis and the midsection as a whole.");
 
             if (Directory.Exists(@"C:\The Road To 100\user.ID 1\pics"))
                 button3.Visible = true;
-            else  ProfilePic.Visible = false;
+            else  PprofilePic.Visible = false;
 
             if (!File.Exists(@"C:\The Road To 100\user.ID 1\FirstTime.txt"))
             {
@@ -423,7 +424,7 @@ coracobrachialis and the midsection as a whole.");
                     SetC(@"C:\The Road To 100\user.ID 1\pics\ext.txt", ext);
                 }
                 else
-                    ProfilePic.Visible = false;
+                    PprofilePic.Visible = false;
 
                 Directory.CreateDirectory(@"C:\The Road To 100\user.ID 1");
                 creatFiles("First Name", New_name, 0);
@@ -438,10 +439,10 @@ coracobrachialis and the midsection as a whole.");
 
                 if (File.Exists(@"C:\The Road To 100\Before Picture" + ext) && CBpic.Checked)
                 {
-                    File.Copy(@"C:\The Road To 100\Before Picture" + ext , @"C:\The Road To 100\user.ID 1\pics\Before Picture" + ext);
+                    File.Copy(@"C:\The Road To 100\Before Picture" + ext, @"C:\The Road To 100\user.ID 1\pics\Before Picture" + ext);
                     File.Delete(@"C:\The Road To 100\Before Picture" + ext);
                     button3.Visible = true;
-                    ProfilePic.Visible = true;
+                    PprofilePic.Visible = true;
                 }
 
                 string week = GetC(@"C:\The Road To 100\user.ID 1\Week.txt");
@@ -491,6 +492,11 @@ coracobrachialis and the midsection as a whole.");
                 SnewLastName.Visible = true;
             }
 
+            if (PICbefore.Image == null && CBpic.Checked)
+            {
+                Limage.Text = "You must choose a picture";
+                Limage.Visible = true;
+            }
             #region try_catch
             try
             {
@@ -584,7 +590,7 @@ coracobrachialis and the midsection as a whole.");
                     img = new Bitmap(stream);
                 ProfilePic.Image = img;
 
-                ProfilePic.Left = CHname.Left + CHname.Width + 5;
+                PprofilePic.Left = CHname.Left + CHname.Width + 5;
             }       
         }
 
@@ -1965,18 +1971,36 @@ coracobrachialis and the midsection as a whole.");
 
         private void CBpic_CheckedChanged(object sender, EventArgs e)
         {
+            Limage.Visible = false;
             if (CBpic.Checked) UploadBeforePic.Enabled = true;
             else
             {
                 UploadBeforePic.Enabled = false;
                 if (File.Exists(@"C:\The Road To 100\Before Picture" + ext))
-                {
                     File.Delete(@"C:\The Road To 100\Before Picture" + ext);
-                    PICbefore.Image = null;
-                }
+                PICbefore.Image = null;
+            }
+        }
+
+        private void Beditpicure_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Image files ( *Shmolik, *.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.Shmolik; *.jpg; *.jpeg; *.jpe; *.jfif; *.png ";
+            ext = GetC(@"C:\The Road To 100\user.ID 1\pics\ext.txt", true);
+
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                File.Copy(ofd.FileName, @"C:\The Road To 100\user.ID 1\pics\Before Picture" + ext, true);
+                Image img;
+                using (var stream = File.OpenRead(@"C:\The Road To 100\user.ID 1\pics\Before Picture" + ext))
+                    img = new Bitmap(stream);
+                ProfilePic.Image = img;
             }
         }
     }
 }
+//Fix the problam when a user tries to creat a new user (overwrite a curret one) the program can't find the 'Before Picture', 
+//because its being deleted on line 418.
 //Limit the progrection pictures to 1 per week.
-//Add a reveal fanction (pictures), when the end user finishes the program  
+//Add a reveal fanction (pictures), when the end user finishes the program.
